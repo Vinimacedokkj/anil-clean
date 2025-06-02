@@ -1,0 +1,10 @@
+:root {
+    /* fontes */
+    --font-size: 16px;
+    --font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+    /* colors */
+    --primary-color: #6EC1E4; /* Fundo */
+    --secondary-color: ##005F87; /* Títulos */
+    --text-color: #8F8F8F; /* Texto */
+}
