@@ -76,10 +76,6 @@ header {
     height: auto;
 }
 
-#produtos {
-    background-color: var(--background-color);
-}
-
 .topic {
     background-color: var(--primary-color); 
     color: black;
@@ -88,12 +84,17 @@ header {
     padding: 10px 20px;
     margin-top: 40px;
     font-size: var(--font-title);
-    cursor: pointer;
     width: 120px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#produtos {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
 }
 
 .about-text-container {
