@@ -178,3 +178,110 @@ header {
     width: 100%;
     height: auto;
 }
+
+.all-products-container {
+    /* border: 3px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-products-container button {
+    /* border: 3px solid green; */
+    background-color: black;
+    border: none;
+    border-radius: 100px;
+    padding: 20px 0;
+    width: 200px;
+    color: white;
+    font-size: var(--font-family);
+}
+
+/* ******************* CATEGORIES ******************* */
+.categories {
+    /* border: 3px solid red; */
+}
+
+.categories-container {
+    /* border: 3px solid blue; */
+    display: flex;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.category-item {
+    /* border: 2px solid green; */
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.bola {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    border: 1px solid black;
+}
+
+/* ******************* FOOTER ******************* */
+footer {
+    background-color: var(--background-color);
+}
+
+.nav-footer {
+    /* border: 3px solid yellow; */
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.container-footer {
+    /* border: 3px solid red; */
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.container-footer h3 {
+    color: var(--primary-color);
+}
+
+.container-footer p {
+    color: var(--text-color);
+}
+
+.container-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* .container-footer ul li {
+    
+} */
+
+.container-footer ul li a,
+.container-footer p {
+    color: var(--text-color);
+    text-decoration: none;
+    color: black;
+}
+
+#footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* ******************* COPYRIGHT ******************* */
+.copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
