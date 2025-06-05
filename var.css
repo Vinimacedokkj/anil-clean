@@ -1,13 +1,15 @@
 :root {
     /* fontes */
-    --font-text: 20px;
     --font-size-h2: 16px;
+    --font-nav: 18px;
+    --font-text: 20px;
     --font-family: 'Roboto', 'Inter', 'Segoe UI', Arial, sans-serif;
 
     /* colors */
     --primary-color: #6EC1E4; /* Fundo */
     --secondary-color: ##005F87; /* Títulos */
-    --text-color: #a0a0a0; /* Texto */
+    --text-color: #838383; /* Texto */
+    --hover-color: #707070; /* Hover */
 
     /* background-color */
     --background-color: #dbdbdb;
