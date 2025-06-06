@@ -1,9 +1,12 @@
 :root {
     /* fontes */
-    --font-size-h2: 16px;
     --font-nav: 18px;
-    --font-text: 20px;
     --font-family: 'Roboto', 'Inter', 'Segoe UI', Arial, sans-serif;
+    --font-size-1: 10px;
+    --font-size-2: 12px;
+    --font-size-3: 16px;
+    --font-size-4: 20px;
+    --font-size-5: 24px;
 
     /* colors */
     --primary-color: #6EC1E4; /* Fundo */
