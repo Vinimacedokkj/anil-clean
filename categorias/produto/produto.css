@@ -11,12 +11,12 @@ body {
 }
 
 .container-product {
-    border: 3px solid blue;
+    /* border: 3px solid blue; */
     display: flex;
 }
 
 .product-image {
-    border: 5px solid green;
+    /* border: 5px solid green; */
     width: 50%;
     display: flex;
     justify-content: center;
@@ -24,7 +24,7 @@ body {
 }
 
 .product-image img {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 400px;
     height: auto;
 }
