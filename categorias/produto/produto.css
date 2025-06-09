@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #f4f4f4; 
+    color: var(--text-color);
+}
+
+.container-product {
+    border: 3px solid blue;
+    display: flex;
+}
+
+.product-image {
+    border: 5px solid green;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.product-image img {
+    border: 2px solid red;
+    width: 400px;
+    height: auto;
+}
+
+button {
+    display: block;
+}
