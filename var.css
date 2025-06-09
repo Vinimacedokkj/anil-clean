@@ -7,10 +7,11 @@
     --font-size-3: 16px;
     --font-size-4: 20px;
     --font-size-5: 24px;
+    --font-size-6: 32px;
 
     /* colors */
     --primary-color: #6EC1E4; /* Fundo */
-    --secondary-color: ##005F87; /* Títulos */
+    --secondary-color: #005F87; /* Títulos */
     --text-color: #838383; /* Texto */
     --hover-color: #707070; /* Hover */
 
