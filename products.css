@@ -54,32 +54,10 @@
 .product-item img {
     /* border: 2px solid black; */
     width: 100%;
-    height: auto;
+    height: 350px;
 }
 
-.all-products-container {
-    /* border: 3px solid black; */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-}
-
-.all-products-container a button {
-    /* border: 3px solid green; */
-    background-color: black;
-    border: none;
-    border-radius: 100px;
-    padding: 20px 0;
-    width: 200px;
-    color: white;
-    font-size: var(--font-size-3);
-    cursor: pointer;
-}
-
-.all-products-container a  {
+.product-item a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
 }
-
