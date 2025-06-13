@@ -1,4 +1,4 @@
-/* ******************* FOOTER ******************* */
+/* ******************* COPYRIGHT ******************* */
 .nav-footer {
     /* border: 3px solid yellow; */
     display: flex;
@@ -36,10 +36,6 @@
     list-style: none;
     padding: 0;
 }
-
-/* .container-footer ul li {
-    
-} */
 
 .container-footer ul li a,
 .container-footer p {
