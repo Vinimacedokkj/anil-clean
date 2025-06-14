@@ -6,8 +6,6 @@ fetch ('/categorias/container-de-cada-produto/bandeirantes/triciclo-europa(verme
     })
 
 // PEDAGÓGICOS
-
-// Anda cavalinho azul
 fetch ('/categorias/container-de-cada-produto/pedagogico/0001-anda-cavalinho-azul.html')
     .then (res => res.text())
     .then (data => {
