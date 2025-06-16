@@ -162,12 +162,12 @@ body {
 }
 
 /* ******************* CATEGORIES ******************* */
-/* .categories {
+.categories {
     border: 3px solid red;
-} */
+}
 
 .categories-container {
-    /* border: 3px solid blue; */
+    border: 3px solid blue;
     display: flex;
     /* justify-content: space-around; */
     flex-wrap: wrap;
@@ -175,7 +175,7 @@ body {
 }
 
 .category-item {
-    /* border: 2px solid green; */
+    border: 2px solid green;
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -185,6 +185,7 @@ body {
 }
 
 .category-item h3 {
+    border: 2px solid red;
     text-align: center;
 }
 
