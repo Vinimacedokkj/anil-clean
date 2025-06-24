@@ -1,6 +1,341 @@
-@media (max-width: 1024px) {
-    .categories-container {
-        display: flex;
-        flex-wrap: wrap;
+/* ===== RESPONSIVIDADE GERAL ===== */
+
+/* Breakpoints principais */
+/* Desktop grande: 1200px+ */
+/* Desktop: 1024px - 1199px */
+/* Tablet: 768px - 1023px */
+/* Mobile: 480px - 767px */
+/* Mobile pequeno: até 479px */
+
+/* ===== UTILITÁRIOS RESPONSIVOS ===== */
+
+/* Container responsivo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== TIPOGRAFIA RESPONSIVA ===== */
+
+/* Desktop grande */
+@media (min-width: 1200px) {
+    :root {
+        --font-size-1: 12px;
+        --font-size-2: 14px;
+        --font-size-3: 18px;
+        --font-size-4: 24px;
+        --font-size-5: 28px;
+        --font-size-6: 36px;
     }
 }
+
+/* Desktop */
+@media (max-width: 1199px) and (min-width: 1024px) {
+    :root {
+        --font-size-1: 11px;
+        --font-size-2: 13px;
+        --font-size-3: 17px;
+        --font-size-4: 22px;
+        --font-size-5: 26px;
+        --font-size-6: 32px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1023px) and (min-width: 768px) {
+    :root {
+        --font-size-1: 10px;
+        --font-size-2: 12px;
+        --font-size-3: 16px;
+        --font-size-4: 20px;
+        --font-size-5: 24px;
+        --font-size-6: 28px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) and (min-width: 480px) {
+    :root {
+        --font-size-1: 9px;
+        --font-size-2: 11px;
+        --font-size-3: 15px;
+        --font-size-4: 18px;
+        --font-size-5: 22px;
+        --font-size-6: 26px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 479px) {
+    :root {
+        --font-size-1: 8px;
+        --font-size-2: 10px;
+        --font-size-3: 14px;
+        --font-size-4: 16px;
+        --font-size-5: 20px;
+        --font-size-6: 24px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* ===== LAYOUT RESPONSIVO ===== */
+
+/* Grid responsivo */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+/* Desktop: 4 colunas */
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tablet: 3 colunas */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+/* Mobile: 2 colunas */
+@media (max-width: 767px) and (min-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+/* Mobile pequeno: 1 coluna */
+@media (max-width: 479px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+/* ===== FLEXBOX RESPONSIVO ===== */
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* Desktop: row */
+@media (min-width: 768px) {
+    .flex-responsive {
+        flex-direction: row;
+    }
+}
+
+/* Mobile: column */
+@media (max-width: 767px) {
+    .flex-responsive {
+        flex-direction: column;
+    }
+}
+
+/* ===== ESPAÇAMENTO RESPONSIVO ===== */
+
+/* Padding responsivo */
+.p-responsive {
+    padding: 20px;
+}
+
+@media (max-width: 1023px) {
+    .p-responsive {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .p-responsive {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 479px) {
+    .p-responsive {
+        padding: 10px;
+    }
+}
+
+/* Margin responsivo */
+.m-responsive {
+    margin: 20px;
+}
+
+@media (max-width: 1023px) {
+    .m-responsive {
+        margin: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .m-responsive {
+        margin: 12px;
+    }
+}
+
+@media (max-width: 479px) {
+    .m-responsive {
+        margin: 10px;
+    }
+}
+
+/* ===== IMAGENS RESPONSIVAS ===== */
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+/* ===== BOTÕES RESPONSIVOS ===== */
+
+.btn-responsive {
+    padding: 12px 24px;
+    font-size: var(--font-size-3);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 767px) {
+    .btn-responsive {
+        padding: 10px 20px;
+        font-size: var(--font-size-2);
+    }
+}
+
+@media (max-width: 479px) {
+    .btn-responsive {
+        padding: 8px 16px;
+        font-size: var(--font-size-2);
+    }
+}
+
+/* ===== UTILITÁRIOS DE VISIBILIDADE ===== */
+
+/* Esconder em mobile */
+@media (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Esconder em desktop */
+@media (min-width: 768px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Esconder em tablet e mobile */
+@media (max-width: 1023px) {
+    .hide-tablet-mobile {
+        display: none !important;
+    }
+}
+
+/* Mostrar apenas em desktop */
+@media (min-width: 1024px) {
+    .show-desktop-only {
+        display: block !important;
+    }
+}
+
+/* Mostrar apenas em tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .show-tablet-only {
+        display: block !important;
+    }
+}
+
+/* Mostrar apenas em mobile */
+@media (max-width: 767px) {
+    .show-mobile-only {
+        display: block !important;
+    }
+}
+
+/* ===== ANIMAÇÕES RESPONSIVAS ===== */
+
+/* Reduzir animações em dispositivos que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== ACESSIBILIDADE RESPONSIVA ===== */
+
+/* Melhorar contraste em telas pequenas */
+@media (max-width: 767px) {
+    :root {
+        --text-color: #666666;
+        --hover-color: #555555;
+    }
+}
+
+/* Aumentar área de toque em dispositivos touch */
+@media (hover: none) and (pointer: coarse) {
+    button,
+    a,
+    input,
+    select,
+    textarea {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .menu ul li a {
+        padding: 15px 20px;
+    }
+}
+
+/* ===== ORIENTAÇÃO DE TELA ===== */
+
+/* Landscape em mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+    .header-container {
+        padding: 5px 15px;
+    }
+    
+    .header-container img {
+        width: 60px;
+    }
+}
+
+/* Portrait em mobile */
+@media (max-width: 767px) and (orientation: portrait) {
+    .header-container {
+        padding: 10px 15px;
+    }
+} 
