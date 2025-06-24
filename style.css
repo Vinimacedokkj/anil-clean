@@ -44,6 +44,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 500;
 }
 
 #produtos {
@@ -353,6 +354,17 @@ body {
     .category-item h3 {
         font-size: 0.98rem;
     }
+
+    /* .topic-container {
+        border: 3px solid turquoise;
+    } */
+
+    .topic {
+        /* border: 3px solid yellow; */
+        font-size: var(--font-size-2);
+        width: 100px;
+        height: 20px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -374,15 +386,3 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    #back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
-    
-    #back-to-top .material-symbols-outlined {
-        font-size: 20px;
-    }
-}
