@@ -1,13 +1,26 @@
 <div class="header-container">
-    <a href="/index.html"><img src="https://raw.githubusercontent.com/Vinimacedokkj/anil-clean/588e2b1c06ce72f3f4f15386994556436c7d9dfb/img/Logo.png" alt="Logo Anilclean"></a>
-    <nav class="menu">
+    <a href="/index.html" aria-label="Página inicial">
+        <img src="https://raw.githubusercontent.com/Vinimacedokkj/anil-clean/588e2b1c06ce72f3f4f15386994556436c7d9dfb/img/Logo.png" alt="Logo Anilclean">
+    </a>
+    
+    <button id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">
+        <span class="material-symbols-outlined">
+            segment
+            </span>
+    </button>
+    
+    <nav class="menu" id="main-menu" role="navigation" aria-label="Menu principal">
         <ul>
             <li><a href="/index.html">Início</a></li>
             <li><a href="/index.html#about">Sobre</a></li>
             <li><a href="/index.html#products">Produtos</a></li>
             <li><a href="/index.html#categories">Categorias</a></li>
             <li><a href="/index.html#contact">Contato</a></li>
-            <li><a href="#" id="carrinho-icon"><span class="material-symbols-outlined">shopping_cart</span></a></li>
+            <li><a href="#" id="carrinho-icon" aria-label="Carrinho de compras">
+                <span class="material-symbols-outlined">
+                    shopping_cart
+                    </span>
+            </a></li>
         </ul>
     </nav>
 </div>

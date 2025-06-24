@@ -8,63 +8,117 @@ body {
     font-family: var(--font-family);
     background-color: #f4f4f4; 
     color: var(--text-color);
+    padding-top: 80px; /* Ajuste conforme a altura do seu header */
 }
 
 /* ******************* HEADER ******************* */
 header {
+    /* border: 3px solid red; */
     background-color: var(--primary-color);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(0);
+    opacity: 1;
+    height: 80px; /* Altura fixa para melhor controle */
+}
+
+/* Classe para esconder o header */
+header.header-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Classe para mostrar o header */
+header.header-visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .header-container {
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 10px;
+    max-width: 1200px;
+    padding: 0 20px;
+    position: relative;
+    height: 100%;
 }
 
 .header-container img {
     width: 80px;
     height: auto;
-    padding: 5px 0;
+    padding: 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.header-container img:hover {
+    transform: scale(1.05);
 }
 
 .menu {
-    /* border: 3px solid yellow; */
+    /* border: 3px solid green; */
     margin: 20px 0;
 }
 
 .menu ul {
-    /* border: 3px solid brown; */
+    /* border: 3px solid blue; */
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2px;
 }
 
 .menu ul li {
-    /* border: 4px solid blue; */
-    margin-right: 20px;
+    /* border: 3px solid yellow; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .menu ul li a {
-    /* border: 3px solid green; */
+    /* border: 3px solid cadetblue; */
     color: black;
     text-decoration: none;
     font-size: var(--font-size-3);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .menu ul li a:hover {
     color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.menu ul li a:hover::after {
+    width: 80%;
 }
 
 .material-symbols-outlined {
@@ -73,4 +127,316 @@ header {
     'wght' 400,
     'GRAD' 0,
     'opsz' 24
+}
+
+#hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: black;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+#hamburger-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+/* ******************* BOTÃO VOLTAR AO TOPO ******************* */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.scroll-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.scroll-to-top-btn:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+.scroll-to-top-btn:active {
+    transform: translateY(0);
+}
+
+/* Tablet - Breakpoint médio */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 0 15px;
+    }
+    
+    /* .menu ul {
+        gap: 20px;
+    } */
+    
+    .menu ul li a {
+        font-size: 15px;
+        padding: 6px 10px;
+    }
+    
+    .scroll-to-top-btn {
+        bottom: 25px;
+        right: 25px;
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
+}
+
+/* Mobile - Breakpoint pequeno */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    header {
+        height: 70px;
+    }
+    
+    .header-container {
+        padding: 0 15px;
+    }
+    
+    .header-container img {
+        width: 70px;
+    }
+    
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary-color);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border-radius: 0 0 12px 12px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+    
+    .menu.open {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    #hamburger-btn {
+        display: block;
+        text-align: end;
+        margin-right: 10px;
+    }
+    
+    .menu ul {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 0;
+        gap: 0;
+    }
+    
+    .menu ul li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .menu ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .menu ul li a {
+        display: block;
+        padding: 15px 20px;
+        font-size: var(--font-size-3);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .menu ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: none;
+    }
+    
+    .menu ul li a::after {
+        display: none;
+    }
+    
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    header {
+        height: 60px;
+    }
+    
+    .header-container {
+        padding: 0 10px;
+    }
+    
+    .header-container img {
+        width: 60px;
+    }
+    
+    #hamburger-btn {
+        font-size: 1.8rem;
+        padding: 6px;
+    }
+    
+    .menu ul li a {
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+    
+    .scroll-to-top-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
+}
+
+/* Desktop - Garantir que o menu sempre apareça */
+@media (min-width: 769px) {
+    #hamburger-btn {
+        display: none !important;
+    }
+    
+    .menu {
+        display: block !important;
+        position: static;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        opacity: 1;
+        transform: none;
+    }
+    
+    .menu ul {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+/* Acessibilidade - Foco visível */
+.menu ul li a:focus,
+#hamburger-btn:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Animação de entrada do menu mobile */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu.open {
+    animation: slideDown 0.3s ease forwards;
+}
+
+/* Animação do header auto-hide */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToTop {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+/* Aplicar animações baseadas nas classes */
+header.header-slide-in {
+    animation: slideInFromTop 0.3s ease forwards;
+}
+
+header.header-slide-out {
+    animation: slideOutToTop 0.3s ease forwards;
+}
+
+/* Melhorar performance das animações */
+header {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Garantir que o header sempre apareça no topo da página */
+header:not(.header-hidden) {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+}
+
+/* Animação do botão voltar ao topo */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.scroll-to-top-btn.visible {
+    animation: bounceIn 0.3s ease forwards;
 }

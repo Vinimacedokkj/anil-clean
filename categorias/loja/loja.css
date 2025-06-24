@@ -22,16 +22,101 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
+    padding: 15px 20px;
     margin-top: 20px;
     background-color: var(--background-color);
     font-size: var(--font-size-3);
     gap: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .categories-item {
     color: var(--text-color);
     text-decoration: underline;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.categories-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ************RESPONSIVE DESIGN************ */
+/* Tablets */
+@media (max-width: 768px) {
+    .container-title p {
+        width: 90%;
+        font-size: var(--font-size-2);
+    }
+    
+    .container-categories {
+        padding: 12px 15px;
+        gap: 12px;
+        font-size: var(--font-size-2);
+    }
+    
+    .categories-item {
+        padding: 6px 10px;
+        font-size: var(--font-size-2);
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container-title p {
+        width: 95%;
+        font-size: var(--font-size-1);
+        line-height: 1.4;
+    }
+    
+    .container-categories {
+        padding: 10px 12px;
+        gap: 8px;
+        font-size: var(--font-size-1);
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .categories-item {
+        padding: 8px 12px;
+        font-size: var(--font-size-1);
+        text-align: center;
+        border: 1px solid #ccc;
+        background-color: white;
+        margin: 2px 0;
+        border-radius: 4px;
+    }
+    
+    .categories-item:hover {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 320px) {
+    .container-title p {
+        font-size: 11px;
+    }
+    
+    .container-categories {
+        padding: 8px 10px;
+        gap: 6px;
+    }
+    
+    .categories-item {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
 }
 
 /* ************PRODUCTS************ */
@@ -63,4 +148,19 @@
     color: var(--text-color);
     font-size: var(--font-size-4);
     font-weight: 700;
+}
+
+/* Responsive Products */
+@media (max-width: 768px) {
+    .product-item {
+        width: 45%;
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item {
+        width: 80%;
+        height: 300px;
+    }
 }
