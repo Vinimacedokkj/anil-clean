@@ -85,30 +85,35 @@
                         <img src="/img/outras/cinza.jpeg" alt="Produto 2">
                         <h3>Produto 2</h3>
                         <p>Descrição do produto 2.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 2" data-price="149.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 3">
                         <h3>Produto 3</h3>
                         <p>Descrição do produto 3.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 3" data-price="79.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
                     
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 4">
                         <h3>Produto 4</h3>
                         <p>Descrição do produto 4.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 4" data-price="129.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 5">
                         <h3>Produto 5</h3>
                         <p>Descrição do produto 5.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 5" data-price="89.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 6">
                         <h3>Produto 6</h3>
                         <p>Descrição do produto 6.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 6" data-price="159.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
                     
                     <!-- botão todos os produtos -->
@@ -127,36 +132,42 @@
                         <img src="/img/outras/cinza.jpeg" alt="Produto 1">
                         <h3>Produto 1</h3>
                         <p>Descrição do produto 1.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 1" data-price="69.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 2">
                         <h3>Produto 2</h3>
                         <p>Descrição do produto 2.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 2" data-price="119.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 3">
                         <h3>Produto 3</h3>
                         <p>Descrição do produto 3.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 3" data-price="89.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 4">
                         <h3>Produto 4</h3>
                         <p>Descrição do produto 4.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 4" data-price="139.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 5">
                         <h3>Produto 5</h3>
                         <p>Descrição do produto 5.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 5" data-price="99.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <div class="product-item">
                         <img src="/img/outras/cinza.jpeg" alt="Produto 6">
                         <h3>Produto 6</h3>
                         <p>Descrição do produto 6.</p>
+                        <button class="add-to-cart-btn" data-title="Produto 6" data-price="169.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
                     </div>
 
                     <!-- botão todos os produtos -->
@@ -297,5 +308,25 @@
     <script src="/header/header.js"></script>
     <script src="/footer/footer.js"></script>
     <script src="/carrinho/carrinho.js"></script>
+    
+    <script>
+        // Script adicional para garantir que tudo funcione
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aguardar um pouco para garantir que todos os scripts foram carregados
+            setTimeout(() => {
+                // Inicializar botões de adicionar ao carrinho
+                if (window.initializeAddToCartButtons) {
+                    window.initializeAddToCartButtons();
+                }
+                
+                // Atualizar badge do carrinho
+                if (window.updateCartBadge) {
+                    window.updateCartBadge();
+                }
+                
+                console.log('Carrinho inicializado com sucesso!');
+            }, 500);
+        });
+    </script>
 </body>
 </html>

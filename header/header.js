@@ -63,6 +63,11 @@ function initializeHeader() {
     
     // Inicializar auto-hide do header (apenas desktop)
     initializeHeaderAutoHide();
+    
+    // Atualizar badge do carrinho após o header ser inicializado
+    setTimeout(() => {
+        updateCartBadge();
+    }, 200);
 }
 
 // Função para detectar se é mobile
@@ -242,11 +247,16 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateCartBadge() {
     const badge = document.getElementById('cart-count-badge');
     if (!badge) return;
+    
     let cart = [];
     try {
         cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    } catch (e) { cart = []; }
+    } catch (e) { 
+        cart = []; 
+    }
+    
     const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+    
     if (totalQty > 0) {
         badge.textContent = totalQty;
         badge.style.display = 'flex';
@@ -255,11 +265,20 @@ function updateCartBadge() {
     }
 }
 
+// Função para inicializar o badge do carrinho após o header ser carregado
+function initializeCartBadge() {
+    // Aguardar um pouco para garantir que o header foi carregado
+    setTimeout(() => {
+        updateCartBadge();
+    }, 100);
+}
+
 // Chama updateCartBadge ao carregar o header
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateCartBadge);
+    document.addEventListener('DOMContentLoaded', initializeCartBadge);
 } else {
-    updateCartBadge();
+    initializeCartBadge();
 }
+
 // Também exporta para ser chamado de outras páginas
 window.updateCartBadge = updateCartBadge;
