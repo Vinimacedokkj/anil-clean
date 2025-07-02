@@ -313,3 +313,29 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeHeader();
     }
 });
+
+// Atualiza o badge do carrinho com o número de itens
+function updateCartBadge() {
+    const badge = document.getElementById('cart-count-badge');
+    if (!badge) return;
+    let cart = [];
+    try {
+        cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    } catch (e) { cart = []; }
+    const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+    if (totalQty > 0) {
+        badge.textContent = totalQty;
+        badge.style.display = 'flex';
+    } else {
+        badge.style.display = 'none';
+    }
+}
+
+// Chama updateCartBadge ao carregar o header
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateCartBadge);
+} else {
+    updateCartBadge();
+}
+// Também exporta para ser chamado de outras páginas
+window.updateCartBadge = updateCartBadge;

@@ -27,36 +27,42 @@
             <img src="/img/outras/cinza.jpeg" alt="Produto 1">
             <h3>Produto 1</h3>
             <p>Descrição do produto 1.</p>
+            <button class="add-to-cart-btn" data-title="Produto 1" data-price="99.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-item">
             <img src="/img/outras/cinza.jpeg" alt="Produto 2">
             <h3>Produto 2</h3>
             <p>Descrição do produto 2.</p>
+            <button class="add-to-cart-btn" data-title="Produto 2" data-price="149.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-item">
             <img src="/img/outras/cinza.jpeg" alt="Produto 3">
             <h3>Produto 3</h3>
             <p>Descrição do produto 3.</p>
+            <button class="add-to-cart-btn" data-title="Produto 3" data-price="59.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-item">
             <img src="/img/outras/cinza.jpeg" alt="Produto 4">
             <h3>Produto 4</h3>
             <p>Descrição do produto 4.</p>
+            <button class="add-to-cart-btn" data-title="Produto 4" data-price="199.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-item">
             <img src="/img/outras/cinza.jpeg" alt="Produto 5">
             <h3>Produto 5</h3>
             <p>Descrição do produto 5.</p>
+            <button class="add-to-cart-btn" data-title="Produto 5" data-price="79.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-item">
             <img src="/img/outras/cinza.jpeg" alt="Produto 6">
             <h3>Produto 6</h3>
             <p>Descrição do produto 6.</p>
+            <button class="add-to-cart-btn" data-title="Produto 6" data-price="39.90" data-img="/img/outras/cinza.jpeg">Adicionar ao Carrinho</button>
         </div>
     </div>
 
@@ -65,5 +71,32 @@
 <script src="/header/header.js"></script>
 <script src="/footer/footer.js"></script>
 <script src="/categorias/menu-navegacao-entre-categorias/menu-navegacao-entre-categorias.js"></script>
+<script>
+// Função para adicionar item ao carrinho no localStorage
+function addToCart(item) {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existing = cart.find(prod => prod.title === item.title);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({...item, qty: 1});
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = {
+            title: this.getAttribute('data-title'),
+            price: parseFloat(this.getAttribute('data-price')),
+            img: this.getAttribute('data-img')
+        };
+        addToCart(item);
+        this.textContent = 'Adicionado!';
+        setTimeout(() => { this.textContent = 'Adicionar ao Carrinho'; }, 1200);
+        if (window.updateCartBadge) window.updateCartBadge();
+    });
+});
+</script>
 </body>
 </html>
