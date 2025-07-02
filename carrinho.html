@@ -88,6 +88,7 @@
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-total" id="cart-total"></div>
         <div class="cart-actions">
+            <button class="cart-btn" id="limpar-btn" style="background: #f44336; margin-right: 12px;">Limpar Carrinho</button>
             <button class="cart-btn" id="solicitar-btn">Solicitar</button>
         </div>
     </div>
@@ -127,6 +128,15 @@
 
     // Inicializar carrinho ao carregar página
     document.addEventListener('DOMContentLoaded', loadCart);
+    
+    // Adicionar evento para limpar carrinho
+    document.getElementById('limpar-btn').addEventListener('click', function() {
+        if (confirm('Tem certeza que deseja limpar o carrinho?')) {
+            localStorage.removeItem('cart');
+            loadCart();
+            if (window.updateCartBadge) window.updateCartBadge();
+        }
+    });
     </script>
 </body>
 </html>

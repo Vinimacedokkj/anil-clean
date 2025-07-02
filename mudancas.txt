@@ -4,4 +4,6 @@ Mudanças que quero fazer no site:
 - Adicionar pelo menos 20 imagens de cada categoria
 - Consertar a página principal, que o design com esse fudinho em quadrado branco tá meio Particular
 - Tirar todos os números das imagens, pra deixa elas limpas, já que vou fazer o controle pela planilha dentro do editor de código
-- Excluir a branch teste-responsividade
+- Excluir a branch teste-responsividade OK
+- Adicionar um zoom nas imagens na página individual do produto
+- Adicionar barra de pesquisa nos produtos

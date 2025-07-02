@@ -63,9 +63,6 @@ function initializeHeader() {
     
     // Inicializar auto-hide do header (apenas desktop)
     initializeHeaderAutoHide();
-    
-    // Criar botão "voltar ao topo"
-    createScrollToTopButton();
 }
 
 // Função para detectar se é mobile
@@ -161,80 +158,7 @@ function initializeHeaderAutoHide() {
     });
 }
 
-// Função para criar o botão "voltar ao topo"
-function createScrollToTopButton() {
-    // Verificar se o botão já existe
-    if (document.getElementById('scroll-to-top-btn')) {
-        return;
-    }
-    
-    // Criar o botão
-    const scrollToTopBtn = document.createElement('button');
-    scrollToTopBtn.id = 'scroll-to-top-btn';
-    scrollToTopBtn.className = 'scroll-to-top-btn';
-    scrollToTopBtn.setAttribute('aria-label', 'Voltar ao topo da página');
-    scrollToTopBtn.innerHTML = `
-        <span class="material-symbols-outlined" aria-hidden="true">keyboard_arrow_up</span>
-    `;
-    
-    // Adicionar ao body
-    document.body.appendChild(scrollToTopBtn);
-    
-    // Adicionar evento de clique
-    scrollToTopBtn.addEventListener('click', function() {
-        scrollToTop();
-    });
-    
-    // Adicionar evento de teclado para acessibilidade
-    scrollToTopBtn.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            scrollToTop();
-        }
-    });
-    
-    // Controlar visibilidade do botão baseado no scroll
-    function toggleScrollToTopButton() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const shouldShow = scrollTop > 300; // Mostrar após 300px de scroll
-        
-        if (shouldShow) {
-            scrollToTopBtn.classList.add('visible');
-        } else {
-            scrollToTopBtn.classList.remove('visible');
-        }
-    }
-    
-    // Adicionar listener de scroll para o botão
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(function() {
-                toggleScrollToTopButton();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-    
-    // Verificar estado inicial
-    toggleScrollToTopButton();
-}
 
-// Função para rolar ao topo
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-    
-    // Focar no header após rolar (para acessibilidade)
-    setTimeout(() => {
-        const header = document.querySelector('header');
-        if (header) {
-            header.focus();
-        }
-    }, 500);
-}
 
 // Função para esconder o header
 function hideHeader() {
