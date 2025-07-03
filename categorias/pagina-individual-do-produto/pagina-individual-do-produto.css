@@ -100,6 +100,7 @@ button {
 .text-container {
     /* border: 2px solid black; */
     width: 80%;
+    margin-bottom: 40px ;
 }
 
 .text-container h2 {
@@ -273,11 +274,11 @@ button {
     }
     
     .text-container h2 {
-        font-size: var(--font-size-3);
+        font-size: var(--font-size-5);
     }
     
     .text-container p {
-        font-size: var(--font-size-2);
+        font-size: var(--font-size-4);
         line-height: 1.5;
     }
     
