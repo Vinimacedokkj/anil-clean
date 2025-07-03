@@ -3,6 +3,175 @@ function formatPrice(price) {
     return 'R$ ' + price.toFixed(2).replace('.', ',');
 }
 
+// Função para gerar mensagem do pedido
+function generateOrderMessage(cart) {
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('pt-BR');
+    const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    
+    const config = window.CART_CONFIG || {
+        companyName: 'ANILCLEAN',
+        customMessage: 'Por favor, entre em contato para confirmar os preços e finalizar o pedido.'
+    };
+    
+    let message = `🛒 *PEDIDO - ${config.companyName}*\n`;
+    message += `📅 Data: ${dateStr} às ${timeStr}\n`;
+    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    
+    let total = 0;
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        message += `${index + 1}. *${item.title}*\n`;
+        message += `   Quantidade: ${item.qty}x\n`;
+        message += `   Valor: ${formatPrice(itemTotal)}\n\n`;
+    });
+    
+    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    message += `💰 *TOTAL: ${formatPrice(total)}*\n\n`;
+    message += config.customMessage;
+    
+    return message;
+}
+
+// Função para enviar pedido via WhatsApp
+function sendOrderToWhatsApp(cart) {
+    const message = generateOrderMessage(cart);
+    const config = window.CART_CONFIG || { whatsappNumber: '5511999999999' };
+    const phoneNumber = config.whatsappNumber;
+    const encodedMessage = encodeURIComponent(message);
+    
+    // URL do WhatsApp Web/App
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Abrir WhatsApp em nova aba
+    window.open(whatsappURL, '_blank');
+    
+    // Mostrar feedback visual
+    showWhatsAppFeedback();
+}
+
+// Função para mostrar feedback visual do envio
+function showWhatsAppFeedback() {
+    const config = window.CART_CONFIG || { 
+        feedback: { whatsappColor: '#25D366', duration: 3000 } 
+    };
+    
+    const feedback = document.createElement('div');
+    feedback.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 20px;">📱</span>
+            <span>Pedido enviado para o WhatsApp!</span>
+        </div>
+    `;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${config.feedback.whatsappColor};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease-out;
+        max-width: 300px;
+    `;
+    
+    document.body.appendChild(feedback);
+    
+    // Remover após o tempo configurado
+    setTimeout(() => {
+        feedback.style.animation = 'slideOut 0.3s ease-in';
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 300);
+    }, config.feedback.duration);
+}
+
+// Função para gerar e baixar CSV do pedido
+function downloadOrderCSV(cart) {
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('pt-BR').replace(/\//g, '-');
+    const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }).replace(/:/g, '-');
+    
+    // Cabeçalho do CSV
+    let csvContent = "Produto,Quantidade,Preço Unitário,Preço Total\n";
+    
+    let total = 0;
+    cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        
+        // Escapar aspas duplas no título
+        const title = item.title.replace(/"/g, '""');
+        csvContent += `"${title}",${item.qty},${item.price.toFixed(2)},${itemTotal.toFixed(2)}\n`;
+    });
+    
+    // Adicionar linha do total
+    csvContent += `"TOTAL",,"",${total.toFixed(2)}\n`;
+    
+    // Criar blob e download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    
+    link.setAttribute('href', url);
+    link.setAttribute('download', `pedido-anilclean-${dateStr}-${timeStr}.csv`);
+    link.style.visibility = 'hidden';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Mostrar feedback
+    showCSVFeedback();
+}
+
+// Função para mostrar feedback do download CSV
+function showCSVFeedback() {
+    const config = window.CART_CONFIG || { 
+        feedback: { csvColor: '#ff9800', duration: 3000 } 
+    };
+    
+    const feedback = document.createElement('div');
+    feedback.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 20px;">📊</span>
+            <span>Lista baixada com sucesso!</span>
+        </div>
+    `;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${config.feedback.csvColor};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease-out;
+        max-width: 300px;
+    `;
+    
+    document.body.appendChild(feedback);
+    
+    // Remover após o tempo configurado
+    setTimeout(() => {
+        feedback.style.animation = 'slideOut 0.3s ease-in';
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 300);
+    }, config.feedback.duration);
+}
+
 // Carregar itens do carrinho do localStorage
 function loadCart() {
     const cartItemsDiv = document.getElementById('cart-items');
@@ -183,6 +352,19 @@ document.addEventListener('DOMContentLoaded', function() {
             limparBtn.addEventListener('click', clearCart);
         }
         
+        // Adicionar evento para baixar CSV
+        const downloadCsvBtn = document.getElementById('download-csv-btn');
+        if (downloadCsvBtn) {
+            downloadCsvBtn.addEventListener('click', function() {
+                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                if (cart.length === 0) {
+                    alert('Seu carrinho está vazio!');
+                    return;
+                }
+                downloadOrderCSV(cart);
+            });
+        }
+        
         // Adicionar evento para solicitar
         const solicitarBtn = document.getElementById('solicitar-btn');
         if (solicitarBtn) {
@@ -192,7 +374,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Seu carrinho está vazio!');
                     return;
                 }
-                alert('Solicitação enviada! Em breve entraremos em contato.');
+                sendOrderToWhatsApp(cart);
             });
         }
     }
@@ -209,4 +391,7 @@ window.addToCart = addToCart;
 window.updateCartBadge = updateCartBadge;
 window.clearCart = clearCart;
 window.loadCart = loadCart;
-window.initializeAddToCartButtons = initializeAddToCartButtons; 
+window.initializeAddToCartButtons = initializeAddToCartButtons;
+window.sendOrderToWhatsApp = sendOrderToWhatsApp;
+window.generateOrderMessage = generateOrderMessage;
+window.downloadOrderCSV = downloadOrderCSV; 

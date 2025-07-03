@@ -61,6 +61,52 @@
 .cart-btn:active, .cart-btn:hover {
     background: #1565c0;
 }
+
+/* Estilo específico para o botão de solicitar (WhatsApp) */
+#solicitar-btn {
+    background: #25D366 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+#solicitar-btn:hover {
+    background: #128C7E !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+#solicitar-btn::before {
+    content: "📱";
+    font-size: 16px;
+}
+
+/* Estilo para o botão limpar */
+#limpar-btn {
+    background: #f44336 !important;
+}
+
+#limpar-btn:hover {
+    background: #d32f2f !important;
+}
+
+/* Estilo para o botão de download CSV */
+#download-csv-btn {
+    background: #ff9800 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+}
+
+#download-csv-btn:hover {
+    background: #f57c00 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+}
 .empty-cart {
     text-align: center;
     color: #888;
