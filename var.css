@@ -2,10 +2,10 @@
     /* fontes */
     --font-nav: 18px;
     --font-family: 'Roboto', 'Inter', 'Segoe UI', Arial, sans-serif;
-    --font-size-1: 10px;
-    --font-size-2: 12px;
+    --font-size-1: 12px;
+    --font-size-2: 14px;
     --font-size-3: 16px;
-    --font-size-4: 20px;
+    --font-size-4: 18px;
     --font-size-5: 24px;
     --font-size-6: 32px;
 
@@ -17,4 +17,38 @@
 
     /* background-color */
     --background-color: #dbdbdb;
+}
+
+/* Responsividade das variáveis */
+@media (max-width: 1024px) {
+    :root {
+        --font-size-1: 11px;
+        --font-size-2: 13px;
+        --font-size-3: 15px;
+        --font-size-4: 17px;
+        --font-size-5: 22px;
+        --font-size-6: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --font-size-1: 10px;
+        --font-size-2: 12px;
+        --font-size-3: 14px;
+        --font-size-4: 16px;
+        --font-size-5: 20px;
+        --font-size-6: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-1: 9px;
+        --font-size-2: 11px;
+        --font-size-3: 13px;
+        --font-size-4: 15px;
+        --font-size-5: 18px;
+        --font-size-6: 22px;
+    }
 }

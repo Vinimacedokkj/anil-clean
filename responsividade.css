@@ -20,39 +20,20 @@
 
 /* Desktop grande */
 @media (min-width: 1200px) {
-    :root {
-        --font-size-1: 12px;
-        --font-size-2: 14px;
-        --font-size-3: 18px;
-        --font-size-4: 24px;
-        --font-size-5: 28px;
-        --font-size-6: 36px;
+    .container {
+        padding: 0 20px;
     }
 }
 
 /* Desktop */
 @media (max-width: 1199px) and (min-width: 1024px) {
-    :root {
-        --font-size-1: 11px;
-        --font-size-2: 13px;
-        --font-size-3: 17px;
-        --font-size-4: 22px;
-        --font-size-5: 26px;
-        --font-size-6: 32px;
+    .container {
+        padding: 0 20px;
     }
 }
 
 /* Tablet */
 @media (max-width: 1023px) and (min-width: 768px) {
-    :root {
-        --font-size-1: 10px;
-        --font-size-2: 12px;
-        --font-size-3: 16px;
-        --font-size-4: 20px;
-        --font-size-5: 24px;
-        --font-size-6: 28px;
-    }
-    
     .container {
         padding: 0 15px;
     }
@@ -60,15 +41,6 @@
 
 /* Mobile */
 @media (max-width: 767px) and (min-width: 480px) {
-    :root {
-        --font-size-1: 9px;
-        --font-size-2: 11px;
-        --font-size-3: 15px;
-        --font-size-4: 18px;
-        --font-size-5: 22px;
-        --font-size-6: 26px;
-    }
-    
     .container {
         padding: 0 15px;
     }
@@ -76,15 +48,6 @@
 
 /* Mobile pequeno */
 @media (max-width: 479px) {
-    :root {
-        --font-size-1: 8px;
-        --font-size-2: 10px;
-        --font-size-3: 14px;
-        --font-size-4: 16px;
-        --font-size-5: 20px;
-        --font-size-6: 24px;
-    }
-    
     .container {
         padding: 0 10px;
     }
@@ -298,10 +261,7 @@
 
 /* Melhorar contraste em telas pequenas */
 @media (max-width: 767px) {
-    :root {
-        --text-color: #666666;
-        --hover-color: #555555;
-    }
+    /* Ajustes de contraste para mobile */
 }
 
 /* Aumentar área de toque em dispositivos touch */
