@@ -2,6 +2,7 @@
 const CART_CONFIG = {
     // Número do WhatsApp (formato: código do país + DDD + número)
     // Exemplo: '5511999999999' para Brasil, DDD 11, número 99999-9999
+    // ATENÇÃO: Altere este número para o número real do WhatsApp da empresa
     whatsappNumber: '5511999999999',
     
     // Nome da empresa para aparecer na mensagem
