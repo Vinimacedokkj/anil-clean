@@ -1,9 +1,4 @@
-// Função utilitária para formatar preço
-function formatPrice(price) {
-    return 'R$ ' + price.toFixed(2).replace('.', ',');
-}
-
-// Função para gerar mensagem do pedido
+// Função para gerar mensagem do pedido (sem preços)
 function generateOrderMessage(cart) {
     const now = new Date();
     const dateStr = now.toLocaleDateString('pt-BR');
@@ -18,17 +13,13 @@ function generateOrderMessage(cart) {
     message += `📅 Data: ${dateStr} às ${timeStr}\n`;
     message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
     
-    let total = 0;
     cart.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
         message += `${index + 1}. *${item.title}*\n`;
-        message += `   Quantidade: ${item.qty}x\n`;
-        message += `   Valor: ${formatPrice(itemTotal)}\n\n`;
+        message += `   Quantidade: ${item.qty}x\n\n`;
     });
     
     message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    message += `💰 *TOTAL: ${formatPrice(total)}*\n\n`;
+    message += `📋 *Total de itens: ${cart.length}*\n\n`;
     message += config.customMessage;
     
     return message;
@@ -92,27 +83,20 @@ function showWhatsAppFeedback() {
     }, config.feedback.duration);
 }
 
-// Função para gerar e baixar CSV do pedido
+// Função para gerar e baixar CSV do pedido (sem preços)
 function downloadOrderCSV(cart) {
     const now = new Date();
     const dateStr = now.toLocaleDateString('pt-BR').replace(/\//g, '-');
     const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }).replace(/:/g, '-');
     
     // Cabeçalho do CSV
-    let csvContent = "Produto,Quantidade,Preço Unitário,Preço Total\n";
+    let csvContent = "Produto,Quantidade\n";
     
-    let total = 0;
     cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        
         // Escapar aspas duplas no título
         const title = item.title.replace(/"/g, '""');
-        csvContent += `"${title}",${item.qty},${item.price.toFixed(2)},${itemTotal.toFixed(2)}\n`;
+        csvContent += `"${title}",${item.qty}\n`;
     });
-    
-    // Adicionar linha do total
-    csvContent += `"TOTAL",,"",${total.toFixed(2)}\n`;
     
     // Criar blob e download
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -172,7 +156,7 @@ function showCSVFeedback() {
     }, config.feedback.duration);
 }
 
-// Carregar itens do carrinho do localStorage
+// Carregar itens do carrinho do localStorage (sem preços)
 function loadCart() {
     const cartItemsDiv = document.getElementById('cart-items');
     const cartTotalDiv = document.getElementById('cart-total');
@@ -187,20 +171,17 @@ function loadCart() {
         return;
     }
     
-    let total = 0;
     cartItemsDiv.innerHTML = cart.map(item => {
-        total += item.price * item.qty;
         return `<div class="cart-item">
             <div class="cart-item-info">
                 <img src="${item.img}" alt="${item.title}">
                 <span class="cart-item-title">${item.title}</span>
             </div>
             <span class="cart-item-qty">x${item.qty}</span>
-            <span>${formatPrice(item.price * item.qty)}</span>
         </div>`;
     }).join('');
     
-    cartTotalDiv.textContent = 'Total: ' + formatPrice(total);
+    cartTotalDiv.textContent = `Total de itens: ${cart.length}`;
 }
 
 // Função para adicionar item ao carrinho no localStorage

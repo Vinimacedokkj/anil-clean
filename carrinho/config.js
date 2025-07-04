@@ -2,14 +2,13 @@
 const CART_CONFIG = {
     // Número do WhatsApp (formato: código do país + DDD + número)
     // Exemplo: '5511999999999' para Brasil, DDD 11, número 99999-9999
-    // ATENÇÃO: Altere este número para o número real do WhatsApp da empresa
-    whatsappNumber: '5511999999999',
+    whatsappNumber: '5511930145556',
     
     // Nome da empresa para aparecer na mensagem
     companyName: 'ANILCLEAN',
     
     // Mensagem personalizada no final do pedido
-    customMessage: 'Por favor, entre em contato para confirmar os preços e finalizar o pedido.',
+    customMessage: 'Olá, gostaria de solicitar o orçamento deste pedido. Obrigado(a)!',
     
     // Configurações de feedback visual
     feedback: {
