@@ -11,6 +11,7 @@ Este sistema permite que os clientes adicionem produtos ao carrinho e enviem ped
 - ✅ Baixar lista em formato CSV
 - ✅ Feedback visual para todas as ações
 - ✅ Configuração personalizável
+- ✅ Remover itens individuais
 
 ## Configuração
 

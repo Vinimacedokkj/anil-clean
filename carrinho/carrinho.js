@@ -171,13 +171,18 @@ function loadCart() {
         return;
     }
     
-    cartItemsDiv.innerHTML = cart.map(item => {
-        return `<div class="cart-item">
+    cartItemsDiv.innerHTML = cart.map((item, index) => {
+        return `<div class="cart-item" data-index="${index}">
             <div class="cart-item-info">
                 <img src="${item.img}" alt="${item.title}">
                 <span class="cart-item-title">${item.title}</span>
             </div>
-            <span class="cart-item-qty">x${item.qty}</span>
+            <div class="cart-item-actions">
+                <span class="cart-item-qty">x${item.qty}</span>
+                <button class="remove-item-btn" onclick="removeFromCart(${index})" title="Remover item">
+                    <span class="remove-icon">×</span>
+                </button>
+            </div>
         </div>`;
     }).join('');
     
@@ -321,6 +326,64 @@ function clearCart() {
     }
 }
 
+// Função para remover item específico do carrinho
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+    if (index >= 0 && index < cart.length) {
+        const removedItem = cart[index];
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Atualizar badge do carrinho
+        updateCartBadge();
+        
+        // Recarregar carrinho
+        loadCart();
+        
+        // Mostrar feedback visual
+        showRemoveItemFeedback(removedItem.title);
+    }
+}
+
+// Função para mostrar feedback visual quando item é removido
+function showRemoveItemFeedback(itemTitle) {
+    const feedback = document.createElement('div');
+    feedback.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 16px;">🗑️</span>
+            <span>"${itemTitle}" removido do carrinho</span>
+        </div>
+    `;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #ff5722;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease-out;
+        max-width: 350px;
+        font-size: 14px;
+    `;
+    
+    document.body.appendChild(feedback);
+    
+    // Remover após 3 segundos
+    setTimeout(() => {
+        feedback.style.animation = 'slideOut 0.3s ease-in';
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 300);
+    }, 3000);
+}
+
 // Inicializar quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar carrinho se estivermos na página do carrinho
@@ -372,6 +435,7 @@ window.addToCart = addToCart;
 window.updateCartBadge = updateCartBadge;
 window.clearCart = clearCart;
 window.loadCart = loadCart;
+window.removeFromCart = removeFromCart;
 window.initializeAddToCartButtons = initializeAddToCartButtons;
 window.sendOrderToWhatsApp = sendOrderToWhatsApp;
 window.generateOrderMessage = generateOrderMessage;
