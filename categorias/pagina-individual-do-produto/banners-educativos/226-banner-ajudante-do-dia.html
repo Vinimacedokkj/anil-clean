@@ -26,18 +26,18 @@
             </div>
             <h1>Banner Ajudante do Dia</h1>
             <div class="calls-to-action">
-                <button class="budget" onclick="solicitarOrcamento()">SOLICITAR ORÃ‡AMENTO</button>
+                <button class="budget" onclick="solicitarOrcamento()">SOLICITAR ORÇAMENTO</button>
                 <button class="add-to-cart" onclick="adicionarAoCarrinho()">ADICIONAR AO CARRINHO</button>
             </div>
         </div>
     </div>
     <div class="product-info">
-        <h1>INFORMAÃ‡Ã•ES SOBRE O PRODUTO</h1>
+        <h1>INFORMAÇÕES SOBRE O PRODUTO</h1>
 
         <div class="text-container">
-            <h2>DESCRIÃ‡ÃƒO</h2>
+            <h2>DESCRIÇÃO</h2>
             <hr>
-            <p>O Banner ajudante do dia Ã© um material educativo versÃ¡til e interativo que permite destacar e reconhecer o aluno responsÃ¡vel pelas atividades do dia. Com design atrativo e personalizÃ¡vel, este banner incentiva a participaÃ§Ã£o ativa dos estudantes, promovendo senso de responsabilidade e organizaÃ§Ã£o na rotina escolar. Ideal para uso em salas de aula, oferece uma forma divertida e visual de gerenciar as tarefas diÃ¡rias e celebrar a colaboraÃ§Ã£o dos alunos.</p>
+            <p>O Banner ajudante do dia é um material educativo versátil e interativo que permite destacar e reconhecer o aluno responsável pelas atividades do dia. Com design atrativo e personalizável, este banner incentiva a participação ativa dos estudantes, promovendo senso de responsabilidade e organização na rotina escolar. Ideal para uso em salas de aula, oferece uma forma divertida e visual de gerenciar as tarefas diárias e celebrar a colaboração dos alunos.</p>
         </div>
 
         <!-- <div class="text-container">
@@ -65,32 +65,32 @@
             <div class="product-item">
                 <img src="../../../../img/outras/cinza.jpeg" alt="Produto 1">
                 <h3>Produto 1</h3>
-                <p>DescriÃ§Ã£o do produto 1.</p>
+                <p>Descrição do produto 1.</p>
             </div>
             <div class="product-item">
                 <img src="../../../../img/outras/cinza.jpeg" alt="Produto 2">
                 <h3>Produto 2</h3>
-                <p>DescriÃ§Ã£o do produto 2.</p>
+                <p>Descrição do produto 2.</p>
             </div>
             <div class="product-item">
                 <img src="../../../../img/outras/cinza.jpeg" alt="Produto 3">
                 <h3>Produto 3</h3>
-                <p>DescriÃ§Ã£o do produto 3.</p>
+                <p>Descrição do produto 3.</p>
             </div>
             <div class="product-item">
                 <img src="../../../../img/outras/cinza.jpeg" alt="Produto 4">
                 <h3>Produto 4</h3>
-                <p>DescriÃ§Ã£o do produto 4.</p>
+                <p>Descrição do produto 4.</p>
             </div>
             <div class="product-item">
                 <img src="../../../../img/outras/cinza.jpeg" alt="Produto 5">
                 <h3>Produto 5</h3>
-                <p>DescriÃ§Ã£o do produto 5.</p>
+                <p>Descrição do produto 5.</p>
             </div>
             <div class="product-item">
                 <img src="../../../../img/outras/cinza.jpeg" alt="Produto 6">
                 <h3>Produto 6</h3>
-                <p>DescriÃ§Ã£o do produto 6.</p>
+                <p>Descrição do produto 6.</p>
             </div>
         </div>
     </div>
@@ -108,12 +108,12 @@
             img: "/img/imagens-dos-produtos/categorias/03-banners-educativos/226 - banner ajudante do dia.png"
         };
 
-        // FunÃ§Ã£o para solicitar orÃ§amento (envia apenas este produto para WhatsApp)
+        // Função para solicitar orçamento (envia apenas este produto para WhatsApp)
         function solicitarOrcamento() {
             const config = window.CART_CONFIG || {
                 whatsappNumber: '5511999999999',
                 companyName: 'ANILCLEAN',
-                customMessage: 'Por favor, entre em contato para solicitar orÃ§amento e finalizar o pedido.'
+                customMessage: 'Por favor, entre em contato para solicitar orçamento e finalizar o pedido.'
             };
 
             const now = new Date();
@@ -121,13 +121,13 @@
             const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
             
             let message = `ðŸ›’ *PEDIDO - ${config.companyName}*\n`;
-            message += `ðŸ“… Data: ${dateStr} Ã s ${timeStr}\n`;
+            message += `ðŸ“… Data: ${dateStr} Ý s ${timeStr}\n`;
             message += `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n\n`;
             message += `1. *${produtoAtual.title}*\n`;
             message += `   Quantidade: 1x\n`;
-            message += `   Valor: Solicitar orÃ§amento\n\n`;
+            message += `   Valor: Solicitar orçamento\n\n`;
             message += `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n`;
-            message += `ðŸ’° *TOTAL: Solicitar orÃ§amento*\n\n`;
+            message += `ðŸ’° *TOTAL: Solicitar orçamento*\n\n`;
             message += config.customMessage;
             
             const phoneNumber = config.whatsappNumber;
@@ -141,12 +141,12 @@
             showFeedback('Pedido enviado para o WhatsApp!', '#25D366');
         }
 
-        // FunÃ§Ã£o para adicionar ao carrinho
+        // Função para adicionar ao carrinho
         function adicionarAoCarrinho() {
             // Adicionar o produto ao carrinho
             addToCart(produtoAtual);
             
-            // Feedback visual no botÃ£o
+            // Feedback visual no botão
             const btn = document.querySelector('.add-to-cart');
             const originalText = btn.textContent;
             btn.textContent = 'Adicionado!';
@@ -158,7 +158,7 @@
             }, 1200);
         }
 
-        // FunÃ§Ã£o para mostrar feedback visual
+        // Função para mostrar feedback visual
         function showFeedback(message, color) {
             const feedback = document.createElement('div');
             feedback.innerHTML = `
@@ -184,7 +184,7 @@
             
             document.body.appendChild(feedback);
             
-            // Remover apÃ³s 3 segundos
+            // Remover após 3 segundos
             setTimeout(() => {
                 feedback.style.animation = 'slideOut 0.3s ease-in';
                 setTimeout(() => {
@@ -195,7 +195,7 @@
             }, 3000);
         }
 
-        // Adicionar animaÃ§Ãµes CSS
+        // Adicionar animações CSS
         document.addEventListener('DOMContentLoaded', function() {
             const style = document.createElement('style');
             style.textContent = `
