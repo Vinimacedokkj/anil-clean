@@ -156,14 +156,33 @@ function showCSVFeedback() {
     }, config.feedback.duration);
 }
 
-// Carregar itens do carrinho do localStorage (sem preços)
+// Função para obter carrinho do sessionStorage (único por sessão)
+function getCart() {
+    try {
+        return JSON.parse(sessionStorage.getItem('cart') || '[]');
+    } catch (e) {
+        console.error('Erro ao carregar carrinho:', e);
+        return [];
+    }
+}
+
+// Função para salvar carrinho no sessionStorage
+function saveCart(cart) {
+    try {
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    } catch (e) {
+        console.error('Erro ao salvar carrinho:', e);
+    }
+}
+
+// Carregar itens do carrinho do sessionStorage (sem preços)
 function loadCart() {
     const cartItemsDiv = document.getElementById('cart-items');
     const cartTotalDiv = document.getElementById('cart-total');
     
     if (!cartItemsDiv || !cartTotalDiv) return;
     
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cart = getCart();
     
     if (cart.length === 0) {
         cartItemsDiv.innerHTML = '<div class="empty-cart">Seu carrinho está vazio.</div>';
@@ -189,9 +208,9 @@ function loadCart() {
     cartTotalDiv.textContent = `Total de itens: ${cart.length}`;
 }
 
-// Função para adicionar item ao carrinho no localStorage
+// Função para adicionar item ao carrinho no sessionStorage
 function addToCart(item) {
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let cart = getCart();
     const existing = cart.find(prod => prod.title === item.title);
     
     if (existing) {
@@ -200,7 +219,7 @@ function addToCart(item) {
         cart.push({...item, qty: 1});
     }
     
-    localStorage.setItem('cart', JSON.stringify(cart));
+    saveCart(cart);
     
     // Atualizar badge do carrinho
     updateCartBadge();
@@ -260,13 +279,7 @@ function updateCartBadge() {
     const badge = document.getElementById('cart-count-badge');
     if (!badge) return;
     
-    let cart = [];
-    try {
-        cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    } catch (e) { 
-        cart = []; 
-    }
-    
+    const cart = getCart();
     const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
     
     if (totalQty > 0) {
@@ -320,7 +333,7 @@ function initializeAddToCartButtons() {
 // Função para limpar carrinho
 function clearCart() {
     if (confirm('Tem certeza que deseja limpar o carrinho?')) {
-        localStorage.removeItem('cart');
+        sessionStorage.removeItem('cart');
         loadCart();
         updateCartBadge();
     }
@@ -328,12 +341,12 @@ function clearCart() {
 
 // Função para remover item específico do carrinho
 function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let cart = getCart();
     
     if (index >= 0 && index < cart.length) {
         const removedItem = cart[index];
         cart.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify(cart));
+        saveCart(cart);
         
         // Atualizar badge do carrinho
         updateCartBadge();
@@ -400,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const downloadCsvBtn = document.getElementById('download-csv-btn');
         if (downloadCsvBtn) {
             downloadCsvBtn.addEventListener('click', function() {
-                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                const cart = getCart();
                 if (cart.length === 0) {
                     alert('Seu carrinho está vazio!');
                     return;
@@ -413,7 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const solicitarBtn = document.getElementById('solicitar-btn');
         if (solicitarBtn) {
             solicitarBtn.addEventListener('click', function() {
-                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                const cart = getCart();
                 if (cart.length === 0) {
                     alert('Seu carrinho está vazio!');
                     return;

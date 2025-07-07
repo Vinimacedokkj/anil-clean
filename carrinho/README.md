@@ -1,106 +1,77 @@
-# Sistema de Carrinho com WhatsApp
+# Sistema de Carrinho - Anilclean
 
-Este sistema permite que os clientes adicionem produtos ao carrinho e enviem pedidos diretamente para o WhatsApp, ideal para vitrines online onde os preços são negociados posteriormente.
+## 🆕 Funcionalidades Implementadas
 
-## Funcionalidades
+### 1. Carrinho Único por Sessão
+- **Problema anterior**: O carrinho era compartilhado entre dispositivos usando `localStorage`
+- **Solução**: Agora usa `sessionStorage` - cada sessão do navegador tem seu próprio carrinho
+- **Benefício**: Cada pessoa que acessa o site terá seu carrinho independente
 
-- ✅ Adicionar produtos ao carrinho
-- ✅ Visualizar itens no carrinho
-- ✅ Limpar carrinho
-- ✅ Enviar pedido via WhatsApp
-- ✅ Baixar lista em formato CSV
-- ✅ Feedback visual para todas as ações
-- ✅ Configuração personalizável
-- ✅ Remover itens individuais
+### 2. Preservação no Reload
+- **Recarregamento seguro**: Os itens são mantidos quando a página é recarregada
+- **Navegação interna**: Carrinho preservado ao navegar entre páginas do site
+- **Perda apenas ao fechar**: Itens perdidos apenas quando o navegador é fechado
 
-## Configuração
+### 3. Banner Informativo
+- **Aviso claro**: Banner na página do carrinho explica o funcionamento
+- **Design atrativo**: Interface moderna e responsiva
+- **Informações úteis**: Orientações sobre como preservar os itens
 
-### 1. Configurar número do WhatsApp
-
-Edite o arquivo `config.js` e altere o número do WhatsApp:
-
-```javascript
-const CART_CONFIG = {
-    whatsappNumber: '5511999999999', // Substitua pelo seu número
-    companyName: 'ANILCLEAN',
-    customMessage: 'Por favor, entre em contato para confirmar os preços e finalizar o pedido.',
-    // ...
-};
-```
-
-**Formato do número:** código do país + DDD + número
-- Brasil: `55` + DDD (ex: `11`) + número (ex: `999999999`)
-- Exemplo: `5511999999999`
-
-### 2. Personalizar mensagem
-
-Você pode personalizar:
-- Nome da empresa
-- Mensagem final do pedido
-- Cores dos feedbacks visuais
-- Duração dos feedbacks
-
-## Como usar
-
-### Para o cliente:
-
-1. **Adicionar produtos:** Clique em "Adicionar ao Carrinho" nos produtos
-2. **Ver carrinho:** Acesse a página do carrinho
-3. **Baixar lista:** Clique em "📊 Baixar Lista" para salvar em CSV
-4. **Enviar pedido:** Clique em "Solicitar" para enviar via WhatsApp
-
-### Para o desenvolvedor:
-
-1. **Incluir scripts:** Adicione os arquivos JS e CSS nas páginas
-2. **Configurar botões:** Use a classe `add-to-cart-btn` com os atributos:
-   - `data-title`: Nome do produto
-   - `data-price`: Preço do produto
-   - `data-img`: URL da imagem
-
-Exemplo:
-```html
-<button class="add-to-cart-btn" 
-        data-title="Produto Exemplo" 
-        data-price="29.90" 
-        data-img="/img/produto.jpg">
-    Adicionar ao Carrinho
-</button>
-```
-
-## Estrutura de arquivos
-
-```
-carrinho/
-├── carrinho.html          # Página do carrinho
-├── carrinho.css           # Estilos do carrinho
-├── carrinho.js            # Lógica principal
-├── config.js              # Configurações
-└── README.md              # Esta documentação
-```
-
-## Funcionalidades técnicas
+## 🔧 Como Funciona
 
 ### Armazenamento
-- Usa `localStorage` para persistir dados do carrinho
-- Dados são mantidos entre sessões do navegador
+```javascript
+// Antes (localStorage - compartilhado)
+localStorage.setItem('cart', JSON.stringify(cart));
 
-### WhatsApp
-- Usa a API `wa.me` do WhatsApp
-- Abre em nova aba/janela
-- Mensagem pré-formatada com emojis e formatação
+// Agora (sessionStorage - único por sessão)
+sessionStorage.setItem('cart', JSON.stringify(cart));
+```
 
-### CSV
-- Gera arquivo CSV com timestamp
-- Formato: `pedido-anilclean-DD-MM-YYYY-HH-MM.csv`
-- Inclui produtos, quantidades e totais
+### Funções Principais
+```javascript
+// Obter carrinho
+function getCart() {
+    return JSON.parse(sessionStorage.getItem('cart') || '[]');
+}
 
-### Feedback visual
-- Notificações animadas
-- Cores personalizáveis
-- Duração configurável
-- Posicionamento fixo no canto superior direito
+// Salvar carrinho
+function saveCart(cart) {
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+}
+```
 
-## Compatibilidade
+## 📱 Funcionalidades
+
+### Botões do Carrinho
+1. **Limpar Carrinho**: Remove todos os itens
+2. **📊 Baixar Lista**: Gera arquivo CSV com os itens
+3. **Solicitar**: Envia pedido via WhatsApp
+
+### Banner Informativo
+- Explicação clara sobre o sistema de sessão
+- Design atrativo com gradiente azul
+- Responsivo para mobile
+
+## 🎨 Interface
+
+### Banner Informativo
+- Explicação clara sobre o sistema de sessão
+- Design atrativo com gradiente azul
+- Responsivo para mobile
+
+### Feedback Visual
+- Notificações ao adicionar/remover itens
+- Badge do carrinho atualizado em tempo real
+- Animações suaves e profissionais
+
+## 🔒 Segurança e Privacidade
+
+- **Dados locais**: Tudo fica no navegador do usuário
+- **Sem rastreamento**: Não há coleta de dados pessoais
+- **Sessão isolada**: Cada usuário tem sua própria sessão
+
+## 📋 Compatibilidade
 
 - ✅ Chrome/Chromium
 - ✅ Firefox
@@ -108,38 +79,107 @@ carrinho/
 - ✅ Edge
 - ✅ Mobile browsers
 
-## Personalização avançada
+## 🚀 Benefícios para o Usuário
 
-### Alterar cores dos botões
+1. **Privacidade**: Carrinho único para cada pessoa
+2. **Conveniência**: Itens preservados durante navegação
+3. **Flexibilidade**: Múltiplas opções para salvar itens
+4. **Transparência**: Informações claras sobre o funcionamento
 
-No arquivo `carrinho.css`:
+## 🔄 Migração
 
-```css
-#solicitar-btn {
-    background: #25D366 !important; /* Cor do WhatsApp */
-}
+O sistema é compatível com o anterior. Usuários existentes:
+- Perderão itens ao recarregar (migração para sessionStorage)
+- Receberão informações sobre o novo sistema via banner
+- Terão melhor experiência com feedback visual
 
-#download-csv-btn {
-    background: #ff9800 !important; /* Cor laranja */
-}
+## 📞 Suporte
 
-#limpar-btn {
-    background: #f44336 !important; /* Cor vermelha */
-}
+Para dúvidas ou problemas:
+- Verificar console do navegador para erros
+- Testar em diferentes navegadores
+- Verificar se sessionStorage está habilitado
+
+## Funcionalidades
+
+### Adicionar ao Carrinho
+- Clique no botão "Adicionar ao Carrinho" em qualquer produto
+- Feedback visual imediato
+- Badge do carrinho atualizado automaticamente
+
+### Gerenciar Carrinho
+- Visualizar itens na página do carrinho
+- Remover itens individuais
+- Limpar todo o carrinho
+- Ajustar quantidades
+
+### Finalizar Pedido
+- Baixar lista em CSV
+- Enviar pedido via WhatsApp
+- Mensagem formatada automaticamente
+
+### Configuração
+- Número do WhatsApp configurável
+- Mensagem personalizada
+- Cores e estilos customizáveis
+
+## Estrutura de Arquivos
+
+```
+carrinho/
+├── carrinho.js          # Lógica principal do carrinho
+├── carrinho.html        # Página do carrinho
+├── carrinho.css         # Estilos do carrinho
+├── config.js            # Configurações (WhatsApp, etc.)
+├── botao-add-to-cart.css # Estilos dos botões
+├── test-cart.html       # Página de teste
+└── README.md            # Documentação
 ```
 
-### Alterar mensagem do WhatsApp
+## Configuração
 
-No arquivo `config.js`:
-
+### config.js
 ```javascript
-customMessage: 'Sua mensagem personalizada aqui...'
+window.CART_CONFIG = {
+    whatsappNumber: '5511999999999',
+    companyName: 'ANILCLEAN',
+    customMessage: 'Por favor, entre em contato para confirmar os preços e finalizar o pedido.',
+    feedback: {
+        whatsappColor: '#25D366',
+        csvColor: '#ff9800',
+        duration: 3000
+    }
+};
 ```
 
-## Suporte
+## Uso
 
-Para dúvidas ou problemas, verifique:
-1. Se o número do WhatsApp está no formato correto
-2. Se todos os arquivos JS e CSS estão sendo carregados
-3. Se os atributos `data-*` estão configurados nos botões
-4. Console do navegador para erros JavaScript 
+### 1. Incluir Scripts
+```html
+<script src="/carrinho/config.js"></script>
+<script src="/carrinho/carrinho.js"></script>
+```
+
+### 2. Adicionar Botões
+```html
+<button class="add-to-cart-btn" 
+        data-title="Nome do Produto" 
+        data-price="99.90" 
+        data-img="/caminho/para/imagem.jpg">
+    Adicionar ao Carrinho
+</button>
+```
+
+### 3. Badge do Carrinho
+```html
+<div id="cart-count-badge" style="display: none;">0</div>
+```
+
+## Testes
+
+Acesse `/carrinho/test-cart.html` para testar todas as funcionalidades:
+- Adicionar itens
+- Verificar status
+- Testar download CSV
+- Testar WhatsApp
+- Verificar navegação 
