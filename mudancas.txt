@@ -7,3 +7,4 @@ Mudanças que quero fazer no site:
 - Excluir a branch teste-responsividade OK
 - Adicionar um zoom nas imagens na página individual do produto
 - Adicionar barra de pesquisa nos produtos
+- No carrinho, quando tiver mais de 1 item, ao clicar no x, irá remover apenas 1 item, e não remover tudo (ou melhor, você poderá escolher a quantidade de itens que quiser)
