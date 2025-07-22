@@ -16,7 +16,26 @@
 
     <div class="container-product">
         <div class="product-image">
-            <img src="/img/imagens-dos-produtos/categorias/01-variedades/185 - Dispensers1.png" alt="Piso molhado">
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active">
+                        <img src="/img/imagens-dos-produtos/categorias/01-variedades/185 - Dispensers1.png" alt="Dispensers - Imagem 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="/img/imagens-dos-produtos/categorias/01-variedades/186 - Dispensers2.png" alt="Dispensers - Imagem 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="/img/imagens-dos-produtos/categorias/01-variedades/184 - Dispenser para copo de água e café.png" alt="Dispenser para copo de água e café">
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
         </div>
         <div class="product-details">
             <div class="path">
@@ -37,16 +56,20 @@
         <div class="text-container">
             <h2>DESCRIÇÃO</h2>
             <hr>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet nam cupiditate saepe accusamus hic esse adipisci commodi amet veritatis distinctio unde quas numquam, odit assumenda sunt natus laudantium consequatur soluta.</p>
+            <p>
+                Os dispensers são equipamentos práticos e higiênicos, ideais para armazenar e disponibilizar copos, papel toalha, sabonete líquido, álcool gel ou outros itens essenciais em ambientes corporativos, comerciais e residenciais. Fabricados em materiais resistentes e de fácil limpeza, proporcionam organização, economia e facilitam o acesso dos usuários, contribuindo para a manutenção da limpeza e do bem-estar em banheiros, cozinhas, áreas de convivência e recepções.
+            </p>
         </div>
 
         <div class="text-container">
             <h2>CORES E MODELOS</h2>
             <hr>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet nam cupiditate saepe accusamus hic esse adipisci commodi amet veritatis distinctio unde quas numquam, odit assumenda sunt natus laudantium consequatur soluta.</p>
+            <p>
+                Disponibilizamos dispensers em diferentes modelos e cores para atender às necessidades do seu ambiente. Temos opções de dispenser para papel toalha, ideais para banheiros e cozinhas, e dispenser para copo descartável, perfeitos para áreas de convivência, recepções e bebedouros. Os modelos variam entre versões de parede e de bancada, com capacidade para diferentes quantidades de papel ou copos, e estão disponíveis em cores neutras como branco, preto e cinza, facilitando a harmonização com a decoração do local.
+            </p>
         </div>
 
-        <div class="text-container">
+        <!-- <div class="text-container">
             <h2>FABRICANTE</h2>
             <hr>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet nam cupiditate saepe accusamus hic esse adipisci commodi amet veritatis distinctio unde quas numquam, odit assumenda sunt natus laudantium consequatur soluta.</p>
@@ -56,7 +79,7 @@
             <h2>MODOS DE USO</h2>
             <hr>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet nam cupiditate saepe accusamus hic esse adipisci commodi amet veritatis distinctio unde quas numquam, odit assumenda sunt natus laudantium consequatur soluta.</p>
-        </div>
+        </div> -->
     </div>
 
     <div class="related-products">
@@ -108,6 +131,59 @@
             title: "Dispensers",
             img: "/img/imagens-dos-produtos/categorias/01-variedades/185 - Dispensers1.png"
         };
+
+        // Carrossel de imagens
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Remove a classe active de todos os slides e dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Adiciona a classe active ao slide e dot atual
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            
+            // Loop circular
+            if (currentSlideIndex >= totalSlides) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = totalSlides - 1;
+            }
+            
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-play do carrossel (opcional)
+        function autoPlay() {
+            changeSlide(1);
+        }
+
+        // Inicia o auto-play a cada 5 segundos
+        let autoPlayInterval = setInterval(autoPlay, 5000);
+
+        // Pausa o auto-play quando o mouse está sobre o carrossel
+        const carouselContainer = document.querySelector('.carousel-container');
+
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(autoPlay, 5000);
+        });
     </script>
 </body>
 </html>
