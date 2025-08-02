@@ -2,6 +2,6 @@
 - consertar os produtos em pedagógico
 - arrumar o css dos produtos relacionados
 - consertar a página inicial com as categorias que estão ativas
-- consertar o layout para celular
+- consertar o layout para celular - OK
 
 - Testar se os produtos estão indo certinho para o carrinho
