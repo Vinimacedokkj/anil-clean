@@ -223,7 +223,7 @@ button {
 }
 
 /* Mobile Large (481px - 767px) */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .container-product {
         flex-direction: column;
         height: auto;
@@ -244,6 +244,10 @@ button {
         max-height: 250px;
         object-fit: contain;
     }
+
+    .path {
+        font-size: var(--font-size-3);
+    }
     
     .product-details {
         width: 100%;
@@ -252,7 +256,7 @@ button {
     }
     
     .product-details h1 {
-        font-size: var(--font-size-4);
+        font-size: var(--font-size-6);
         margin-bottom: 15px;
     }
     
@@ -278,8 +282,13 @@ button {
     }
     
     .text-container h2 {
-        font-size: var(--font-size-5);
+        font-size: var(--font-size-4);
     }
+
+    .text-container hr {
+    border: 1px solid var(--secondary-color);
+    width: 60px;
+}
     
     .text-container p {
         font-size: var(--font-size-4);
@@ -287,7 +296,7 @@ button {
     }
     
     .related-products h2 {
-        font-size: var(--font-size-4);
+        font-size: var(--font-size-5);
         margin: 30px 0 15px 0;
         text-align: center;
         padding: 0 15px;
@@ -305,12 +314,12 @@ button {
     }
     
     .product-item h3 {
-        font-size: var(--font-size-3);
+        font-size: var(--font-size-5);
         margin: 10px 0 5px 0;
     }
     
     .product-item p {
-        font-size: var(--font-size-2);
+        font-size: var(--font-size-4);
         color: #666;
     }
     
@@ -343,9 +352,13 @@ button {
     
     .product-details h1 {
         /* border: 2px solid yellow; */
-        font-size: var(--font-size-4);
+        font-size: var(--font-size-6);
     }
-    
+
+    .path {
+        font-size: var(--font-size-2);
+    }
+
     .solicitar-orcamento {
         /* border: 2px solid orange; */
         max-width: 200px;
@@ -353,7 +366,7 @@ button {
     
     .product-info h1 {
         /* border: 2px solid purple; */
-        font-size: var(--font-size-3);
+        font-size: var(--font-size-4);
     }
     
     .text-container {
@@ -364,15 +377,20 @@ button {
     
     .text-container h2 {
         /* border: 2px solid black; */
-        font-size: var(--font-size-2);
+        font-size: var(--font-size-3);
     }
     
     .text-container p {
-        font-size: var(--font-size-1);
+        font-size: var(--font-size-4);
+    }
+
+    .text-container hr {
+    border: 1px solid var(--secondary-color);
+    width: 50px;
     }
     
     .related-products h2 {
-        font-size: var(--font-size-3);
+        font-size: var(--font-size-4);
         margin: 20px 0 10px 0;
         padding: 0 10px;
     }
@@ -387,7 +405,7 @@ button {
     }
     
     .product-item h3 {
-        font-size: var(--font-size-2);
+        font-size: var(--font-size-4);
     }
     
     .product-item p {
