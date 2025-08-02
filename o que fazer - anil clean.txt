@@ -1,4 +1,4 @@
-- analisar se os ventiladores estão todos em ordem (o que não estão)
+- analisar se os ventiladores estão todos em ordem (o que não estão) - OK
 - consertar os produtos em pedagógico
 - arrumar o css dos produtos relacionados
 - consertar a página inicial com as categorias que estão ativas
