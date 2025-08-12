@@ -1,5 +1,5 @@
 - analisar se os ventiladores estão todos em ordem (o que não estão) - OK
-- consertar os produtos em pedagógico
+- consertar os produtos em pedagógico - OK
 - arrumar o css dos produtos relacionados
 - consertar a página inicial com as categorias que estão ativas
 - consertar o layout para celular - OK
