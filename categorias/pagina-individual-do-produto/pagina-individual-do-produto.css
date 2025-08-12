@@ -199,7 +199,7 @@ button {
 
 .product-item:hover h3,
 .product-item:hover p {
-    -webkit-line-clamp: unset;
+    /* -webkit-line-clamp: unset; */
     overflow: visible;
     min-height: auto;
 }
