@@ -1,10 +1,13 @@
-// Sistema de Paginação para a Loja
+// Sistema de Paginação e Pesquisa para a Loja
 class LojaPagination {
     constructor() {
         this.productsPerPage = 20;
         this.currentPage = 1;
         this.allProducts = [];
+        this.filteredProducts = [];
         this.totalPages = 0;
+        this.searchTerm = '';
+        this.selectedCategory = 'all';
         this.init();
     }
 
@@ -18,10 +21,31 @@ class LojaPagination {
     loadAllProducts() {
         const productItems = document.querySelectorAll('.product-item');
         this.allProducts = Array.from(productItems);
-        this.totalPages = Math.ceil(this.allProducts.length / this.productsPerPage);
+        this.filteredProducts = [...this.allProducts];
+        this.totalPages = Math.ceil(this.filteredProducts.length / this.productsPerPage);
         
         // Mostra apenas os primeiros 20 produtos
         this.showPage(1);
+    }
+
+    // Aplica filtros de pesquisa e categoria
+    applyFilters() {
+        this.filteredProducts = this.allProducts.filter(product => {
+            const matchesSearch = this.searchTerm === '' || 
+                product.querySelector('h3').textContent.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+                product.querySelector('p').textContent.toLowerCase().includes(this.searchTerm.toLowerCase());
+            
+            const matchesCategory = this.selectedCategory === 'all' || 
+                product.querySelector('a').href.includes(this.selectedCategory);
+            
+            return matchesSearch && matchesCategory;
+        });
+
+        this.totalPages = Math.ceil(this.filteredProducts.length / this.productsPerPage);
+        this.currentPage = 1;
+        this.showPage(1);
+        this.updateResultsCount();
+        this.updatePaginationButtons();
     }
 
     // Mostra produtos de uma página específica
@@ -35,8 +59,8 @@ class LojaPagination {
             product.style.display = 'none';
         });
 
-        // Mostra apenas os produtos da página atual
-        this.allProducts.slice(startIndex, endIndex).forEach(product => {
+        // Mostra apenas os produtos filtrados da página atual
+        this.filteredProducts.slice(startIndex, endIndex).forEach(product => {
             product.style.display = 'block';
         });
 
@@ -47,12 +71,25 @@ class LojaPagination {
     // Atualiza as informações de paginação
     updatePaginationInfo() {
         const startIndex = (this.currentPage - 1) * this.productsPerPage + 1;
-        const endIndex = Math.min(this.currentPage * this.productsPerPage, this.allProducts.length);
-        const totalProducts = this.allProducts.length;
+        const endIndex = Math.min(this.currentPage * this.productsPerPage, this.filteredProducts.length);
+        const totalProducts = this.filteredProducts.length;
 
         const paginationInfo = document.querySelector('.pagination-info span');
         if (paginationInfo) {
             paginationInfo.textContent = `Mostrando ${startIndex}-${endIndex} de ${totalProducts} produtos`;
+        }
+    }
+
+    // Atualiza o contador de resultados
+    updateResultsCount() {
+        const resultsCount = document.getElementById('results-count');
+        if (resultsCount) {
+            const totalProducts = this.filteredProducts.length;
+            if (this.searchTerm || this.selectedCategory !== 'all') {
+                resultsCount.textContent = `${totalProducts} produtos encontrados`;
+            } else {
+                resultsCount.textContent = `${totalProducts} produtos encontrados`;
+            }
         }
     }
 
@@ -77,26 +114,125 @@ class LojaPagination {
                 nextBtn.disabled = false;
             }
         }
+
+        // Atualiza número de páginas baseado nos resultados filtrados
+        this.updatePaginationNumbers();
+    }
+
+    // Atualiza os números das páginas baseado nos resultados filtrados
+    updatePaginationNumbers() {
+        const pagination = document.querySelector('.pagination');
+        if (!pagination) return;
+
+        // Remove botões de página existentes (exceto o next)
+        const nextBtn = pagination.querySelector('.next-btn');
+        pagination.innerHTML = '';
+        if (nextBtn) {
+            pagination.appendChild(nextBtn);
+        }
+
+        // Adiciona botões de página baseado no total de páginas
+        for (let i = 1; i <= this.totalPages; i++) {
+            const pageBtn = document.createElement('button');
+            pageBtn.className = 'page-btn';
+            pageBtn.dataset.page = i;
+            pageBtn.textContent = i;
+            
+            if (i === this.currentPage) {
+                pageBtn.classList.add('active');
+            }
+            
+            pagination.insertBefore(pageBtn, nextBtn);
+        }
     }
 
     // Configura os event listeners
     setupEventListeners() {
+        // Event listeners para paginação
         const pagination = document.querySelector('.pagination');
-        if (!pagination) return;
-
-        pagination.addEventListener('click', (e) => {
-            if (e.target.classList.contains('page-btn')) {
-                const pageNumber = e.target.dataset.page;
-                
-                if (pageNumber === 'next') {
-                    if (this.currentPage < this.totalPages) {
-                        this.showPage(this.currentPage + 1);
+        if (pagination) {
+            pagination.addEventListener('click', (e) => {
+                if (e.target.classList.contains('page-btn')) {
+                    const pageNumber = e.target.dataset.page;
+                    
+                    if (pageNumber === 'next') {
+                        if (this.currentPage < this.totalPages) {
+                            this.showPage(this.currentPage + 1);
+                        }
+                    } else {
+                        this.showPage(parseInt(pageNumber));
                     }
-                } else {
-                    this.showPage(parseInt(pageNumber));
                 }
-            }
-        });
+            });
+        }
+
+        // Event listeners para pesquisa
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                this.searchTerm = e.target.value;
+                this.applyFilters();
+                this.toggleClearButton();
+            });
+        }
+
+        // Event listener para botão limpar pesquisa
+        const clearSearchBtn = document.getElementById('clear-search');
+        if (clearSearchBtn) {
+            clearSearchBtn.addEventListener('click', () => {
+                this.clearSearch();
+            });
+        }
+
+        // Event listener para filtro de categoria
+        const categoryFilter = document.getElementById('category-filter');
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', (e) => {
+                this.selectedCategory = e.target.value;
+                this.applyFilters();
+            });
+        }
+
+        // Event listener para botão resetar filtros
+        const resetFiltersBtn = document.getElementById('reset-filters');
+        if (resetFiltersBtn) {
+            resetFiltersBtn.addEventListener('click', () => {
+                this.resetFilters();
+            });
+        }
+    }
+
+    // Limpa a pesquisa
+    clearSearch() {
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.value = '';
+        }
+        this.searchTerm = '';
+        this.applyFilters();
+        this.toggleClearButton();
+    }
+
+    // Resetar todos os filtros
+    resetFilters() {
+        const searchInput = document.getElementById('search-input');
+        const categoryFilter = document.getElementById('category-filter');
+        
+        if (searchInput) searchInput.value = '';
+        if (categoryFilter) categoryFilter.value = 'all';
+        
+        this.searchTerm = '';
+        this.selectedCategory = 'all';
+        this.applyFilters();
+        this.toggleClearButton();
+    }
+
+    // Mostra/esconde botão de limpar pesquisa
+    toggleClearButton() {
+        const clearSearchBtn = document.getElementById('clear-search');
+        if (clearSearchBtn) {
+            clearSearchBtn.style.display = this.searchTerm ? 'block' : 'none';
+        }
     }
 
     // Navega para a próxima página

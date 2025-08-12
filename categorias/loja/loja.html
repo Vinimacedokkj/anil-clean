@@ -23,6 +23,39 @@
     <!-- Menu de navegação entre as categorias (utilizado um fetch) -->
     <div class="container-categories" id="menu-navegacao-entre-categorias"></div>
 
+    <!-- BARRA DE PESQUISA E FILTROS -->
+    <div class="search-container">
+        <div class="search-box">
+            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Pesquisar produtos..." class="search-input">
+                <button id="clear-search" class="clear-search-btn" style="display: none;">✕</button>
+            </div>
+        </div>
+        
+        <div class="filter-container">
+            <select id="category-filter" class="category-filter">
+                <option value="all">Todas as Categorias</option>
+                <option value="banners-educativos">Banners Educativos</option>
+                <option value="pedagogico">Brinquedos Pedagógicos</option>
+                <option value="brinquedos-de-madeira">Brinquedos de Madeira</option>
+                <option value="bonecas-diversidade">Bonecas Diversidade</option>
+                <option value="triciclos">Triciclos</option>
+                <option value="ventiladores">Ventiladores</option>
+                <option value="tecidos">Tecidos</option>
+                <option value="redes-de-descanso">Redes de Descanso</option>
+                <option value="variedades">Variedades</option>
+                <option value="materiais-esportivos">Materiais Esportivos</option>
+            </select>
+            
+            <button id="reset-filters" class="reset-filters-btn">Limpar Filtros</button>
+        </div>
+        
+        <div class="search-results-info">
+            <span id="results-count">64 produtos encontrados</span>
+        </div>
+    </div>
+
     <div class="products-container">
         <!-- PRODUTOS ABAIXO -->
         
