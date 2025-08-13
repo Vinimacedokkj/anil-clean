@@ -60,7 +60,7 @@ body {
 }
 
 #produtos {
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
     margin: 0;
     padding: 0;
 }
@@ -278,7 +278,7 @@ body {
 .title-container {
     text-align: center;
     padding: 20px 0 10px 0;
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
     margin-bottom: 10px;
 }
 
