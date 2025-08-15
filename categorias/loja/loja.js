@@ -14,6 +14,7 @@ class LojaPagination {
     init() {
         this.loadAllProducts();
         this.setupEventListeners();
+        this.restoreState();
         this.updatePaginationInfo();
     }
 
@@ -24,8 +25,116 @@ class LojaPagination {
         this.filteredProducts = [...this.allProducts];
         this.totalPages = Math.ceil(this.filteredProducts.length / this.productsPerPage);
         
-        // Mostra apenas os primeiros 20 produtos
-        this.showPage(1);
+        // Não mostra a página 1 automaticamente, aguarda restoreState()
+    }
+
+    // Salva o estado atual no localStorage
+    saveState() {
+        const state = {
+            currentPage: this.currentPage,
+            searchTerm: this.searchTerm,
+            selectedCategory: this.selectedCategory
+        };
+        localStorage.setItem('lojaState', JSON.stringify(state));
+        
+        // Atualiza a URL para incluir a página atual
+        this.updateURL();
+    }
+
+    // Restaura o estado salvo do localStorage
+    restoreState() {
+        // Primeiro tenta restaurar da URL (prioridade)
+        this.restoreFromURL();
+        
+        // Depois tenta restaurar do localStorage
+        const savedState = localStorage.getItem('lojaState');
+        if (savedState) {
+            try {
+                const state = JSON.parse(savedState);
+                
+                // Restaura a página atual se for válida e não foi definida pela URL
+                if (!this.currentPage && state.currentPage && state.currentPage >= 1 && state.currentPage <= this.totalPages) {
+                    this.currentPage = state.currentPage;
+                }
+                
+                // Restaura os filtros se não foram definidos pela URL
+                if (!this.searchTerm && state.searchTerm) {
+                    this.searchTerm = state.searchTerm;
+                    const searchInput = document.getElementById('search-input');
+                    if (searchInput) {
+                        searchInput.value = this.searchTerm;
+                    }
+                }
+                
+                if (this.selectedCategory === 'all' && state.selectedCategory) {
+                    this.selectedCategory = state.selectedCategory;
+                    const categoryFilter = document.getElementById('category-filter');
+                    if (categoryFilter) {
+                        categoryFilter.value = this.selectedCategory;
+                    }
+                }
+                
+            } catch (error) {
+                console.error('Erro ao restaurar estado do localStorage:', error);
+            }
+        }
+        
+        // Se não há estado definido, usa valores padrão
+        if (!this.currentPage) {
+            this.currentPage = 1;
+        }
+        
+        // Aplica os filtros e mostra a página restaurada
+        this.applyFilters();
+        this.showPage(this.currentPage);
+    }
+
+    // Atualiza a URL para incluir a página atual
+    updateURL() {
+        const url = new URL(window.location);
+        url.searchParams.set('page', this.currentPage);
+        
+        if (this.searchTerm) {
+            url.searchParams.set('search', this.searchTerm);
+        }
+        
+        if (this.selectedCategory !== 'all') {
+            url.searchParams.set('category', this.selectedCategory);
+        }
+        
+        // Atualiza a URL sem recarregar a página
+        window.history.replaceState({}, '', url);
+    }
+
+    // Restaura o estado da URL quando a página carrega
+    restoreFromURL() {
+        const url = new URL(window.location);
+        const pageFromURL = url.searchParams.get('page');
+        const searchFromURL = url.searchParams.get('search');
+        const categoryFromURL = url.searchParams.get('category');
+        
+        if (pageFromURL) {
+            const page = parseInt(pageFromURL);
+            if (page >= 1 && page <= this.totalPages) {
+                this.currentPage = page;
+            }
+        }
+        
+        if (searchFromURL) {
+            this.searchTerm = searchFromURL;
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.value = this.searchTerm;
+            }
+        }
+        
+        if (categoryFromURL) {
+            this.selectedCategory = categoryFromURL;
+            const categoryFilter = document.getElementById('category-filter');
+            if (categoryFilter) {
+                categoryFilter.value = this.selectedCategory;
+            }
+        }
     }
 
     // Aplica filtros de pesquisa e categoria
@@ -42,8 +151,16 @@ class LojaPagination {
         });
 
         this.totalPages = Math.ceil(this.filteredProducts.length / this.productsPerPage);
-        this.currentPage = 1;
-        this.showPage(1);
+        
+        // Valida o estado atual
+        this.validateState();
+        
+        // Ajusta a página atual se ela exceder o total de páginas após filtrar
+        if (this.currentPage > this.totalPages && this.totalPages > 0) {
+            this.currentPage = this.totalPages;
+        }
+        
+        this.showPage(this.currentPage);
         this.updateResultsCount();
         this.updatePaginationButtons();
     }
@@ -66,6 +183,9 @@ class LojaPagination {
 
         this.updatePaginationInfo();
         this.updatePaginationButtons();
+        
+        // Salva o estado e atualiza a URL
+        this.saveState();
     }
 
     // Atualiza as informações de paginação
@@ -166,6 +286,12 @@ class LojaPagination {
             });
         }
 
+        // Event listener para navegação do browser (voltar/avançar)
+        window.addEventListener('popstate', () => {
+            this.restoreFromURL();
+            this.applyFilters();
+        });
+
         // Event listeners para pesquisa
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
@@ -200,6 +326,15 @@ class LojaPagination {
                 this.resetFilters();
             });
         }
+
+        // Event listener para botão limpar estado salvo
+        const clearSavedStateBtn = document.getElementById('clear-saved-state');
+        if (clearSavedStateBtn) {
+            clearSavedStateBtn.addEventListener('click', () => {
+                this.clearSavedState();
+                this.showPage(1);
+            });
+        }
     }
 
     // Limpa a pesquisa
@@ -223,6 +358,11 @@ class LojaPagination {
         
         this.searchTerm = '';
         this.selectedCategory = 'all';
+        this.currentPage = 1; // Volta para a primeira página ao resetar
+        
+        // Limpa o estado salvo
+        localStorage.removeItem('lojaState');
+        
         this.applyFilters();
         this.toggleClearButton();
     }
@@ -253,6 +393,32 @@ class LojaPagination {
     goToPage(pageNumber) {
         if (pageNumber >= 1 && pageNumber <= this.totalPages) {
             this.showPage(pageNumber);
+        }
+    }
+
+    // Limpa o estado salvo (útil para resetar completamente)
+    clearSavedState() {
+        localStorage.removeItem('lojaState');
+        this.currentPage = 1;
+        this.searchTerm = '';
+        this.selectedCategory = 'all';
+        
+        // Limpa a URL
+        const url = new URL(window.location);
+        url.searchParams.delete('page');
+        url.searchParams.delete('search');
+        url.searchParams.delete('category');
+        window.history.replaceState({}, '', url);
+    }
+
+    // Verifica se o estado atual é válido
+    validateState() {
+        if (this.currentPage < 1 || this.currentPage > this.totalPages) {
+            this.currentPage = 1;
+        }
+        
+        if (this.totalPages === 0) {
+            this.currentPage = 1;
         }
     }
 }
