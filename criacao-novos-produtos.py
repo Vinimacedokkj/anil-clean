@@ -1,6 +1,8 @@
 import pyautogui as pa
 import time
 
+# PROGRAMA PARA CRIAR NOVOS PRODUTOS NO IDE DE CÓDIGO
+
 criar_produto = int(input("Quantos produtos você quer criar? "))
 
 numero_produto = int(input("Qual o número do primeiro produto? "))

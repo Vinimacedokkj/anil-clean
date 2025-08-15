@@ -1,38 +1,36 @@
 import pyautogui as pa
 import time
 
-# PROGRAMA PARA RENOMAR ARQUIVOS NA PLANILHA
+# PROGRAMA PARA MODIFICAR ARQUIVO NA PÁGINA INDIVIDUAL DO PRODUTO
 
-vezes = int(input("Quantas vezes você quer rodar o programa? "))
+vezes = int(input("Quantos produtos você quer modificar: "))
 
-pa.PAUSE = 0.2
+pa.PAUSE = 0.4
 
 time.sleep(5)
 
 for i in range(vezes):
     # deixar o programa no excel
-
     pa.press("f2")
-
+    
     pa.hotkey("ctrl", "a")
+
     pa.hotkey("ctrl", "c")
 
     pa.press("esc")
 
-    pa.press("right", presses=2)
+    pa.press("down")
+
+    pa.hotkey("win", "5")
 
     pa.press("f2")
 
-    pa.press("home")
+    pa.hotkey("ctrl", "a")
 
     pa.hotkey("ctrl", "v")
 
-    pa.write("-")
-
-    pa.press("end")
-
-    pa.write(".html")
-
     pa.press("enter")
 
-    pa.press("left", presses=2)
+    pa.press("down")
+
+    pa.hotkey("win", "2")

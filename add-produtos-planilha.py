@@ -1,6 +1,8 @@
 import pyautogui as pa
 import time
 
+# PROGRAMA PARA ADICIONAR PRODUTOS NA PLANILHA
+
 vezes = int(input("Quantos produtos você quer adicionar: "))
 
 pa.PAUSE = 0.2
