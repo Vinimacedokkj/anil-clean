@@ -323,18 +323,21 @@ class LojaPagination {
         const resetFiltersBtn = document.getElementById('reset-filters');
         if (resetFiltersBtn) {
             resetFiltersBtn.addEventListener('click', () => {
-                this.resetFilters();
+                if (confirm('Limpar os filtros?')) {
+                    this.resetFilters();
+                }
             });
         }
 
         // Event listener para botão limpar estado salvo
-        const clearSavedStateBtn = document.getElementById('clear-saved-state');
-        if (clearSavedStateBtn) {
-            clearSavedStateBtn.addEventListener('click', () => {
-                this.clearSavedState();
-                this.showPage(1);
-            });
-        }
+        // const clearSavedStateBtn = document.getElementById('clear-saved-state');
+        // if (clearSavedStateBtn) {
+        //     clearSavedStateBtn.addEventListener('click', () => {
+        //         if (confirm('Tem certeza que deseja limpar o estado salvo e voltar ao início da loja?')) {
+        //             this.clearSavedState();
+        //         }
+        //     });
+        // }
     }
 
     // Limpa a pesquisa
@@ -350,21 +353,11 @@ class LojaPagination {
 
     // Resetar todos os filtros
     resetFilters() {
-        const searchInput = document.getElementById('search-input');
-        const categoryFilter = document.getElementById('category-filter');
-        
-        if (searchInput) searchInput.value = '';
-        if (categoryFilter) categoryFilter.value = 'all';
-        
-        this.searchTerm = '';
-        this.selectedCategory = 'all';
-        this.currentPage = 1; // Volta para a primeira página ao resetar
-        
-        // Limpa o estado salvo
+        // Limpa completamente o estado salvo
         localStorage.removeItem('lojaState');
         
-        this.applyFilters();
-        this.toggleClearButton();
+        // Redireciona para a loja principal (sem parâmetros na URL)
+        window.location.href = '/categorias/loja/loja.html';
     }
 
     // Mostra/esconde botão de limpar pesquisa
@@ -398,17 +391,11 @@ class LojaPagination {
 
     // Limpa o estado salvo (útil para resetar completamente)
     clearSavedState() {
+        // Limpa completamente o estado salvo
         localStorage.removeItem('lojaState');
-        this.currentPage = 1;
-        this.searchTerm = '';
-        this.selectedCategory = 'all';
         
-        // Limpa a URL
-        const url = new URL(window.location);
-        url.searchParams.delete('page');
-        url.searchParams.delete('search');
-        url.searchParams.delete('category');
-        window.history.replaceState({}, '', url);
+        // Redireciona para a loja principal (sem parâmetros na URL)
+        window.location.href = '/categorias/loja/loja.html';
     }
 
     // Verifica se o estado atual é válido
