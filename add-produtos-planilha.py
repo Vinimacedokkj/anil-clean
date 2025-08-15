@@ -1,9 +1,9 @@
 import pyautogui as pa
 import time
 
-vezes = int(input("Quantas vezes você quer abrir o programa: "))
+vezes = int(input("Quantos produtos você quer adicionar: "))
 
-pa.PAUSE = 0.3
+pa.PAUSE = 0.2
 
 time.sleep(5)
 
