@@ -19,6 +19,7 @@ pa.PAUSE = 2
 for i in range(modificar_produto):
     # Para rodar o programa, deixe a planilha aberta na planilha com o nome do arquivo .HTML
 
+    # Trabalhando com o arquivo .html
     pa.press("f2")
 
     pa.hotkey("ctrl", "a")
@@ -26,8 +27,6 @@ for i in range(modificar_produto):
     pa.hotkey("ctrl", "c")
 
     pa.press("esc")
-
-    # pa.press("right")
 
     # Abre o IDE de código
     pa.hotkey("win", "9")
@@ -82,14 +81,13 @@ for i in range(modificar_produto):
 
     pa.write("Banner | Produtos Anilclean")
 
-    # pa.press("enter")
-
     pa.press("esc")
 
     pa.press("left")
 
     pa.hotkey("ctrl", "shift", "right")
 
+    # Trabalhando com o nome da imagem (acentuação e espaços)
     # Abre a planilha
     pa.hotkey("win", "2")
     
@@ -101,8 +99,6 @@ for i in range(modificar_produto):
     pa.hotkey("ctrl", "c")
 
     pa.press("esc")
-
-    # pa.press("enter")
 
     pa.press("left", presses=2)
 
@@ -127,6 +123,15 @@ for i in range(modificar_produto):
 
     pa.hotkey("ctrl", "v")
 
+    # LOCALIZAR O <a> ONDE ESTARÁ ESCRITO O NOME DO PRODUTO
+    pa.press("up", presses=2)
+
+    pa.press("end")
+
+    pa.press("left", presses=4)
+
+    pa.hotkey("ctrl", "v")
+
     # LOCALIZAR O TITLE DO JAVASCRIPT
     pa.hotkey("ctrl", "f")
 
@@ -142,7 +147,7 @@ for i in range(modificar_produto):
 
     pa.hotkey("ctrl", "v")
 
-    # LOCALIZAR A PRIMEIRA IMAGEM
+    # LOCALIZAR A PRIMEIRA IMAGEM - Trabalhando com o arquivo de imagem (jpg, png ou webp)
 
     # Primeiro copiar o arquivo da imagem
     # Abre a planilha
@@ -158,7 +163,7 @@ for i in range(modificar_produto):
 
     pa.press("down")
 
-    pa.pres("right")
+    pa.press("right")
 
     # Abre o IDE de código
     pa.hotkey("win", "9")
