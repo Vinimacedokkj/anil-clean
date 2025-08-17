@@ -14,7 +14,7 @@ modificar_produto = int(input("Quantos produtos você quer modificar? "))
 
 time.sleep(5)
 
-pa.PAUSE = 1
+pa.PAUSE = 0.5
 
 for i in range(modificar_produto):
     # Para rodar o programa, deixe a planilha aberta na planilha com o nome do arquivo .HTML
@@ -79,13 +79,11 @@ for i in range(modificar_produto):
     # LOCALIZAR TÍTULO
     pa.hotkey("ctrl", "f")
 
-    pa.write("Banner | Produtos Anilclean")
+    pa.write(" | Produtos Anilclean")
 
     pa.press("esc")
 
     pa.press("left")
-
-    pa.hotkey("ctrl", "shift", "right")
 
     # Trabalhando com o nome da imagem (acentuação e espaços)
     # Abre a planilha
