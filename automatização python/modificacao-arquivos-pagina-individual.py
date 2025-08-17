@@ -14,7 +14,7 @@ modificar_produto = int(input("Quantos produtos você quer modificar? "))
 
 time.sleep(5)
 
-pa.PAUSE = 0.5
+pa.PAUSE = 0.7
 
 for i in range(modificar_produto):
     # Para rodar o programa, deixe a planilha aberta na planilha com o nome do arquivo .HTML
@@ -196,6 +196,10 @@ for i in range(modificar_produto):
     pa.write("/")
 
     pa.hotkey("ctrl", "v")
+
+    pa.hotkey("ctrl", "s")
+
+    pa.hotkey("win", "2")
 
 
 
