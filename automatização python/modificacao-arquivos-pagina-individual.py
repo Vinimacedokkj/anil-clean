@@ -7,12 +7,14 @@ import time
 
 # PARA GARANTIR QUE O PROGRAMA RODE:
 # A planilha tem que estar no 2
-# O bloco de notes tem que estar no 4 (apenas 1 aba aberta)
+# O bloco de notes tem que estar no 4 (apenas 1 aba aberta e com o arquivo inteiro selecionado)
 # O IDE de código tem que estar no 9
 
 modificar_produto = int(input("Quantos produtos você quer modificar? "))
 
 time.sleep(5)
+
+pa.PAUSE = 2
 
 for i in range(modificar_produto):
     # Para rodar o programa, deixe a planilha aberta na planilha com o nome do arquivo .HTML
@@ -69,6 +71,8 @@ for i in range(modificar_produto):
 
     pa.press("esc")
 
+    pa.press("right")
+
     pa.hotkey("win", "9")
 
     pa.hotkey("ctrl", "v")
@@ -82,7 +86,7 @@ for i in range(modificar_produto):
 
     pa.press("esc")
 
-    pa.press("left", presses=2)
+    pa.press("left")
 
     pa.hotkey("ctrl", "shift", "right")
 
@@ -98,9 +102,9 @@ for i in range(modificar_produto):
 
     pa.press("esc")
 
-    pa.press("enter")
+    # pa.press("enter")
 
-    pa.press("left")
+    pa.press("left", presses=2)
 
     # Abre o IDE de código
     pa.hotkey("win", "9")
@@ -119,7 +123,7 @@ for i in range(modificar_produto):
     # LOCALIZAR O PRIMEIRO H1 PARA ALTERAR
     pa.press("down", presses=8)
 
-    pa.press("left")
+    pa.press("left", presses=5)
 
     pa.hotkey("ctrl", "v")
 
@@ -152,7 +156,7 @@ for i in range(modificar_produto):
 
     pa.hotkey("esc")
 
-    pa.press("enter")
+    pa.press("down")
 
     pa.pres("right")
 
@@ -168,8 +172,6 @@ for i in range(modificar_produto):
     pa.press("down")
 
     pa.hotkey("ctrl", "right", presses=7)
-
-    pa.hotkey("win", "2")
     
     pa.write("/")
 
