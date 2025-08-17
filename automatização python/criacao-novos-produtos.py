@@ -1,7 +1,7 @@
 import pyautogui as pa
 import time
 
-# PROGRAMA PARA CRIAR NOVOS PRODUTOS NO IDE DE CÓDIGO
+# O programa possibilita que você entre em uma pasta e crie quantos arquivos quiser já com a extensão .html, adicionando novos produtos
 
 criar_produto = int(input("Quantos produtos você quer criar? "))
 

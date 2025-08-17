@@ -1,7 +1,7 @@
 import pyautogui as pa
 import time
 
-# PROGRAMA PARA MODIFICAR ARQUIVO NA PÁGINA INDIVIDUAL DO PRODUTO
+# O programa possibilita que você consiga pegar o nome que está na planilha e renomear o arquivo .html, possibilitando você dar continuidade no último código, que é onde você utilizou o programa para criação de novos produtos.
 
 vezes = int(input("Quantos produtos você quer modificar: "))
 

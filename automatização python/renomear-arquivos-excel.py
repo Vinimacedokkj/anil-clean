@@ -1,7 +1,8 @@
 import pyautogui as pa
 import time
 
-# PROGRAMA PARA RENOMAR ARQUIVOS NA PLANILHA
+# Esse programa possibilita que você consiga criar arquivos em html com mais facilidade
+# Você consegue, na planilha mesmo, pegar o nome das imagens, renomear na aba de arquivos em html e então apenas colar no IDE de código, facilitando sua criação e evitar que crie com o nome errado
 
 vezes = int(input("Quantas vezes você quer rodar o programa? "))
 
