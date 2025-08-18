@@ -52,7 +52,8 @@ for i in range(modificar_produto):
     # LOCALIZAR ONDE TEM O ARQUIVO HTML PARA SUBSTITUIR
     pa.hotkey("ctrl", "f")
 
-    pa.write('<a href="/categorias/pagina-individual-do-produto/banners-educativos')
+    # -------------------------------------- PARA MUDAR O PRODUTO, MUDAR ISTO --------------------------------------
+    pa.write('<a href="/categorias/pagina-individual-do-produto/materiais-esportivos')
 
     pa.press("esc")
 
@@ -174,7 +175,8 @@ for i in range(modificar_produto):
 
     pa.press("down")
 
-    pa.press("right", presses=47)
+    # -------------------------------------- PARA MUDAR O PRODUTO, MUDAR ISTO --------------------------------------
+    pa.press("right", presses=49)
     
     pa.write("/")
 
