@@ -2,8 +2,7 @@ import pyautogui as pa
 import time
 
 # Esse programa possibilita que você consiga criar arquivos em html com mais facilidade
-# Você consegue, na planilha mesmo, pegar o nome das imagens, renomear na aba de arquivos em html 
-# e então apenas colar no IDE de código, facilitando sua criação e evitar que crie com o nome errado
+# Ou seja, pega o nome no excel e cola no html
 
 vezes = int(input("Quantas vezes você quer rodar o programa? "))
 
