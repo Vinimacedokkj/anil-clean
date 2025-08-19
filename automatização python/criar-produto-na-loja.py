@@ -29,6 +29,8 @@ pa.PAUSE = 1
 for i in range(criar_produto):
     # Para o código funcionar, deixar aberto na aba da loja.html, no espaço em branco onde vai ser inserido o produto
     # E na planilha, deixar em cima da célula com o nome da pasta.
+    # Planilha no 2, bloco de notas no 4 e IDE no 9
+
     pa.hotkey("win", "4")
 
     pa.hotkey("ctrl", "a")
@@ -45,11 +47,7 @@ for i in range(criar_produto):
 
     pa.press("left", presses=2)
 
-    pa.keyDown("shift")
-
-    pa.press("left", presses=31)
-
-    pa.keyUp("shift")
+    pa.press("backspace", presses=31)
 
     pa.write("/")
 
@@ -95,13 +93,7 @@ for i in range(criar_produto):
 
     pa.press("right", presses=10)
 
-    pa.keyDown("shift")
-
-    pa.press("right", presses=24)
-    
-    pa.keyUp("shift")
-
-    pa.press("backspace")
+    pa.press("delete", presses=24)
 
     pa.write("/img/imagens-dos-produtos/todos-os-produtos/")
 
@@ -121,27 +113,15 @@ for i in range(criar_produto):
 
     pa.hotkey("ctrl", "v")
 
-    pa.keyDown("shift")
-
-    pa.press("home")
-
-    pa.press("right", presses=10)
-    
-    pa.keyUp("shift")
-
-    pa.hotkey("ctrl", "c")
-
     pa.press("down", presses=6)
 
     pa.press("end")
 
     pa.press("left", presses=32)
 
-    pa.keyDown("shift")
+    pa.press("backspace", presses=24)
 
-    pa.press("left", presses=24)
-
-    pa.keyUp("shift")
+    pa.write("/img/imagens-dos-produtos/todos-os-produtos/")
 
     pa.hotkey("ctrl", "v")
 
@@ -150,5 +130,7 @@ for i in range(criar_produto):
     pa.press("enter", presses=2)
 
     pa.press("enter")
+
+    pa.press("up")
 
     pa.press("tab")
