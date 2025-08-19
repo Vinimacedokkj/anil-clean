@@ -27,6 +27,18 @@ time.sleep(5)
 for i in range(criar_produto):
     pa.hotkey("win", "4")
 
+    pa.hotkey("ctrl", "a")
+
     pa.hotkey("ctrl", "c")
 
-    
+    pa.hotkey("win", "9")
+
+    pa.hotkey("ctrl", "v")
+
+    pa.press("up", presses=9)
+
+    pa.press("end")
+
+    pa.press("left", presses=2)
+
+
