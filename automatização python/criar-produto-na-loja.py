@@ -41,4 +41,14 @@ for i in range(criar_produto):
 
     pa.press("left", presses=2)
 
+    pa.keyDown("shift")
+
+    pa.press("left", presses=31)
+
+    pa.keyUp("shift")
+
+    
+
+    pa.write("/")
+
 
