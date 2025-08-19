@@ -24,7 +24,7 @@ criar_produto = int(input("Quantos produtos você quer criar? "))
 
 time.sleep(5)
 
-pa.PAUSE = 1
+pa.PAUSE = 0.3
 
 for i in range(criar_produto):
     # Para o código funcionar, deixar aberto na aba da loja.html, no espaço em branco onde vai ser inserido o produto
@@ -109,6 +109,8 @@ for i in range(criar_produto):
 
     pa.press("right", presses=4)
 
+    pa.press("down")
+
     pa.hotkey("win", "9")
 
     pa.hotkey("ctrl", "v")
@@ -128,8 +130,6 @@ for i in range(criar_produto):
     pa.press("down", presses=3)
 
     pa.press("enter", presses=2)
-
-    pa.press("enter")
 
     pa.press("up")
 
