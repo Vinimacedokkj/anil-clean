@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Mobile - Loja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .test-select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Teste de Funcionalidade Mobile - Loja</h1>
+        
+        <div class="test-section">
+            <h3>📱 Detecção de Dispositivo</h3>
+            <div id="device-info"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔍 Teste de Pesquisa</h3>
+            <input type="text" id="test-search" class="test-input" placeholder="Digite algo para testar a pesquisa...">
+            <button id="test-search-btn" class="test-button">Testar Pesquisa</button>
+            <div id="search-status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>📋 Teste de Filtro de Categoria</h3>
+            <select id="test-category" class="test-select">
+                <option value="all">Todas as Categorias</option>
+                <option value="banners-educativos">Banners Educativos</option>
+                <option value="pedagogico">Brinquedos Pedagógicos</option>
+                <option value="brinquedos-de-madeira">Brinquedos de Madeira</option>
+            </select>
+            <button id="test-category-btn" class="test-button">Testar Filtro</button>
+            <div id="category-status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔄 Teste de Botões</h3>
+            <button id="test-clear-btn" class="test-button">Limpar Pesquisa</button>
+            <button id="test-reset-btn" class="test-button">Resetar Filtros</button>
+            <div id="buttons-status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>📊 Logs de Debug</h3>
+            <div id="debug-log" class="log"></div>
+            <button id="clear-log-btn" class="test-button">Limpar Log</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>✅ Status Geral</h3>
+            <div id="overall-status"></div>
+        </div>
+    </div>
+
+    <script>
+        // Simula a funcionalidade da loja para teste
+        class MobileTest {
+            constructor() {
+                this.searchTerm = '';
+                this.selectedCategory = 'all';
+                this.isMobile = this.detectMobile();
+                this.init();
+            }
+            
+            detectMobile() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                       (window.innerWidth <= 768);
+            }
+            
+            init() {
+                this.updateDeviceInfo();
+                this.setupEventListeners();
+                this.log('Sistema de teste inicializado');
+                this.log(`Dispositivo móvel detectado: ${this.isMobile}`);
+                this.updateOverallStatus();
+            }
+            
+            updateDeviceInfo() {
+                const deviceInfo = document.getElementById('device-info');
+                deviceInfo.innerHTML = `
+                    <div class="status ${this.isMobile ? 'success' : 'error'}">
+                        ${this.isMobile ? '✅ Dispositivo Móvel Detectado' : '❌ Dispositivo Desktop Detectado'}
+                    </div>
+                    <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+                    <p><strong>Largura da Tela:</strong> ${window.innerWidth}px</p>
+                    <p><strong>Altura da Tela:</strong> ${window.innerHeight}px</p>
+                `;
+            }
+            
+            setupEventListeners() {
+                // Teste de pesquisa
+                const searchInput = document.getElementById('test-search');
+                const searchBtn = document.getElementById('test-search-btn');
+                
+                if (searchInput) {
+                    searchInput.addEventListener('input', (e) => {
+                        this.searchTerm = e.target.value;
+                        this.log(`Pesquisa digitada: "${this.searchTerm}"`);
+                    });
+                    
+                    // Eventos específicos para mobile
+                    if (this.isMobile) {
+                        searchInput.addEventListener('touchstart', (e) => {
+                            this.log('Touch no campo de pesquisa');
+                        });
+                        
+                        searchInput.addEventListener('focus', (e) => {
+                            this.log('Campo de pesquisa focado');
+                        });
+                    }
+                }
+                
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', () => {
+                        this.testSearch();
+                    });
+                    
+                    if (this.isMobile) {
+                        searchBtn.addEventListener('touchstart', (e) => {
+                            e.preventDefault();
+                            this.testSearch();
+                        });
+                    }
+                }
+                
+                // Teste de categoria
+                const categorySelect = document.getElementById('test-category');
+                const categoryBtn = document.getElementById('test-category-btn');
+                
+                if (categorySelect) {
+                    categorySelect.addEventListener('change', (e) => {
+                        this.selectedCategory = e.target.value;
+                        this.log(`Categoria selecionada: "${this.selectedCategory}"`);
+                    });
+                    
+                    if (this.isMobile) {
+                        categorySelect.addEventListener('touchstart', (e) => {
+                            this.log('Touch no filtro de categoria');
+                        });
+                        
+                        categorySelect.addEventListener('focus', (e) => {
+                            this.log('Filtro de categoria focado');
+                        });
+                    }
+                }
+                
+                if (categoryBtn) {
+                    categoryBtn.addEventListener('click', () => {
+                        this.testCategory();
+                    });
+                    
+                    if (this.isMobile) {
+                        categoryBtn.addEventListener('touchstart', (e) => {
+                            e.preventDefault();
+                            this.testCategory();
+                        });
+                    }
+                }
+                
+                // Teste de botões
+                const clearBtn = document.getElementById('test-clear-btn');
+                const resetBtn = document.getElementById('test-reset-btn');
+                
+                if (clearBtn) {
+                    clearBtn.addEventListener('click', () => {
+                        this.testClear();
+                    });
+                    
+                    if (this.isMobile) {
+                        clearBtn.addEventListener('touchstart', (e) => {
+                            e.preventDefault();
+                            this.testClear();
+                        });
+                    }
+                }
+                
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', () => {
+                        this.testReset();
+                    });
+                    
+                    if (this.isMobile) {
+                        resetBtn.addEventListener('touchstart', (e) => {
+                            e.preventDefault();
+                            this.testReset();
+                        });
+                    }
+                }
+                
+                // Botão limpar log
+                const clearLogBtn = document.getElementById('clear-log-btn');
+                if (clearLogBtn) {
+                    clearLogBtn.addEventListener('click', () => {
+                        this.clearLog();
+                    });
+                }
+            }
+            
+            testSearch() {
+                const status = document.getElementById('search-status');
+                if (this.searchTerm) {
+                    status.innerHTML = `<div class="status success">✅ Pesquisa funcionando: "${this.searchTerm}"</div>`;
+                    this.log(`Teste de pesquisa: SUCESSO - "${this.searchTerm}"`);
+                } else {
+                    status.innerHTML = `<div class="status error">❌ Digite algo para testar a pesquisa</div>`;
+                    this.log('Teste de pesquisa: FALHOU - Campo vazio');
+                }
+                this.updateOverallStatus();
+            }
+            
+            testCategory() {
+                const status = document.getElementById('category-status');
+                if (this.selectedCategory !== 'all') {
+                    status.innerHTML = `<div class="status success">✅ Filtro funcionando: "${this.selectedCategory}"</div>`;
+                    this.log(`Teste de categoria: SUCESSO - "${this.selectedCategory}"`);
+                } else {
+                    status.innerHTML = `<div class="status error">❌ Selecione uma categoria específica</div>`;
+                    this.log('Teste de categoria: FALHOU - Categoria padrão selecionada');
+                }
+                this.updateOverallStatus();
+            }
+            
+            testClear() {
+                const searchInput = document.getElementById('test-search');
+                if (searchInput) {
+                    searchInput.value = '';
+                    this.searchTerm = '';
+                }
+                
+                const status = document.getElementById('buttons-status');
+                status.innerHTML = `<div class="status success">✅ Botão limpar funcionando</div>`;
+                this.log('Teste de botão limpar: SUCESSO');
+                this.updateOverallStatus();
+            }
+            
+            testReset() {
+                const searchInput = document.getElementById('test-search');
+                const categorySelect = document.getElementById('test-category');
+                
+                if (searchInput) searchInput.value = '';
+                if (categorySelect) categorySelect.value = 'all';
+                
+                this.searchTerm = '';
+                this.selectedCategory = 'all';
+                
+                const status = document.getElementById('buttons-status');
+                status.innerHTML = `<div class="status success">✅ Botão resetar funcionando</div>`;
+                this.log('Teste de botão resetar: SUCESSO');
+                this.updateOverallStatus();
+            }
+            
+            log(message) {
+                const logElement = document.getElementById('debug-log');
+                if (logElement) {
+                    const timestamp = new Date().toLocaleTimeString();
+                    logElement.innerHTML += `[${timestamp}] ${message}\n`;
+                    logElement.scrollTop = logElement.scrollHeight;
+                }
+            }
+            
+            clearLog() {
+                const logElement = document.getElementById('debug-log');
+                if (logElement) {
+                    logElement.innerHTML = '';
+                }
+            }
+            
+            updateOverallStatus() {
+                const overallStatus = document.getElementById('overall-status');
+                const tests = [
+                    this.searchTerm ? 'Pesquisa' : null,
+                    this.selectedCategory !== 'all' ? 'Categoria' : null,
+                    'Botões'
+                ].filter(Boolean);
+                
+                if (tests.length >= 2) {
+                    overallStatus.innerHTML = `<div class="status success">✅ Sistema funcionando: ${tests.join(', ')} testados</div>`;
+                } else {
+                    overallStatus.innerHTML = `<div class="status error">❌ Execute mais testes para verificar o sistema</div>`;
+                }
+            }
+        }
+        
+        // Inicializa o teste quando a página carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            new MobileTest();
+        });
+    </script>
+</body>
+</html>

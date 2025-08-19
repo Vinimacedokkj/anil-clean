@@ -728,3 +728,128 @@
         border-top: 1.5px solid currentColor;
     }
 }
+
+/* ************MOBILE SPECIFIC STYLES************ */
+/* Estilos específicos para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Melhora a responsividade dos campos de input */
+    .search-input-wrapper {
+        min-height: 48px; /* Altura mínima recomendada para touch */
+    }
+    
+    .search-input {
+        min-height: 48px;
+        font-size: 16px; /* Previne zoom em iOS */
+    }
+    
+    /* Melhora a responsividade do filtro de categoria */
+    .category-filter {
+        min-height: 48px;
+        font-size: 16px; /* Previne zoom em iOS */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        padding-right: 40px;
+    }
+    
+    /* Melhora a responsividade dos botões */
+    .reset-filters-btn,
+    .clear-saved-state-btn {
+        min-height: 48px;
+        font-size: 16px; /* Previne zoom em iOS */
+    }
+    
+    /* Adiciona feedback visual para interações touch */
+    .mobile-active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Melhora o espaçamento entre elementos em mobile */
+    .filter-container {
+        gap: 16px;
+    }
+    
+    /* Ajusta o tamanho dos produtos para melhor visualização em mobile */
+    .product-item .image-container {
+        height: 180px;
+    }
+    
+    .product-item .product-info {
+        padding: 16px;
+    }
+    
+    .product-item h3 {
+        font-size: var(--font-size-3);
+        line-height: 1.3;
+    }
+    
+    .product-item p {
+        font-size: var(--font-size-2);
+        line-height: 1.4;
+    }
+    
+    .product-item .add-to-cart-btn {
+        min-height: 48px;
+        font-size: var(--font-size-2);
+    }
+}
+
+/* Estilos específicos para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .search-input-wrapper {
+        min-height: 44px;
+    }
+    
+    .search-input {
+        min-height: 44px;
+    }
+    
+    .category-filter {
+        min-height: 44px;
+    }
+    
+    .reset-filters-btn,
+    .clear-saved-state-btn {
+        min-height: 44px;
+    }
+    
+    .product-item .add-to-cart-btn {
+        min-height: 44px;
+    }
+    
+    /* Ajusta o grid para uma coluna em dispositivos muito pequenos */
+    .products-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Estilos para melhorar a acessibilidade em dispositivos móveis */
+@media (max-width: 768px) {
+    /* Adiciona indicadores visuais para elementos interativos */
+    .search-input:focus,
+    .category-filter:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+    
+    /* Melhora o contraste dos botões */
+    .add-to-cart-btn {
+        font-weight: 600;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Adiciona sombras sutis para melhor profundidade visual */
+    .product-item {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-item:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+}

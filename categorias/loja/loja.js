@@ -1,21 +1,60 @@
 // Sistema de Paginação e Pesquisa para a Loja
 class LojaPagination {
     constructor() {
-        this.productsPerPage = 20;
         this.currentPage = 1;
+        this.productsPerPage = 20;
         this.allProducts = [];
         this.filteredProducts = [];
-        this.totalPages = 0;
+        this.totalPages = 1;
         this.searchTerm = '';
         this.selectedCategory = 'all';
+        
+        // Detecção de dispositivo móvel
+        this.isMobile = this.detectMobile();
+        console.log('Dispositivo móvel detectado:', this.isMobile);
+        
         this.init();
     }
 
+    // Detecta se é um dispositivo móvel
+    detectMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+               (window.innerWidth <= 768);
+    }
+
     init() {
+        console.log('Inicializando LojaPagination...');
+        console.log('DOM carregado:', document.readyState);
+        
+        // Aguarda o DOM estar completamente carregado
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log('DOM carregado via event listener');
+                this.initializeAfterDOM();
+            });
+        } else {
+            console.log('DOM já carregado, inicializando imediatamente');
+            this.initializeAfterDOM();
+        }
+    }
+
+    initializeAfterDOM() {
+        console.log('Inicializando após DOM carregado...');
+        
+        // Carrega todos os produtos
         this.loadAllProducts();
+        console.log('Produtos carregados:', this.allProducts.length);
+        
+        // Configura os event listeners
         this.setupEventListeners();
+        
+        // Adiciona suporte adicional para dispositivos móveis
+        this.addMobileSupport();
+        
+        // Restaura o estado salvo
         this.restoreState();
-        this.updatePaginationInfo();
+        
+        console.log('LojaPagination inicializada com sucesso!');
     }
 
     // Carrega todos os produtos da página
@@ -139,16 +178,33 @@ class LojaPagination {
 
     // Aplica filtros de pesquisa e categoria
     applyFilters() {
+        console.log('Aplicando filtros...');
+        console.log('Termo de pesquisa:', this.searchTerm);
+        console.log('Categoria selecionada:', this.selectedCategory);
+        console.log('Total de produtos antes da filtragem:', this.allProducts.length);
+        
         this.filteredProducts = this.allProducts.filter(product => {
+            const productTitle = product.querySelector('h3').textContent.toLowerCase();
+            const productDescription = product.querySelector('p').textContent.toLowerCase();
+            const productLink = product.querySelector('a').href;
+            
             const matchesSearch = this.searchTerm === '' || 
-                product.querySelector('h3').textContent.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-                product.querySelector('p').textContent.toLowerCase().includes(this.searchTerm.toLowerCase());
+                productTitle.includes(this.searchTerm.toLowerCase()) ||
+                productDescription.includes(this.searchTerm.toLowerCase());
             
             const matchesCategory = this.selectedCategory === 'all' || 
-                product.querySelector('a').href.includes(this.selectedCategory);
+                productLink.includes(this.selectedCategory);
+            
+            console.log(`Produto: ${productTitle}`);
+            console.log(`  - Link: ${productLink}`);
+            console.log(`  - Matches search: ${matchesSearch}`);
+            console.log(`  - Matches category: ${matchesCategory}`);
+            console.log(`  - Final result: ${matchesSearch && matchesCategory}`);
             
             return matchesSearch && matchesCategory;
         });
+
+        console.log('Total de produtos após filtragem:', this.filteredProducts.length);
 
         this.totalPages = Math.ceil(this.filteredProducts.length / this.productsPerPage);
         
@@ -268,6 +324,8 @@ class LojaPagination {
 
     // Configura os event listeners
     setupEventListeners() {
+        console.log('Configurando event listeners...');
+        
         // Event listeners para paginação
         const pagination = document.querySelector('.pagination');
         if (pagination) {
@@ -292,52 +350,164 @@ class LojaPagination {
             this.applyFilters();
         });
 
-        // Event listeners para pesquisa
+        // Event listeners para pesquisa - com suporte para touch e click
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
+            console.log('Search input encontrado, configurando eventos...');
+            
+            // Evento input para pesquisa em tempo real
             searchInput.addEventListener('input', (e) => {
+                console.log('Pesquisa digitada:', e.target.value);
                 this.searchTerm = e.target.value;
                 this.applyFilters();
                 this.toggleClearButton();
             });
+            
+            // Eventos específicos para dispositivos móveis
+            if (this.isMobile) {
+                console.log('Configurando eventos específicos para mobile...');
+                
+                // Evento touchstart para dispositivos móveis
+                searchInput.addEventListener('touchstart', (e) => {
+                    console.log('Touch no campo de pesquisa');
+                });
+                
+                // Evento focus para garantir que funcione em mobile
+                searchInput.addEventListener('focus', (e) => {
+                    console.log('Campo de pesquisa focado');
+                    // Força o teclado virtual em dispositivos móveis
+                    searchInput.setAttribute('readonly', 'readonly');
+                    setTimeout(() => {
+                        searchInput.removeAttribute('readonly');
+                    }, 100);
+                });
+                
+                // Evento touchend para melhor resposta em mobile
+                searchInput.addEventListener('touchend', (e) => {
+                    console.log('Touch terminou no campo de pesquisa');
+                });
+            }
+        } else {
+            console.error('Search input não encontrado!');
         }
 
         // Event listener para botão limpar pesquisa
         const clearSearchBtn = document.getElementById('clear-search');
         if (clearSearchBtn) {
-            clearSearchBtn.addEventListener('click', () => {
+            console.log('Botão limpar pesquisa encontrado, configurando eventos...');
+            
+            // Evento click
+            clearSearchBtn.addEventListener('click', (e) => {
+                console.log('Botão limpar clicado');
                 this.clearSearch();
             });
+            
+            // Eventos específicos para dispositivos móveis
+            if (this.isMobile) {
+                console.log('Configurando eventos específicos para mobile no botão limpar...');
+                
+                // Evento touchstart para dispositivos móveis
+                clearSearchBtn.addEventListener('touchstart', (e) => {
+                    console.log('Touch no botão limpar');
+                    e.preventDefault(); // Previne comportamento padrão do touch
+                    this.clearSearch();
+                });
+                
+                // Evento touchend para melhor resposta em mobile
+                clearSearchBtn.addEventListener('touchend', (e) => {
+                    console.log('Touch terminou no botão limpar');
+                });
+            }
+        } else {
+            console.error('Botão limpar pesquisa não encontrado!');
         }
 
         // Event listener para filtro de categoria
         const categoryFilter = document.getElementById('category-filter');
         if (categoryFilter) {
+            console.log('Filtro de categoria encontrado, configurando eventos...');
+            
+            // Evento change
             categoryFilter.addEventListener('change', (e) => {
+                console.log('Categoria selecionada:', e.target.value);
                 this.selectedCategory = e.target.value;
                 this.applyFilters();
             });
+            
+            // Eventos específicos para dispositivos móveis
+            if (this.isMobile) {
+                console.log('Configurando eventos específicos para mobile no filtro...');
+                
+                // Evento touchstart para dispositivos móveis
+                categoryFilter.addEventListener('touchstart', (e) => {
+                    console.log('Touch no filtro de categoria');
+                });
+                
+                // Evento focus para garantir que funcione em mobile
+                categoryFilter.addEventListener('focus', (e) => {
+                    console.log('Filtro de categoria focado');
+                });
+                
+                // Evento touchend para melhor resposta em mobile
+                categoryFilter.addEventListener('touchend', (e) => {
+                    console.log('Touch terminou no filtro de categoria');
+                });
+                
+                // Evento click para garantir compatibilidade
+                categoryFilter.addEventListener('click', (e) => {
+                    console.log('Click no filtro de categoria');
+                });
+            }
+        } else {
+            console.error('Filtro de categoria não encontrado!');
         }
 
         // Event listener para botão resetar filtros
         const resetFiltersBtn = document.getElementById('reset-filters');
         if (resetFiltersBtn) {
-            resetFiltersBtn.addEventListener('click', () => {
+            console.log('Botão resetar filtros encontrado, configurando eventos...');
+            
+            // Evento click
+            resetFiltersBtn.addEventListener('click', (e) => {
+                console.log('Botão resetar clicado');
                 if (confirm('Limpar os filtros?')) {
                     this.resetFilters();
                 }
             });
+            
+            // Eventos específicos para dispositivos móveis
+            if (this.isMobile) {
+                console.log('Configurando eventos específicos para mobile no botão resetar...');
+                
+                // Evento touchstart para dispositivos móveis
+                resetFiltersBtn.addEventListener('touchstart', (e) => {
+                    console.log('Touch no botão resetar');
+                    e.preventDefault(); // Previne comportamento padrão do touch
+                    if (confirm('Limpar os filtros?')) {
+                        this.resetFilters();
+                    }
+                });
+                
+                // Evento touchend para melhor resposta em mobile
+                resetFiltersBtn.addEventListener('touchend', (e) => {
+                    console.log('Touch terminou no botão resetar');
+                });
+            }
+        } else {
+            console.error('Botão resetar filtros não encontrado!');
         }
 
         // Event listener para botão limpar estado salvo
         // const clearSavedStateBtn = document.getElementById('clear-saved-state');
         // if (clearSavedStateBtn) {
-        //     clearSavedStateBtn.addEventListener('click', () => {
+        //     clearSavedStateBtn.addEventListener('click', (e) => {
         //         if (confirm('Tem certeza que deseja limpar o estado salvo e voltar ao início da loja?')) {
         //             this.clearSavedState();
         //         }
         //     });
         // }
+        
+        console.log('Event listeners configurados com sucesso!');
     }
 
     // Limpa a pesquisa
@@ -407,6 +577,87 @@ class LojaPagination {
         if (this.totalPages === 0) {
             this.currentPage = 1;
         }
+    }
+
+    // Força a atualização dos filtros (útil para dispositivos móveis)
+    forceUpdateFilters() {
+        console.log('Forçando atualização dos filtros...');
+        
+        // Atualiza os valores dos campos
+        const searchInput = document.getElementById('search-input');
+        const categoryFilter = document.getElementById('category-filter');
+        
+        if (searchInput) {
+            this.searchTerm = searchInput.value;
+        }
+        
+        if (categoryFilter) {
+            this.selectedCategory = categoryFilter.value;
+        }
+        
+        // Aplica os filtros
+        this.applyFilters();
+    }
+
+    // Adiciona suporte adicional para dispositivos móveis
+    addMobileSupport() {
+        if (!this.isMobile) return;
+        
+        console.log('Adicionando suporte adicional para dispositivos móveis...');
+        
+        // Força o foco no campo de pesquisa quando tocado
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('touchstart', (e) => {
+                setTimeout(() => {
+                    searchInput.focus();
+                }, 100);
+            });
+        }
+        
+        // Melhora a resposta do filtro de categoria em mobile
+        const categoryFilter = document.getElementById('category-filter');
+        if (categoryFilter) {
+            categoryFilter.addEventListener('touchstart', (e) => {
+                // Adiciona uma classe visual para feedback
+                categoryFilter.classList.add('mobile-active');
+                setTimeout(() => {
+                    categoryFilter.classList.remove('mobile-active');
+                }, 200);
+            });
+        }
+        
+        // Adiciona suporte para swipe gestures (opcional)
+        this.addSwipeSupport();
+    }
+
+    // Adiciona suporte para gestos de swipe (opcional)
+    addSwipeSupport() {
+        let startX = 0;
+        let startY = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const endY = e.changedTouches[0].clientY;
+            const diffX = startX - endX;
+            const diffY = startY - endY;
+            
+            // Swipe horizontal para navegar entre páginas
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0 && this.currentPage < this.totalPages) {
+                    // Swipe para esquerda - próxima página
+                    this.nextPage();
+                } else if (diffX < 0 && this.currentPage > 1) {
+                    // Swipe para direita - página anterior
+                    this.previousPage();
+                }
+            }
+        });
     }
 }
 
