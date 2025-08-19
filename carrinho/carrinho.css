@@ -85,7 +85,12 @@
 }
 .cart-actions {
     text-align: right;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
+
 .cart-btn {
     background: #1e88e5;
     color: #fff;
@@ -94,14 +99,17 @@
     padding: 12px 32px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
+    white-space: nowrap;
 }
+
 .cart-btn:active, .cart-btn:hover {
     background: #1565c0;
+    transform: translateY(-1px);
 }
 
 /* Estilo específico para o botão de solicitar (WhatsApp) */
-#solicitar-btn {
+.solicitar-btn {
     background: #25D366 !important;
     display: inline-flex;
     align-items: center;
@@ -110,28 +118,28 @@
     box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
 }
 
-#solicitar-btn:hover {
+.solicitar-btn:hover {
     background: #128C7E !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
 }
 
-#solicitar-btn::before {
+.solicitar-btn::before {
     content: "📱";
     font-size: 16px;
 }
 
 /* Estilo para o botão limpar */
-#limpar-btn {
+.limpar-btn {
     background: #f44336 !important;
 }
 
-#limpar-btn:hover {
+.limpar-btn:hover {
     background: #d32f2f !important;
 }
 
 /* Estilo para o botão de download CSV */
-#download-csv-btn {
+.download-btn {
     background: #ff9800 !important;
     display: inline-flex;
     align-items: center;
@@ -140,7 +148,7 @@
     box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
 }
 
-#download-csv-btn:hover {
+.download-btn:hover {
     background: #f57c00 !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
@@ -196,5 +204,89 @@
     
     .cart-info-text {
         font-size: 13px;
+    }
+}
+
+/* ===== RESPONSIVIDADE DOS BOTÕES ===== */
+
+/* Tablet */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .cart-actions {
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .cart-btn {
+        padding: 10px 24px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) and (min-width: 480px) {
+    .cart-container {
+        padding: 20px 16px 16px 16px;
+        margin: 20px auto;
+    }
+    
+    .cart-actions {
+        text-align: center;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .cart-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 20px;
+        font-size: 1rem;
+        justify-content: center;
+    }
+    
+    .cart-title {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 479px) {
+    .cart-container {
+        padding: 16px 12px 12px 12px;
+        margin: 16px auto;
+        border-radius: 8px;
+    }
+    
+    .cart-actions {
+        text-align: center;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .cart-btn {
+        width: 100%;
+        max-width: 260px;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        justify-content: center;
+    }
+    
+    .cart-title {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+    }
+    
+    .cart-info-banner {
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+    
+    .cart-info-text {
+        font-size: 12px;
     }
 }

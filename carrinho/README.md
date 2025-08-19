@@ -48,6 +48,11 @@ function saveCart(cart) {
 2. **📊 Baixar Lista**: Gera arquivo CSV com os itens
 3. **Solicitar**: Envia pedido via WhatsApp
 
+### Teste de Responsividade
+- **Arquivo de teste**: `test-responsive-buttons.html` para verificar alinhamento
+- **Breakpoints**: Desktop (1200px+), Tablet (768px-1023px), Mobile (480px-767px), Mobile Pequeno (<480px)
+- **Ferramentas**: Use F12 (DevTools) para simular diferentes tamanhos de tela
+
 ### Banner Informativo
 - Explicação clara sobre o sistema de sessão
 - Design atrativo com gradiente azul
@@ -59,6 +64,12 @@ function saveCart(cart) {
 - Explicação clara sobre o sistema de sessão
 - Design atrativo com gradiente azul
 - Responsivo para mobile
+
+### Botões Responsivos
+- **Desktop**: Botões alinhados à direita em linha horizontal
+- **Tablet**: Botões centralizados com espaçamento otimizado
+- **Mobile**: Botões empilhados verticalmente com largura total
+- **Mobile Pequeno**: Botões compactos com padding reduzido
 
 ### Feedback Visual
 - Notificações ao adicionar/remover itens
