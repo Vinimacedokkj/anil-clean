@@ -139,11 +139,25 @@ header.header-visible {
     padding: 8px;
     border-radius: 6px;
     transition: all 0.3s ease;
+    /* Remover bordas e outlines padrão */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #hamburger-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
     transform: scale(1.1);
+}
+
+#hamburger-btn:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
 }
 
 /* ******************* BOTÃO VOLTAR AO TOPO ******************* */
@@ -258,6 +272,16 @@ header.header-visible {
         display: block;
         text-align: end;
         margin-right: 10px;
+        /* Garantir que não tenha bordas ou outlines em mobile */
+        border: none;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .menu ul {
@@ -282,10 +306,23 @@ header.header-visible {
         font-size: var(--font-size-3);
         text-align: center;
         transition: all 0.3s ease;
+        /* Remover highlight azul ao tocar */
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .menu ul li a:hover {
         background-color: rgba(255, 255, 255, 0.1);
+        transform: none;
+    }
+    
+    .menu ul li a:active {
+        background-color: rgba(255, 255, 255, 0.2);
         transform: none;
     }
     
@@ -316,11 +353,29 @@ header.header-visible {
     #hamburger-btn {
         font-size: 1.8rem;
         padding: 6px;
+        /* Garantir que não tenha bordas ou outlines em mobile pequeno */
+        border: none;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .menu ul li a {
         padding: 12px 15px;
         font-size: 15px;
+        /* Remover highlight azul ao tocar */
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
     .scroll-to-top-btn {

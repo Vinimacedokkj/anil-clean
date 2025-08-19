@@ -397,12 +397,32 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .all-products-container button:hover {
     background-color: #004a6b;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.all-products-container button:active {
+    transform: translateY(0);
+    background-color: #003d5a;
+    transition: all 0.1s ease;
+}
+
+.all-products-container button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 /* Responsividade para produtos */

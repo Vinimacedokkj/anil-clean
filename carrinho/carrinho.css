@@ -63,14 +63,31 @@
     line-height: 1;
     padding: 0;
     box-shadow: 0 2px 4px rgba(255, 87, 34, 0.3);
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+
 .remove-item-btn:hover {
     background: #d84315;
     transform: scale(1.1);
     box-shadow: 0 4px 8px rgba(255, 87, 34, 0.4);
 }
+
 .remove-item-btn:active {
     transform: scale(0.95);
+    transition: all 0.1s ease;
+}
+
+.remove-item-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 .remove-icon {
     display: block;
@@ -101,11 +118,30 @@
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .cart-btn:active, .cart-btn:hover {
     background: #1565c0;
     transform: translateY(-1px);
+}
+
+.cart-btn:active {
+    transform: translateY(0);
+    transition: all 0.1s ease;
+}
+
+.cart-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 /* Estilo específico para o botão de solicitar (WhatsApp) */
@@ -116,12 +152,31 @@
     gap: 8px;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .solicitar-btn:hover {
     background: #128C7E !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.solicitar-btn:active {
+    transform: translateY(0);
+    transition: all 0.1s ease;
+}
+
+.solicitar-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .solicitar-btn::before {
@@ -132,10 +187,29 @@
 /* Estilo para o botão limpar */
 .limpar-btn {
     background: #f44336 !important;
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .limpar-btn:hover {
     background: #d32f2f !important;
+}
+
+.limpar-btn:active {
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.limpar-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 /* Estilo para o botão de download CSV */
@@ -146,12 +220,31 @@
     gap: 8px;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .download-btn:hover {
     background: #f57c00 !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+    transition: all 0.1s ease;
+}
+
+.download-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 .empty-cart {
     text-align: center;

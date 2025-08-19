@@ -298,4 +298,78 @@
     .header-container {
         padding: 10px 15px;
     }
+}
+
+/* ===== ESTILOS GLOBAIS PARA MOBILE ===== */
+
+/* Remover highlight azul ao tocar em dispositivos móveis */
+@media (max-width: 767px) {
+    /* Aplicar a todos os elementos clicáveis */
+    * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Permitir seleção de texto em campos de input e textarea */
+    input, textarea {
+        -webkit-user-select: text;
+        -khtml-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+    
+    /* Remover outlines padrão em botões e links */
+    button, a {
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Estilo para estado ativo em botões */
+    button:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Estilo para estado ativo em links */
+    a:active {
+        opacity: 0.8;
+        transition: opacity 0.1s ease;
+    }
+    
+    /* Melhorar feedback visual para elementos clicáveis */
+    .clickable {
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .clickable:active {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA TABLET ===== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Aplicar estilos similares para tablet */
+    button, a {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+    
+    button:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    a:active {
+        opacity: 0.8;
+        transition: opacity 0.1s ease;
+    }
 } 

@@ -73,6 +73,26 @@ button {
     border-radius: 100px;
     border: none;
     cursor: pointer;
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .budget {
@@ -81,9 +101,18 @@ button {
     color: white;
 }
 
+.budget:active {
+    background-color: #004a6b;
+}
+
 .add-to-cart {
     border: 1px solid var(--secondary-color);
     color: var(--secondary-color);
+}
+
+.add-to-cart:active {
+    background-color: var(--secondary-color);
+    color: white;
 }
 
 .product-info {

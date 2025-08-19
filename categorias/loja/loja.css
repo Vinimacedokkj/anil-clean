@@ -224,11 +224,32 @@
     font-size: var(--font-size-2);
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .reset-filters-btn:hover {
     background: #e9ecef;
     border-color: #adb5bd;
+}
+
+.reset-filters-btn:active {
+    background: #dee2e6;
+    border-color: #6c757d;
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.reset-filters-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .clear-saved-state-btn {
@@ -241,12 +262,33 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-left: 10px;
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .clear-saved-state-btn:hover {
     background: #ffeaa7;
     border-color: #fdcb6e;
     color: #6c5ce7;
+}
+
+.clear-saved-state-btn:active {
+    background: #fdcb6e;
+    border-color: #f39c12;
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.clear-saved-state-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .search-results-info {
@@ -344,10 +386,30 @@
     transition: background-color 0.2s ease;
     width: 100%;
     margin-top: auto;
+    /* Remover highlights indesejados */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .product-item .add-to-cart-btn:hover {
     background-color: var(--secondary-color);
+}
+
+.product-item .add-to-cart-btn:active {
+    background-color: #005F87;
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.product-item .add-to-cart-btn:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 .product-item a {
