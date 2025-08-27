@@ -266,15 +266,6 @@ body {
 }
 
 /* ******************* PRODUCTS ******************* */
-.products-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    margin: 20px auto 30px auto;
-    padding: 0 20px;
-    max-width: 1200px;
-}
-
 .title-container {
     text-align: center;
     padding: 20px 0 10px 0;
@@ -286,6 +277,15 @@ body {
     color: rgb(71, 71, 71);
     font-size: var(--font-size-5);
     font-weight: 600;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 20px auto 30px auto;
+    padding: 0 20px;
+    max-width: 1200px;
 }
 
 .product-item {
