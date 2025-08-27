@@ -88,6 +88,12 @@
     gap: 10px;
 }
 
+.horarios-atendimento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* ******************* RESPONSIVIDADE FOOTER ******************* */
 @media (max-width: 900px) {
     .nav-footer {

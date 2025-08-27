@@ -180,7 +180,7 @@ body {
     }
     
     .about-text-1 img {
-        max-width: 400px;
+        max-width: 600px;
     }
 }
 
@@ -192,7 +192,7 @@ body {
     }
     
     .about-text-1 img {
-        max-width: 300px;
+        max-width: 500px;
     }
 
     .titulo-e-texto h2 {
@@ -218,6 +218,7 @@ body {
 
     .main-img {
         padding: 15px;
+        display: none;
     }
 }
 
