@@ -168,6 +168,14 @@ body {
     padding: 0;
 }
 
+.title-container > p {
+    color: var(--text-color);
+    font-size: var(--font-size-3);
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
 .about-text-container {
     display: flex;
     flex-direction: row;
@@ -354,8 +362,8 @@ body {
     }
     
     .topic {
-        font-size: var(--font-size-3);
-        padding: 8px 16px;
+        font-size: var(--font-size-4);
+        padding: 16px 16px;
         min-width: 80px;
     }
 
