@@ -26,21 +26,13 @@ document.querySelector(".whatsapp-req-orcamento").addEventListener("click", func
     window.open(whatsappUrl, "_blank");
 });
 
-// ****************** MANTER POSIÇÃO DA PÁGINA APÓS RELOAD ******************
-// Salvar posição da página antes de recarregar
-window.addEventListener('beforeunload', function() {
-    sessionStorage.setItem('scrollPosition', window.scrollY.toString());
-});
-
-// Restaurar posição da página após carregar
+// ****************** SEMPRE IR PARA O INÍCIO DA PÁGINA ******************
+// Garantir que sempre vá para o topo da página ao entrar no site ou dar reload
 window.addEventListener('load', function() {
-    const savedPosition = sessionStorage.getItem('scrollPosition');
-    if (savedPosition) {
-        // Pequeno delay para garantir que a página carregou completamente
-        setTimeout(() => {
-            window.scrollTo(0, parseInt(savedPosition));
-        }, 100);
-    }
+    // Pequeno delay para garantir que a página carregou completamente
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 100);
 });
 
 // ****************** BARRA DE PESQUISA E FILTROS ******************
@@ -199,16 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
     
-    // ****************** FOCAR NA BARRA DE PESQUISA APENAS NA PRIMEIRA VISITA ******************
-    // Verificar se é a primeira visita da sessão
-    const isFirstVisit = !sessionStorage.getItem('hasVisited');
-    
-    if (isFirstVisit) {
-        // Marcar que já visitou
-        sessionStorage.setItem('hasVisited', 'true');
-        // Focar na barra de pesquisa apenas na primeira visita
-        searchInput.focus();
-    }
+
     
     // ****************** MELHORIAS PARA DISPOSITIVOS MÓVEIS ******************
     // Adicionar atributos específicos para mobile
