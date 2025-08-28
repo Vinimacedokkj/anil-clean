@@ -108,13 +108,62 @@
                             <i class="fa-solid fa-times"></i>
                         </button>
                     </div>
+                    
+                    <!-- ****************** FILTROS POR CATEGORIA ****************** -->
+                    <div class="filters-container">
+                        <div class="filters-title">
+                            <span>Filtrar por categoria:</span>
+                        </div>
+                        <div class="filters-buttons">
+                            <button class="filter-btn active" data-category="todos">
+                                <i class="fa-solid fa-th-large"></i>
+                                Todos
+                            </button>
+                            <button class="filter-btn" data-category="infantil">
+                                <i class="fa-solid fa-child"></i>
+                                Infantil
+                            </button>
+                            <button class="filter-btn" data-category="personalizavel">
+                                <i class="fa-solid fa-palette"></i>
+                                Personalizáveis
+                            </button>
+                            <button class="filter-btn" data-category="escritório">
+                                <i class="fa-solid fa-briefcase"></i>
+                                Escritório
+                            </button>
+                            <button class="filter-btn" data-category="escolar">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                Escolar
+                            </button>
+                            <button class="filter-btn" data-category="esportivo">
+                                <i class="fa-solid fa-futbol"></i>
+                                Esportivo
+                            </button>
+                            <button class="filter-btn" data-category="decorativo">
+                                <i class="fa-solid fa-star"></i>
+                                Decorativo
+                            </button>
+                            <button class="filter-btn" data-category="utilidades">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                Utilidades
+                            </button>
+                            <button class="filter-btn" data-category="educativo">
+                                <i class="fa-solid fa-book"></i>
+                                Educativo
+                            </button>
+                            <button class="filter-btn" data-category="festivo">
+                                <i class="fa-solid fa-star"></i>
+                                Festivo
+                            </button>
+                        </div>
+                    </div>
+                    
                     <div class="search-results-info">
                         <span id="search-results-count"></span>
                     </div>
                 </div>
 
                 <!-- ****************** PRODUTOS ****************** -->
-                <!-- mais vendidos -->
                 <div class="title-container">
                     <h2>Analise nossos catálogos!</h2>
 
@@ -122,7 +171,7 @@
                 </div>
 
                 <div class="products-container">
-                    <div class="product-item">
+                    <div class="product-item" data-category="escolar" data-category="escritório">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Bebedouro 2024.pdf" download><img src="/img/imagens-dos-produtos/Bebedouros.png" alt="Bebedouros"></a>
                         </div>
@@ -132,7 +181,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Blocos de Montar e Kit Profissões.pdf" download><img src="/img/imagens-dos-produtos/blocos-e-kit-profissoes.png" alt="Blocos de Montar e Kit Profissões"></a>
                         </div>
@@ -142,7 +191,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Bonecos - Diversidade.pdf" download><img src="/img/imagens-dos-produtos/bonecas-diversidade.png" alt="Bonecas - Diversidade"></a>
                         </div>
@@ -152,7 +201,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil" data-category="educativo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Brinquedos e pedagogicos - Anil Clean.pdf" download><img src="/img/imagens-dos-produtos/brinquedos-e-pedagogicos.png" alt="Brinquedos e pedagogicos"></a>
                         </div>
@@ -162,7 +211,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil" data-category="utilidades">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Cat. Fraldas.pdf" download><img src="/img/imagens-dos-produtos/fraldas.png" alt="Fraldas"></a>
                         </div>
@@ -172,7 +221,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="escritório" data-category="utilidades">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Cadeiras de Escritório.pdf" download><img src="/img/imagens-dos-produtos/cadeira-de-escritorio.png" alt="Cadeiras de Escritório"></a>
                         </div>
@@ -182,7 +231,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catalogo - Bandeirantes.pdf" download><img src="/img/imagens-dos-produtos/bandeirantes.png" alt="Bandeirantes"></a>
                         </div>
@@ -192,7 +241,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo - Fantasias.pdf" download><img src="/img/imagens-dos-produtos/fantasias.png" alt="Fantasias"></a>
                         </div>
@@ -202,7 +251,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo - Fantoches.pdf" download><img src="/img/imagens-dos-produtos/fantoches.png" alt="Fantoches"></a>
                         </div>
@@ -212,7 +261,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil" data-category="educativo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo - Jogos Educativos.pdf" download><img src="/img/imagens-dos-produtos/jogos-educativos.png" alt="Jogos Educativos"></a>
                         </div>
@@ -222,7 +271,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo - Pelúcias.pdf" download><img src="/img/imagens-dos-produtos/pelucias.png" alt="Pelúcias"></a>
                         </div>
@@ -232,7 +281,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="decorativo" data-category="utilidades">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo - Tecidos.pdf" download><img src="/img/imagens-dos-produtos/tecidos.jpg" alt="Tecidos"></a>
                         </div>
@@ -242,7 +291,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil" data-category="educativo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Cátalogo Banners Educativos.pdf" download><img src="/img/imagens-dos-produtos/banners-educativos.png" alt="Banners Educativos"></a>
                         </div>
@@ -252,7 +301,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="esportivo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/CATALOGO EDUCAÇÃO FISICA.pdf" download><img src="/img/imagens-dos-produtos/educacao-fisica.png" alt="Educação Física"></a>
                         </div>
@@ -262,7 +311,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="escritório" data-category="utilidades">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/CATALOGO ESTANTES.pdf" download><img src="/img/imagens-dos-produtos/estantes.png" alt="Estantes"></a>
                         </div>
@@ -272,7 +321,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="decorativo" data-category="festivo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/CATALOGO FESTA JUNINA.pdf" download><img src="/img/imagens-dos-produtos/festa junina.png" alt="Festa Junina"></a>
                         </div>
@@ -282,7 +331,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="escolar" data-category="educativo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/catalogo laboratorio.pdf" download><img src="/img/imagens-dos-produtos/laboratorio.png" alt="Laboratório"></a>
                         </div>
@@ -292,7 +341,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil" data-category="festivo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo Páscoa - Luis.pdf" download><img src="/img/imagens-dos-produtos/pascoa.png" alt="Páscoa"></a>
                         </div>
@@ -302,7 +351,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil" data-category="personalizável">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo Pikler-1.pdf" download><img src="/img/imagens-dos-produtos/pikler.png" alt="Pikler"></a>
                         </div>
@@ -312,7 +361,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="personalizável" data-category="decorativo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo Presentes.pdf" download><img src="/img/imagens-dos-produtos/Img Taças Personalizadas.png" alt="Ideias de presentes"></a>
                         </div>
@@ -322,7 +371,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="infantil">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Catálogo_Brinquedos_Playground-Anil_Clean.pdf" download><img src="/img/imagens-dos-produtos/playground.png" alt="Playground"></a>
                         </div>
@@ -332,7 +381,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="utilidades">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/CATALOGO_REDES_DESCANSO.pdf" download><img src="/img/imagens-dos-produtos/redes-de-descanso.png" alt=""></a>
                         </div>
@@ -342,7 +391,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="utilidades" data-category="escritório">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Itens de Acessibilidade A.pdf" download><img src="/img/imagens-dos-produtos/acessibilidade.png" alt="Itens de Acessibilidade"></a>
                         </div>
@@ -352,7 +401,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="utilidades" data-category="escritório">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Lixeiras e caixas organizadoras.pdf" download><img src="/img/imagens-dos-produtos/caixa-organizadora.png" alt="Lixeiras e caixas organizadoras"></a>
                         </div>
@@ -362,7 +411,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="decorativo" data-category="educativo">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Material Heurístico A.pdf" download><img src="/img/imagens-dos-produtos/heuristica.jpg" alt="Materiais Heurísticos"></a>
                         </div>
@@ -372,7 +421,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="escolar" data-category="decorativo" data-category="utilidades">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Móveis Escolares.pdf" download><img src="/img/imagens-dos-produtos/moveis escolares.jpg" alt="Móveis Escolares"></a>
                         </div>
@@ -382,7 +431,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item" data-category="escolar" data-category="infantil" data-category="utilidades">
                         <div class="image-container">
                             <a href="/PDF's de catálogos/Pedagogicos e Materiais escolares - Anil Clean.pdf" download><img src="/img/imagens-dos-produtos/pedagogicos-e-materiais-escolares.png" alt="Pedagogicos e Materiais escolares"></a>
                         </div>

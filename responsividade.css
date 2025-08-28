@@ -477,4 +477,28 @@
     .search-results-info span {
         padding: 6px 12px;
     }
+    
+    /* Filtros responsivos */
+    .filters-container {
+        margin-top: 20px;
+    }
+    
+    .filters-title {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    
+    .filters-buttons {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+        gap: 6px;
+    }
+    
+    .filter-btn i {
+        font-size: 14px;
+    }
 } 

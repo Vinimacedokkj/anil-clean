@@ -26,15 +26,19 @@ document.querySelector(".whatsapp-req-orcamento").addEventListener("click", func
     window.open(whatsappUrl, "_blank");
 });
 
-// ****************** BARRA DE PESQUISA ******************
+// ****************** BARRA DE PESQUISA E FILTROS ******************
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const clearSearchBtn = document.getElementById('clear-search');
     const searchResultsCount = document.getElementById('search-results-count');
     const productItems = document.querySelectorAll('.product-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
     
-    // Função para realizar a pesquisa
-    function performSearch(searchTerm) {
+    let currentFilter = 'todos';
+    let currentSearchTerm = '';
+    
+    // Função para realizar a pesquisa e filtros
+    function performSearchAndFilter(searchTerm, filterCategory) {
         const searchTermLower = searchTerm.toLowerCase().trim();
         let visibleCount = 0;
         
@@ -43,9 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const description = item.querySelector('p').textContent.toLowerCase();
             
             // Verificar se o termo de pesquisa está no título ou descrição
-            const isVisible = title.includes(searchTermLower) || description.includes(searchTermLower);
+            const matchesSearch = searchTermLower === '' || title.includes(searchTermLower) || description.includes(searchTermLower);
             
-            if (isVisible) {
+            // Verificar se o produto corresponde ao filtro selecionado
+            const matchesFilter = filterCategory === 'todos' || item.dataset.category === filterCategory;
+            
+            if (matchesSearch && matchesFilter) {
                 item.style.display = 'flex';
                 visibleCount++;
                 // Adicionar destaque visual
@@ -57,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Atualizar contador de resultados
-        if (searchTermLower.length > 0) {
+        if (searchTermLower.length > 0 || filterCategory !== 'todos') {
             searchResultsCount.textContent = `${visibleCount} produto(s) encontrado(s)`;
             searchResultsCount.style.display = 'inline-block';
         } else {
@@ -65,19 +72,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Mostrar/ocultar botão de limpar
-        clearSearchBtn.style.display = searchTermLower.length > 0 ? 'block' : 'none';
+        clearSearchBtn.style.display = (searchTermLower.length > 0 || filterCategory !== 'todos') ? 'block' : 'none';
     }
     
     // Event listener para input de pesquisa
     searchInput.addEventListener('input', function(e) {
         const searchTerm = e.target.value;
-        performSearch(searchTerm);
+        currentSearchTerm = searchTerm;
+        performSearchAndFilter(searchTerm, currentFilter);
     });
     
     // Event listener para botão de limpar
     clearSearchBtn.addEventListener('click', function() {
         searchInput.value = '';
-        performSearch('');
+        currentSearchTerm = '';
+        performSearchAndFilter('', currentFilter);
         searchInput.focus();
     });
     
@@ -119,12 +128,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
     
+    // Event listeners para os filtros
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remover classe active de todos os botões
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Adicionar classe active ao botão clicado
+            this.classList.add('active');
+            
+            // Atualizar filtro atual
+            currentFilter = this.dataset.category;
+            
+            // Aplicar filtro e pesquisa
+            performSearchAndFilter(currentSearchTerm, currentFilter);
+        });
+    });
+    
     // Pesquisa em tempo real com debounce para melhor performance
     let searchTimeout;
     searchInput.addEventListener('input', function(e) {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
-            performSearch(e.target.value);
+            currentSearchTerm = e.target.value;
+            performSearchAndFilter(currentSearchTerm, currentFilter);
         }, 300);
     });
     
