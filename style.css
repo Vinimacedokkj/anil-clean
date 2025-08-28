@@ -720,6 +720,10 @@ body {
     .product-item .image-container {
         height: 180px;
     }
+
+    .search-box {
+        display: none;
+    }
 }
 
 /* Melhorias para dispositivos móveis */
@@ -730,8 +734,7 @@ body {
     }
     
     .search-box {
-        max-width: 100%;
-        margin: 0 auto;
+        display: none;
     }
     
     .search-box:focus-within {
