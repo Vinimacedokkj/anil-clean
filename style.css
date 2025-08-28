@@ -444,6 +444,11 @@ body {
     font-size: 16px;
     background: transparent;
     color: #333;
+    /* Melhorias para mobile */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
 }
 
 .search-input::placeholder {
@@ -714,6 +719,27 @@ body {
     
     .product-item .image-container {
         height: 180px;
+    }
+}
+
+/* Melhorias para dispositivos móveis */
+@media (max-width: 768px) {
+    .search-input {
+        font-size: 16px; /* Evita zoom no iOS */
+        padding: 16px 18px 16px 48px;
+    }
+    
+    .search-box {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .search-box:focus-within {
+        max-width: 100%;
+    }
+    
+    .search-box.search-focused {
+        max-width: 100%;
     }
 }
 

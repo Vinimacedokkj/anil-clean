@@ -26,6 +26,23 @@ document.querySelector(".whatsapp-req-orcamento").addEventListener("click", func
     window.open(whatsappUrl, "_blank");
 });
 
+// ****************** MANTER POSIÇÃO DA PÁGINA APÓS RELOAD ******************
+// Salvar posição da página antes de recarregar
+window.addEventListener('beforeunload', function() {
+    sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+});
+
+// Restaurar posição da página após carregar
+window.addEventListener('load', function() {
+    const savedPosition = sessionStorage.getItem('scrollPosition');
+    if (savedPosition) {
+        // Pequeno delay para garantir que a página carregou completamente
+        setTimeout(() => {
+            window.scrollTo(0, parseInt(savedPosition));
+        }, 100);
+    }
+});
+
 // ****************** BARRA DE PESQUISA E FILTROS ******************
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
@@ -36,6 +53,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentFilter = 'todos';
     let currentSearchTerm = '';
+    
+    // Função para verificar se um produto corresponde a uma categoria
+    function productMatchesCategory(product, category) {
+        if (category === 'todos') return true;
+        
+        const categories = product.dataset.categories;
+        if (!categories) return false;
+        
+        // Dividir as categorias por vírgula e verificar se a categoria atual está incluída
+        const categoryList = categories.split(',').map(cat => cat.trim());
+        return categoryList.includes(category);
+    }
     
     // Função para realizar a pesquisa e filtros
     function performSearchAndFilter(searchTerm, filterCategory) {
@@ -50,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const matchesSearch = searchTermLower === '' || title.includes(searchTermLower) || description.includes(searchTermLower);
             
             // Verificar se o produto corresponde ao filtro selecionado
-            const matchesFilter = filterCategory === 'todos' || item.dataset.category === filterCategory;
+            const matchesFilter = productMatchesCategory(item, filterCategory);
             
             if (matchesSearch && matchesFilter) {
                 item.style.display = 'flex';
@@ -116,6 +145,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listener para foco no input
     searchInput.addEventListener('focus', function() {
         searchBox.classList.add('search-focused');
+        
+        // ****************** ATIVAR TECLADO DO CELULAR ******************
+        // Forçar foco e ativar teclado virtual em dispositivos móveis
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            // Em dispositivos móveis, garantir que o input esteja focado
+            searchInput.setAttribute('inputmode', 'text');
+            searchInput.setAttribute('autocomplete', 'on');
+            searchInput.setAttribute('autocorrect', 'on');
+            searchInput.setAttribute('autocapitalize', 'sentences');
+            
+            // Forçar o foco novamente para garantir que o teclado apareça
+            setTimeout(() => {
+                searchInput.focus();
+                searchInput.click();
+            }, 100);
+        }
     });
     
     // Event listener para perder foco
@@ -154,6 +199,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
     
-    // Focar no campo de pesquisa quando a página carrega
-    searchInput.focus();
+    // ****************** FOCAR NA BARRA DE PESQUISA APENAS NA PRIMEIRA VISITA ******************
+    // Verificar se é a primeira visita da sessão
+    const isFirstVisit = !sessionStorage.getItem('hasVisited');
+    
+    if (isFirstVisit) {
+        // Marcar que já visitou
+        sessionStorage.setItem('hasVisited', 'true');
+        // Focar na barra de pesquisa apenas na primeira visita
+        searchInput.focus();
+    }
+    
+    // ****************** MELHORIAS PARA DISPOSITIVOS MÓVEIS ******************
+    // Adicionar atributos específicos para mobile
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        searchInput.setAttribute('inputmode', 'text');
+        searchInput.setAttribute('autocomplete', 'on');
+        searchInput.setAttribute('autocorrect', 'on');
+        searchInput.setAttribute('autocapitalize', 'sentences');
+        
+        // Melhorar experiência de toque
+        searchInput.style.fontSize = '16px'; // Evita zoom no iOS
+    }
 });
