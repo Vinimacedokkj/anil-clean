@@ -33,10 +33,12 @@
                                 <i class="fa-solid fa-futbol"></i>
                                 <span>Perfeito para futebol</span>
                             </div>
+
                             <div class="feature-item">
                                 <i class="fa-solid fa-palette"></i>
                                 <span>Personalização completa</span>
                             </div>
+
                             <div class="feature-item">
                                 <i class="fa-solid fa-children"></i>
                                 <span>Confortável para crianças</span>
@@ -56,23 +58,44 @@
         </div>
 
         <!-- ****************** SOBRE NÓS ****************** -->
-        <div class="about" id="about">
-            <div class="topic-container">    
-                <div class="topic">Sobre nós</div>
+        <section class="about" id="about">
+            <div class="topic-container">
+                <h2 class="topic">Sobre nós</h2>
             </div>
 
-            <div class="about-text-container">
-                <div class="about-text-1">
+            <div class="about-first-container">
+                <div>
                     <img src="/img/outras/papelaria.jpg" alt="Sobre nós">
-                    <p id="texto-sobre-nos-1">A Anil Clean é uma empresa especializada no fornecimento de produtos de papelaria, higiene e limpeza para instituições de ensino e negócios de diversos segmentos. Com anos de experiência no mercado, destacamo-nos pela ampla variedade de soluções, atendimento personalizado e compromisso com a excelência. Nossa missão é oferecer produtos que garantam qualidade, segurança e eficiência para nossos clientes.</p>
+                    <p>
+                        A Anil Clean é muito mais do que uma loja de variedades — somos um espaço dedicado a oferecer soluções completas para escolas, empresas, instituições e residências. Nosso compromisso é unir qualidade, diversidade e praticidade em um só lugar, com uma curadoria de produtos pensada para atender diferentes faixas etárias, ambientes e necessidades específicas.
+                            <br><br>
+                        Nosso portfólio abrange desde materiais escolares, móveis e itens pedagógicos até produtos infantis lúdicos e educativos, além de equipamentos para ambientes corporativos e acadêmicos. Entre os destaques estão: bebedouros, móveis escolares, brinquedos de madeira, pelúcias, fantoches, kits de profissões, bonecos que valorizam a diversidade, brinquedos heurísticos e pedagógicos, piklers, jogos educativos, estantes e cadeiras de escritório, ecobags, e produtos voltados para datas como Páscoa e Festa Junina.
+                            <br><br>
+                        Também oferecemos uma ampla linha de itens para educação física, laboratórios escolares, playgrounds, acessibilidade, além de caixas organizadoras, redes de descanso, lixeiras, e materiais festivos e temáticos, como fantasias, tecidos decorativos, e produtos voltados para datas como Páscoa e Festa Junina.
+                            <br><br>
+                        Seja para equipar uma sala de aula, montar um espaço infantil criativo, organizar ambientes ou encontrar presentes diferenciados, a Anil Clean é o seu destino certo. Atuamos com foco em oferecer produtos que combinam funcionalidade, segurança, inclusão e estímulo ao desenvolvimento.
+                    </p>
+                </div>                    
+            </div>
 
-                    <div class="titulo-e-texto">
-                        <h2 class="titulo">MISSÃO</h2>
-                        <p>Proporcionar soluções completas em produtos de papelaria, higiene e limpeza, com foco em qualidade, inovação e atendimento diferenciado, contribuindo para o sucesso de nossos clientes e a sustentabilidade dos negócios.</p>
+            <div class="about-second-container">
+                <div>
+                    <div class="about-text-container">
+                        <h3 class="titulo">MISSÃO</h3>
+                        <p>
+                            Proporcionar soluções completas em produtos de papelaria, higiene e limpeza, com foco em qualidade, inovação e atendimento diferenciado, contribuindo para o sucesso de nossos clientes e a sustentabilidade dos negócios.
+                        </p>
                     </div>
 
-                    <div class="titulo-e-texto">
-                        <h2 class="titulo">VALORES</h2>
+                    <div class="about-text-container">
+                        <h3 class="titulo">VISÃO</h3>
+                        <p>
+                            Ser reconhecida como a principal parceira de instituições educacionais e empresariais em soluções de papelaria, higiene e limpeza, expandindo nossa atuação com inovação e excelência em serviços.
+                        </p>
+                    </div>
+                
+                    <div class="about-text-container">
+                        <h3 class="titulo">VALORES</h3>
                         <p>
                             <li>Compromisso com a qualidade</li>
                             <li>Atendimento personalizado</li>
@@ -81,368 +104,422 @@
                         </p>
                     </div>
                 </div>
+            </div>
 
-                <div class="about-text-2">
-                    <div class="explain">
-                        <p id="texto-sobre-nos-2">A Anil Clean é uma empresa especializada no fornecimento de produtos de papelaria, higiene e limpeza para instituições de ensino e negócios de diversos segmentos. Com anos de experiência no mercado, destacamo-nos pela ampla variedade de soluções, atendimento personalizado e compromisso com a excelência. Nossa missão é oferecer produtos que garantam qualidade, segurança e eficiência para nossos clientes.</p>
-                    </div>
+                    
+                </div>
+            </div>
+        </section>
 
-                    <div class="titulo-e-texto">
-                        <h2 class="titulo">VISÃO</h2>
-                        <p>Ser reconhecida como a principal parceira de instituições educacionais e empresariais em soluções de papelaria, higiene e limpeza, expandindo nossa atuação com inovação e excelência em serviços.</p>
+        <div class="products" id="products">
+            <div class="topic-container" id="produtos">
+                <div class="topic" id="topic-products">Produtos</div>
+            </div>
+
+            <!-- ****************** BARRA DE PESQUISA ****************** -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fa-solid fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Pesquisar produtos..." class="search-input" inputmode="text" autocomplete="on" autocorrect="on" autocapitalize="sentences">
+                    <button id="clear-search" class="clear-search-btn" style="display: none;">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- ****************** FILTROS POR CATEGORIA ****************** -->
+                <div class="filters-container">
+                    <div class="filters-title">
+                        <span>Filtrar por categoria:</span>
                     </div>
+                    <div class="filters-buttons">
+                        <button class="filter-btn active" data-category="todos">
+                            <i class="fa-solid fa-th-large"></i>
+                            Todos
+                        </button>
+                        <button class="filter-btn" data-category="infantil">
+                            <i class="fa-solid fa-child"></i>
+                            Infantil
+                        </button>
+                        <button class="filter-btn" data-category="personalizável">
+                            <i class="fa-solid fa-palette"></i>
+                            Personalizáveis
+                        </button>
+                        <button class="filter-btn" data-category="escritório">
+                            <i class="fa-solid fa-briefcase"></i>
+                            Escritório
+                        </button>
+                        <button class="filter-btn" data-category="escolar">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            Escolar
+                        </button>
+                        <button class="filter-btn" data-category="esportivo">
+                            <i class="fa-solid fa-futbol"></i>
+                            Esportivo
+                        </button>
+                        <button class="filter-btn" data-category="decorativo">
+                            <i class="fa-solid fa-star"></i>
+                            Decorativo
+                        </button>
+                        <button class="filter-btn" data-category="utilidades">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            Utilidades
+                        </button>
+                        <button class="filter-btn" data-category="educativo">
+                            <i class="fa-solid fa-book"></i>
+                            Educativo
+                        </button>
+                        <button class="filter-btn" data-category="festivo">
+                            <i class="fa-solid fa-star"></i>
+                            Festivo
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="search-results-info">
+                    <span id="search-results-count"></span>
                 </div>
             </div>
 
-            <div class="products" id="products">
-                <div class="topic-container" id="produtos">
-                    <div class="topic" id="topic-products">Produtos</div>
-                </div>
+            <!-- ****************** PRODUTOS ****************** -->
+            <div class="title-container">
+                <h2>Analise nossos catálogos!</h2>
 
-                <!-- ****************** BARRA DE PESQUISA ****************** -->
-                <div class="search-container">
-                    <div class="search-box">
-                        <i class="fa-solid fa-search search-icon"></i>
-                        <input type="text" id="search-input" placeholder="Pesquisar produtos..." class="search-input" inputmode="text" autocomplete="on" autocorrect="on" autocapitalize="sentences">
-                        <button id="clear-search" class="clear-search-btn" style="display: none;">
-                            <i class="fa-solid fa-times"></i>
-                        </button>
+                <p>Cada catálogo foi elaborado com carinho para você! Baixe e analise cada item disponível, escolhendo com tranquilidade os produtos que melhor atendem às suas necessidades.</p>
+            </div>
+
+            <div class="products-container">
+                <div class="product-item" data-categories="escolar,escritório">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Bebedouro 2024.pdf" download><img src="/img/imagens-dos-produtos/Bebedouros.png" alt="Bebedouros"></a>
                     </div>
-                    
-                    <!-- ****************** FILTROS POR CATEGORIA ****************** -->
-                    <div class="filters-container">
-                        <div class="filters-title">
-                            <span>Filtrar por categoria:</span>
-                        </div>
-                        <div class="filters-buttons">
-                            <button class="filter-btn active" data-category="todos">
-                                <i class="fa-solid fa-th-large"></i>
-                                Todos
-                            </button>
-                            <button class="filter-btn" data-category="infantil">
-                                <i class="fa-solid fa-child"></i>
-                                Infantil
-                            </button>
-                            <button class="filter-btn" data-category="personalizável">
-                                <i class="fa-solid fa-palette"></i>
-                                Personalizáveis
-                            </button>
-                            <button class="filter-btn" data-category="escritório">
-                                <i class="fa-solid fa-briefcase"></i>
-                                Escritório
-                            </button>
-                            <button class="filter-btn" data-category="escolar">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                                Escolar
-                            </button>
-                            <button class="filter-btn" data-category="esportivo">
-                                <i class="fa-solid fa-futbol"></i>
-                                Esportivo
-                            </button>
-                            <button class="filter-btn" data-category="decorativo">
-                                <i class="fa-solid fa-star"></i>
-                                Decorativo
-                            </button>
-                            <button class="filter-btn" data-category="utilidades">
-                                <i class="fa-solid fa-screwdriver-wrench"></i>
-                                Utilidades
-                            </button>
-                            <button class="filter-btn" data-category="educativo">
-                                <i class="fa-solid fa-book"></i>
-                                Educativo
-                            </button>
-                            <button class="filter-btn" data-category="festivo">
-                                <i class="fa-solid fa-star"></i>
-                                Festivo
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="search-results-info">
-                        <span id="search-results-count"></span>
+                    <div class="product-info">
+                        <h3>Catálogo de Bebedouros</h3>
+                        <p>Bebedouros de alta qualidade, ideais para escolas, empresas e ambientes coletivos. Oferecem praticidade, durabilidade e segurança na distribuição de água potável, contribuindo para o bem-estar de todos.</p>
                     </div>
                 </div>
 
-                <!-- ****************** PRODUTOS ****************** -->
-                <div class="title-container">
-                    <h2>Analise nossos catálogos!</h2>
-
-                    <p>Cada catálogo foi elaborado com carinho para você! Baixe e analise cada item disponível, escolhendo com tranquilidade os produtos que melhor atendem às suas necessidades.</p>
+                <div class="product-item" data-categories="infantil">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Blocos de Montar e Kit Profissões.pdf" download><img src="/img/imagens-dos-produtos/blocos-e-kit-profissoes.png" alt="Blocos de Montar e Kit Profissões"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Blocos de Montar e Kit Profissões</h3>
+                        <p>Catálogo com kits educativos para simular profissões, permitindo que as crianças explorem diferentes carreiras de forma lúdica e criativa. Inclui também blocos de montar, semelhantes aos tradicionais bloquinhos usados para construir casas e muros, estimulando a imaginação, coordenação motora e o desenvolvimento cognitivo dos pequenos.</p>
+                    </div>
                 </div>
 
-                <div class="products-container">
-                    <div class="product-item" data-categories="escolar,escritório">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Bebedouro 2024.pdf" download><img src="/img/imagens-dos-produtos/Bebedouros.png" alt="Bebedouros"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Bebedouros</h3>
-                            <p>Bebedouros de alta qualidade, ideais para escolas, empresas e ambientes coletivos. Oferecem praticidade, durabilidade e segurança na distribuição de água potável, contribuindo para o bem-estar de todos.</p>
-                        </div>
+                <div class="product-item" data-categories="infantil">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Bonecos - Diversidade.pdf" download><img src="/img/imagens-dos-produtos/bonecas-diversidade.png" alt="Bonecas - Diversidade"></a>
                     </div>
-
-                    <div class="product-item" data-categories="infantil">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Blocos de Montar e Kit Profissões.pdf" download><img src="/img/imagens-dos-produtos/blocos-e-kit-profissoes.png" alt="Blocos de Montar e Kit Profissões"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Blocos de Montar e Kit Profissões</h3>
-                            <p>Catálogo com kits educativos para simular profissões, permitindo que as crianças explorem diferentes carreiras de forma lúdica e criativa. Inclui também blocos de montar, semelhantes aos tradicionais bloquinhos usados para construir casas e muros, estimulando a imaginação, coordenação motora e o desenvolvimento cognitivo dos pequenos.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Bonecas - Diversidade</h3>
+                        <p>Catálogo com bonecas de diversas etnias, raças e cores, para estimular a diversidade e a inclusão. Cada boneca representa uma pessoa com características únicas, promovendo a compreensão e respeito pela pluralidade cultural, ajudando a construir um mundo mais inclusivo e respeitoso.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="infantil">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Bonecos - Diversidade.pdf" download><img src="/img/imagens-dos-produtos/bonecas-diversidade.png" alt="Bonecas - Diversidade"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Bonecas - Diversidade</h3>
-                            <p>Catálogo com bonecas de diversas etnias, raças e cores, para estimular a diversidade e a inclusão. Cada boneca representa uma pessoa com características únicas, promovendo a compreensão e respeito pela pluralidade cultural, ajudando a construir um mundo mais inclusivo e respeitoso.</p>
-                        </div>
+                <div class="product-item" data-categories="infantil,educativo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Brinquedos e pedagogicos - Anil Clean.pdf" download><img src="/img/imagens-dos-produtos/brinquedos-e-pedagogicos.png" alt="Brinquedos e pedagogicos"></a>
                     </div>
-
-                    <div class="product-item" data-categories="infantil,educativo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Brinquedos e pedagogicos - Anil Clean.pdf" download><img src="/img/imagens-dos-produtos/brinquedos-e-pedagogicos.png" alt="Brinquedos e pedagogicos"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Brinquedos e pedagogicos</h3>
-                            <p>Catálogo com brinquedos e pedagogicos, permitindo que as crianças se divirtam e aprendam de forma lúdica. Inclui também blocos de montar, semelhantes aos tradicionais bloquinhos usados para construir casas e muros, estimulando a imaginação, coordenação motora e o desenvolvimento cognitivo dos pequenos.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Brinquedos e pedagogicos</h3>
+                        <p>Catálogo com brinquedos e pedagogicos, permitindo que as crianças se divirtam e aprendam de forma lúdica. Inclui também blocos de montar, semelhantes aos tradicionais bloquinhos usados para construir casas e muros, estimulando a imaginação, coordenação motora e o desenvolvimento cognitivo dos pequenos.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="infantil,utilidades">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Cat. Fraldas.pdf" download><img src="/img/imagens-dos-produtos/fraldas.png" alt="Fraldas"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Fraldas</h3>
-                            <p>Confira nosso catálogo completo de fraldas para bebês, com opções que garantem conforto, proteção e praticidade para o dia a dia. Encontre fraldas de alta qualidade, desenvolvidas para manter a pele do bebê seca e saudável, proporcionando tranquilidade para pais e cuidadores.</p>
-                        </div>
+                <div class="product-item" data-categories="infantil,utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Cat. Fraldas.pdf" download><img src="/img/imagens-dos-produtos/fraldas.png" alt="Fraldas"></a>
                     </div>
-
-                    <div class="product-item" data-categories="escritório,utilidades">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Cadeiras de Escritório.pdf" download><img src="/img/imagens-dos-produtos/cadeira-de-escritorio.png" alt="Cadeiras de Escritório"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Cadeiras de Escritório</h3>
-                            <p>Catálogo com uma ampla variedade de cadeiras de escritório, desenvolvidas para proporcionar conforto, ergonomia e praticidade no ambiente de trabalho. Nossos modelos atendem diferentes necessidades, com opções que oferecem ajuste de altura, apoio lombar, design moderno e materiais resistentes, ideais para empresas, escritórios, escolas e home office. Encontre a cadeira perfeita para garantir bem-estar e produtividade no dia a dia.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Fraldas</h3>
+                        <p>Confira nosso catálogo completo de fraldas para bebês, com opções que garantem conforto, proteção e praticidade para o dia a dia. Encontre fraldas de alta qualidade, desenvolvidas para manter a pele do bebê seca e saudável, proporcionando tranquilidade para pais e cuidadores.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="infantil">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catalogo - Bandeirantes.pdf" download><img src="/img/imagens-dos-produtos/bandeirantes.png" alt="Bandeirantes"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Bandeirantes</h3>
-                            <p>Catálogo com triciclos, motóticos e bicicletinhas, oferecendo diversas opções de veículos infantis para estimular a diversão, o desenvolvimento motor e a autonomia das crianças.</p>
-                        </div>
+                <div class="product-item" data-categories="escritório,utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Cadeiras de Escritório.pdf" download><img src="/img/imagens-dos-produtos/cadeira-de-escritorio.png" alt="Cadeiras de Escritório"></a>
                     </div>
-
-                    <div class="product-item" data-categories="infantil">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo - Fantasias.pdf" download><img src="/img/imagens-dos-produtos/fantasias.png" alt="Fantasias"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Fantasias</h3>
-                            <p>Deixe a imaginação voar com nosso catálogo encantador de fantasias infantis! São diversas opções para transformar as crianças em seus personagens favoritos, tornando cada brincadeira uma aventura mágica e cheia de alegria. Nossas fantasias são confortáveis, coloridas e perfeitas para estimular a criatividade, proporcionando momentos inesquecíveis de diversão e sonhos.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Cadeiras de Escritório</h3>
+                        <p>Catálogo com uma ampla variedade de cadeiras de escritório, desenvolvidas para proporcionar conforto, ergonomia e praticidade no ambiente de trabalho. Nossos modelos atendem diferentes necessidades, com opções que oferecem ajuste de altura, apoio lombar, design moderno e materiais resistentes, ideais para empresas, escritórios, escolas e home office. Encontre a cadeira perfeita para garantir bem-estar e produtividade no dia a dia.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="infantil">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo - Fantoches.pdf" download><img src="/img/imagens-dos-produtos/fantoches.png" alt="Fantoches"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Fantoches</h3>
-                            <p>Catálogo dedicado a fantoches, com diversas opções para estimular a criatividade, a expressão oral e a imaginação das crianças. Ideal para atividades lúdicas, contação de histórias e desenvolvimento da comunicação, nossos fantoches ajudam a tornar o aprendizado mais divertido e interativo.</p>
-                        </div>
+                <div class="product-item" data-categories="infantil">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catalogo - Bandeirantes.pdf" download><img src="/img/imagens-dos-produtos/bandeirantes.png" alt="Bandeirantes"></a>
                     </div>
-
-                    <div class="product-item" data-categories="infantil,educativo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo - Jogos Educativos.pdf" download><img src="/img/imagens-dos-produtos/jogos-educativos.png" alt="Jogos Educativos"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Jogos Educativos</h3>
-                            <p>Descubra nosso catálogo de jogos educativos, cuidadosamente selecionados para estimular o raciocínio lógico, a criatividade e o aprendizado das crianças de forma divertida e interativa. São jogos de tabuleiro, quebra-cabeças e atividades lúdicas que promovem o desenvolvimento cognitivo, a socialização e o trabalho em equipe, tornando o processo de aprender muito mais prazeroso.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Bandeirantes</h3>
+                        <p>Catálogo com triciclos, motóticos e bicicletinhas, oferecendo diversas opções de veículos infantis para estimular a diversão, o desenvolvimento motor e a autonomia das crianças.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="infantil">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo - Pelúcias.pdf" download><img src="/img/imagens-dos-produtos/pelucias.png" alt="Pelúcias"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Pelúcias</h3>
-                            <p>Catálogo repleto de bichinhos de pelúcia fofos e variados, ideais para encantar e acompanhar as crianças em todos os momentos. Nossas pelúcias são macias, seguras e perfeitas para estimular o carinho, a imaginação e a criatividade, tornando cada brincadeira ainda mais especial.</p>
-                        </div>
+                <div class="product-item" data-categories="infantil">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo - Fantasias.pdf" download><img src="/img/imagens-dos-produtos/fantasias.png" alt="Fantasias"></a>
                     </div>
-
-                    <div class="product-item" data-categories="decorativo,utilidades">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo - Tecidos.pdf" download><img src="/img/imagens-dos-produtos/tecidos.jpg" alt="Tecidos"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Tecidos</h3>
-                            <p>Explore nosso catálogo de tecidos, que reúne uma grande variedade de cores, estampas e texturas para atender a todos os tipos de projetos. Aqui você encontra tecidos ideais para confecção, artesanato, decoração e muito mais, com opções que combinam qualidade, beleza e versatilidade. Descubra as melhores alternativas para dar vida às suas ideias e transformar qualquer criação.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Fantasias</h3>
+                        <p>Deixe a imaginação voar com nosso catálogo encantador de fantasias infantis! São diversas opções para transformar as crianças em seus personagens favoritos, tornando cada brincadeira uma aventura mágica e cheia de alegria. Nossas fantasias são confortáveis, coloridas e perfeitas para estimular a criatividade, proporcionando momentos inesquecíveis de diversão e sonhos.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-category="infantil" data-category="educativo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Cátalogo Banners Educativos.pdf" download><img src="/img/imagens-dos-produtos/banners-educativos.png" alt="Banners Educativos"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Banners Educativos</h3>
-                            <p>Conheça nosso catálogo de banners educativos, com uma variedade de modelos criados para tornar o aprendizado mais visual, interativo e divertido. Os banners apresentam conteúdos pedagógicos de forma clara e atrativa, ideais para ambientes escolares, salas de aula e espaços de aprendizagem. Inspire e estimule o desenvolvimento das crianças com materiais que facilitam a compreensão e deixam o ambiente mais colorido e educativo.</p>
-                        </div>
+                <div class="product-item" data-categories="infantil">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo - Fantoches.pdf" download><img src="/img/imagens-dos-produtos/fantoches.png" alt="Fantoches"></a>
                     </div>
-
-                    <div class="product-item" data-categories="esportivo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/CATALOGO EDUCAÇÃO FISICA.pdf" download><img src="/img/imagens-dos-produtos/educacao-fisica.png" alt="Educação Física"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Educação Física</h3>
-                            <p>Confira nosso catálogo de produtos para educação física, com uma seleção completa de materiais e equipamentos para aulas, treinos e atividades esportivas. Oferecemos bolas, cones, cordas, colchonetes, acessórios para circuitos, jogos e muito mais, ideais para escolas, academias e projetos esportivos. Nossos produtos são de alta qualidade e pensados para estimular o movimento, a coordenação motora, o trabalho em equipe e o desenvolvimento físico das crianças e adolescentes.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Fantoches</h3>
+                        <p>Catálogo dedicado a fantoches, com diversas opções para estimular a criatividade, a expressão oral e a imaginação das crianças. Ideal para atividades lúdicas, contação de histórias e desenvolvimento da comunicação, nossos fantoches ajudam a tornar o aprendizado mais divertido e interativo.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="escritório,utilidades">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/CATALOGO ESTANTES.pdf" download><img src="/img/imagens-dos-produtos/estantes.png" alt="Estantes"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Estantes</h3>
-                            <p>Confira nosso catálogo de estantes, com diversos modelos e tamanhos para organizar livros, materiais e objetos em escolas, escritórios e outros ambientes. As estantes são resistentes, funcionais e ideais para otimizar o espaço, trazendo praticidade e organização ao seu dia a dia.</p>
-                        </div>
+                <div class="product-item" data-categories="infantil,educativo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo - Jogos Educativos.pdf" download><img src="/img/imagens-dos-produtos/jogos-educativos.png" alt="Jogos Educativos"></a>
                     </div>
-
-                    <div class="product-item" data-categories="decorativo,festivo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/CATALOGO FESTA JUNINA.pdf" download><img src="/img/imagens-dos-produtos/festa junina.png" alt="Festa Junina"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Festa Junina</h3>
-                            <p>Explore nosso catálogo de itens para festa junina! Aqui você encontra tudo o que precisa para criar uma celebração típica e animada: bandeirinhas coloridas, chapéus de palha, enfeites, balões, toalhas xadrez, acessórios para quadrilha, lembrancinhas, itens para decoração de barracas e muito mais. Deixe sua festa ainda mais especial com produtos que trazem o clima caipira, tradição e alegria para escolas, empresas e eventos familiares.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Jogos Educativos</h3>
+                        <p>Descubra nosso catálogo de jogos educativos, cuidadosamente selecionados para estimular o raciocínio lógico, a criatividade e o aprendizado das crianças de forma divertida e interativa. São jogos de tabuleiro, quebra-cabeças e atividades lúdicas que promovem o desenvolvimento cognitivo, a socialização e o trabalho em equipe, tornando o processo de aprender muito mais prazeroso.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="escolar,educativo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/catalogo laboratorio.pdf" download><img src="/img/imagens-dos-produtos/laboratorio.png" alt="Laboratório"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Laboratório</h3>
-                            <p>Explore nosso catálogo de laboratório, que reúne uma variedade de itens essenciais para experimentos, aulas práticas e pesquisas. Aqui você encontra materiais como tubos de ensaio, béqueres, pipetas, vidrarias, equipamentos de medição, reagentes e acessórios indispensáveis para o ambiente laboratorial. Ideal para escolas, universidades e centros de pesquisa, nosso catálogo oferece produtos de qualidade para apoiar o ensino e o desenvolvimento científico.</p>
-                        </div>
+                <div class="product-item" data-categories="infantil">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo - Pelúcias.pdf" download><img src="/img/imagens-dos-produtos/pelucias.png" alt="Pelúcias"></a>
                     </div>
-
-                    <div class="product-item" data-categories="infantil,festivo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo Páscoa - Luis.pdf" download><img src="/img/imagens-dos-produtos/pascoa.png" alt="Páscoa"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Páscoa</h3>
-                            <p>Confira nosso catálogo especial de Páscoa! Reunimos uma seleção de produtos temáticos para tornar a celebração ainda mais encantadora: ovos decorativos, cestas, embalagens, enfeites, lembrancinhas, coelhinhos, materiais para atividades escolares e itens para decoração de ambientes. Ideal para escolas, empresas e eventos, nosso catálogo oferece tudo o que você precisa para criar momentos inesquecíveis, estimular a criatividade das crianças e celebrar a Páscoa com alegria, cor e tradição.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Pelúcias</h3>
+                        <p>Catálogo repleto de bichinhos de pelúcia fofos e variados, ideais para encantar e acompanhar as crianças em todos os momentos. Nossas pelúcias são macias, seguras e perfeitas para estimular o carinho, a imaginação e a criatividade, tornando cada brincadeira ainda mais especial.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="infantil,personalizável">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo Pikler-1.pdf" download><img src="/img/imagens-dos-produtos/pikler.png" alt="Pikler"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo Pikler</h3>
-                            <p>Conheça nosso catálogo de produtos Pikler em madeira, com diversos modelos desenvolvidos para estimular o desenvolvimento motor, a autonomia e a criatividade das crianças. Oferecemos escadas, triângulos, rampas, arcos e outros equipamentos inspirados no método Pikler, ideais para escolas, creches e espaços de aprendizagem. Todos os produtos são fabricados em madeira de alta qualidade, com acabamento seguro e design pensado para proporcionar experiências lúdicas e educativas.</p>
-                        </div>
+                <div class="product-item" data-categories="decorativo,utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo - Tecidos.pdf" download><img src="/img/imagens-dos-produtos/tecidos.jpg" alt="Tecidos"></a>
                     </div>
-
-                    <div class="product-item" data-categories="personalizável,decorativo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo Presentes.pdf" download><img src="/img/imagens-dos-produtos/Img Taças Personalizadas.png" alt="Ideias de presentes"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Presentes</h3>
-                            <p>Descubra nosso catálogo de sugestões para presentear! Selecionamos diversas opções criativas e especiais para surpreender em qualquer ocasião: desde lembrancinhas delicadas até itens exclusivos, ideais para amigos, familiares, colegas de trabalho, professores e alunos. Encontre ideias para aniversários, datas comemorativas, agradecimentos ou simplesmente para demonstrar carinho. Inspire-se e escolha o presente perfeito para tornar o dia de alguém ainda mais especial!</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Tecidos</h3>
+                        <p>Explore nosso catálogo de tecidos, que reúne uma grande variedade de cores, estampas e texturas para atender a todos os tipos de projetos. Aqui você encontra tecidos ideais para confecção, artesanato, decoração e muito mais, com opções que combinam qualidade, beleza e versatilidade. Descubra as melhores alternativas para dar vida às suas ideias e transformar qualquer criação.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="infantil">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Catálogo_Brinquedos_Playground-Anil_Clean.pdf" download><img src="/img/imagens-dos-produtos/playground.png" alt="Playground"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Playground</h3>
-                            <p>Descubra nosso catálogo de playgrounds, com uma seleção de brinquedos grandes e estruturas ideais para montar áreas de lazer completas e seguras. Aqui você encontra escorregadores, balanços, gangorras, casinhas, trepa-trepas e outros equipamentos robustos, perfeitos para criar espaços de diversão ao ar livre em escolas, condomínios, praças e clubes. Proporcione momentos de alegria, socialização e desenvolvimento para as crianças com produtos de qualidade e alta durabilidade.</p>
-                        </div>
+                <div class="product-item" data-category="infantil" data-category="educativo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Cátalogo Banners Educativos.pdf" download><img src="/img/imagens-dos-produtos/banners-educativos.png" alt="Banners Educativos"></a>
                     </div>
-
-                    <div class="product-item" data-categories="utilidades">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/CATALOGO_REDES_DESCANSO.pdf" download><img src="/img/imagens-dos-produtos/redes-de-descanso.png" alt=""></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Redes de Descanso</h3>
-                            <p>Confira nosso catálogo exclusivo de redes de descanso! São diversas opções de redes confortáveis, resistentes e coloridas, ideais para relaxar em ambientes internos ou externos. Perfeitas para escolas, áreas de lazer, varandas, jardins e espaços coletivos, nossas redes proporcionam momentos de tranquilidade, bem-estar e aconchego. Escolha o modelo que mais combina com seu espaço e leve mais conforto e charme para o seu dia a dia.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Banners Educativos</h3>
+                        <p>Conheça nosso catálogo de banners educativos, com uma variedade de modelos criados para tornar o aprendizado mais visual, interativo e divertido. Os banners apresentam conteúdos pedagógicos de forma clara e atrativa, ideais para ambientes escolares, salas de aula e espaços de aprendizagem. Inspire e estimule o desenvolvimento das crianças com materiais que facilitam a compreensão e deixam o ambiente mais colorido e educativo.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-category="utilidades" data-category="escritório">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Itens de Acessibilidade A.pdf" download><img src="/img/imagens-dos-produtos/acessibilidade.png" alt="Itens de Acessibilidade"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Itens de Acessibilidade</h3>
-                            <p>Conheça nosso catálogo de itens para acessibilidade, pensado para promover inclusão, autonomia e conforto para todas as pessoas. Oferecemos uma variedade de produtos que auxiliam na mobilidade, adaptação de ambientes e facilitação do dia a dia, como rampas, barras de apoio, cadeiras adaptadas, sinalização tátil, recursos para comunicação alternativa e muito mais. Ideal para escolas, empresas, espaços públicos e residências, nosso catálogo contribui para tornar ambientes mais acessíveis, seguros e acolhedores para todos.</p>
-                        </div>
+                <div class="product-item" data-categories="esportivo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/CATALOGO EDUCAÇÃO FISICA.pdf" download><img src="/img/imagens-dos-produtos/educacao-fisica.png" alt="Educação Física"></a>
                     </div>
-
-                    <div class="product-item" data-category="utilidades" data-category="escritório">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Lixeiras e caixas organizadoras.pdf" download><img src="/img/imagens-dos-produtos/caixa-organizadora.png" alt="Lixeiras e caixas organizadoras"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Lixeiras e Caixas Organizadoras</h3>
-                            <p>Confira nosso catálogo completo de lixeiras e caixas organizadoras, com opções ideais para manter qualquer ambiente limpo e arrumado. São diversos modelos de lixeiras, desde as mais simples até as mais robustas, perfeitas para escolas, empresas, hospitais e residências. Nossas caixas organizadoras são práticas, resistentes e disponíveis em diferentes tamanhos e cores, facilitando a organização de materiais, brinquedos, documentos e muito mais. Encontre soluções funcionais e de qualidade para otimizar o espaço e garantir a ordem no seu dia a dia.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Educação Física</h3>
+                        <p>Confira nosso catálogo de produtos para educação física, com uma seleção completa de materiais e equipamentos para aulas, treinos e atividades esportivas. Oferecemos bolas, cones, cordas, colchonetes, acessórios para circuitos, jogos e muito mais, ideais para escolas, academias e projetos esportivos. Nossos produtos são de alta qualidade e pensados para estimular o movimento, a coordenação motora, o trabalho em equipe e o desenvolvimento físico das crianças e adolescentes.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="decorativo,educativo">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Material Heurístico A.pdf" download><img src="/img/imagens-dos-produtos/heuristica.jpg" alt="Materiais Heurísticos"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Material Heurístico</h3>
-                            <p>Confira nosso catálogo de materiais heurísticos! Selecionamos uma variedade de recursos que incentivam a exploração, criatividade e aprendizagem ativa das crianças. São peças soltas, blocos, formas, objetos naturais e elementos sensoriais que permitem múltiplas possibilidades de manipulação e construção, promovendo o desenvolvimento da autonomia, imaginação e raciocínio lógico. Ideal para ambientes educativos, nosso catálogo oferece materiais de qualidade para enriquecer experiências lúdicas e pedagógicas.</p>
-                        </div>
+                <div class="product-item" data-categories="escritório,utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/CATALOGO ESTANTES.pdf" download><img src="/img/imagens-dos-produtos/estantes.png" alt="Estantes"></a>
                     </div>
-
-                    <div class="product-item" data-categories="escolar,decorativo,utilidades">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Móveis Escolares.pdf" download><img src="/img/imagens-dos-produtos/moveis escolares.jpg" alt="Móveis Escolares"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Móveis Escolares</h3>
-                            <p>Catálogo com móveis essenciais para compor ambientes escolares. Encontre mesas, cadeiras, estantes, armários, prateleiras e outros itens indispensáveis para salas de aula, bibliotecas, refeitórios e áreas administrativas. Nossos móveis são pensados para garantir conforto, funcionalidade e organização, contribuindo para um espaço de aprendizagem mais acolhedor, seguro e eficiente.</p>
-                        </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Estantes</h3>
+                        <p>Confira nosso catálogo de estantes, com diversos modelos e tamanhos para organizar livros, materiais e objetos em escolas, escritórios e outros ambientes. As estantes são resistentes, funcionais e ideais para otimizar o espaço, trazendo praticidade e organização ao seu dia a dia.</p>
                     </div>
+                </div>
 
-                    <div class="product-item" data-categories="escolar,infantil,utilidades">
-                        <div class="image-container">
-                            <a href="/PDF's de catálogos/Pedagogicos e Materiais escolares - Anil Clean.pdf" download><img src="/img/imagens-dos-produtos/pedagogicos-e-materiais-escolares.png" alt="Pedagogicos e Materiais escolares"></a>
-                        </div>
-                        <div class="product-info">
-                            <h3>Catálogo de Materiais Escolares</h3>
-                            <p>Explore nosso catálogo de materiais escolares, repleto de itens essenciais para o dia a dia nas escolas. Aqui você encontra cadernos, lápis, canetas, borrachas, réguas, mochilas, estojos, colas, tesouras, papéis e muitos outros produtos indispensáveis para alunos e professores. Nossos materiais são de qualidade, pensados para tornar o ambiente escolar mais organizado, prático e estimulante, atendendo desde a educação infantil até o ensino médio. Garanta tudo o que sua escola precisa em um só lugar!</p>
-                        </div>
+                <div class="product-item" data-categories="decorativo,festivo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/CATALOGO FESTA JUNINA.pdf" download><img src="/img/imagens-dos-produtos/festa junina.png" alt="Festa Junina"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Festa Junina</h3>
+                        <p>Explore nosso catálogo de itens para festa junina! Aqui você encontra tudo o que precisa para criar uma celebração típica e animada: bandeirinhas coloridas, chapéus de palha, enfeites, balões, toalhas xadrez, acessórios para quadrilha, lembrancinhas, itens para decoração de barracas e muito mais. Deixe sua festa ainda mais especial com produtos que trazem o clima caipira, tradição e alegria para escolas, empresas e eventos familiares.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="escolar,educativo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/catalogo laboratorio.pdf" download><img src="/img/imagens-dos-produtos/laboratorio.png" alt="Laboratório"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Laboratório</h3>
+                        <p>Explore nosso catálogo de laboratório, que reúne uma variedade de itens essenciais para experimentos, aulas práticas e pesquisas. Aqui você encontra materiais como tubos de ensaio, béqueres, pipetas, vidrarias, equipamentos de medição, reagentes e acessórios indispensáveis para o ambiente laboratorial. Ideal para escolas, universidades e centros de pesquisa, nosso catálogo oferece produtos de qualidade para apoiar o ensino e o desenvolvimento científico.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="infantil,festivo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo Páscoa - Luis.pdf" download><img src="/img/imagens-dos-produtos/pascoa.png" alt="Páscoa"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Páscoa</h3>
+                        <p>Confira nosso catálogo especial de Páscoa! Reunimos uma seleção de produtos temáticos para tornar a celebração ainda mais encantadora: ovos decorativos, cestas, embalagens, enfeites, lembrancinhas, coelhinhos, materiais para atividades escolares e itens para decoração de ambientes. Ideal para escolas, empresas e eventos, nosso catálogo oferece tudo o que você precisa para criar momentos inesquecíveis, estimular a criatividade das crianças e celebrar a Páscoa com alegria, cor e tradição.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="infantil,personalizável">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo Pikler-1.pdf" download><img src="/img/imagens-dos-produtos/pikler.png" alt="Pikler"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo Pikler</h3>
+                        <p>Conheça nosso catálogo de produtos Pikler em madeira, com diversos modelos desenvolvidos para estimular o desenvolvimento motor, a autonomia e a criatividade das crianças. Oferecemos escadas, triângulos, rampas, arcos e outros equipamentos inspirados no método Pikler, ideais para escolas, creches e espaços de aprendizagem. Todos os produtos são fabricados em madeira de alta qualidade, com acabamento seguro e design pensado para proporcionar experiências lúdicas e educativas.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="personalizável,decorativo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo Presentes.pdf" download><img src="/img/imagens-dos-produtos/Img Taças Personalizadas.png" alt="Ideias de presentes"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Presentes</h3>
+                        <p>Descubra nosso catálogo de sugestões para presentear! Selecionamos diversas opções criativas e especiais para surpreender em qualquer ocasião: desde lembrancinhas delicadas até itens exclusivos, ideais para amigos, familiares, colegas de trabalho, professores e alunos. Encontre ideias para aniversários, datas comemorativas, agradecimentos ou simplesmente para demonstrar carinho. Inspire-se e escolha o presente perfeito para tornar o dia de alguém ainda mais especial!</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="infantil">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Catálogo_Brinquedos_Playground-Anil_Clean.pdf" download><img src="/img/imagens-dos-produtos/playground.png" alt="Playground"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Playground</h3>
+                        <p>Descubra nosso catálogo de playgrounds, com uma seleção de brinquedos grandes e estruturas ideais para montar áreas de lazer completas e seguras. Aqui você encontra escorregadores, balanços, gangorras, casinhas, trepa-trepas e outros equipamentos robustos, perfeitos para criar espaços de diversão ao ar livre em escolas, condomínios, praças e clubes. Proporcione momentos de alegria, socialização e desenvolvimento para as crianças com produtos de qualidade e alta durabilidade.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/CATALOGO_REDES_DESCANSO.pdf" download><img src="/img/imagens-dos-produtos/redes-de-descanso.png" alt=""></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Redes de Descanso</h3>
+                        <p>Confira nosso catálogo exclusivo de redes de descanso! São diversas opções de redes confortáveis, resistentes e coloridas, ideais para relaxar em ambientes internos ou externos. Perfeitas para escolas, áreas de lazer, varandas, jardins e espaços coletivos, nossas redes proporcionam momentos de tranquilidade, bem-estar e aconchego. Escolha o modelo que mais combina com seu espaço e leve mais conforto e charme para o seu dia a dia.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="utilidades" data-category="escritório">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Itens de Acessibilidade A.pdf" download><img src="/img/imagens-dos-produtos/acessibilidade.png" alt="Itens de Acessibilidade"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Itens de Acessibilidade</h3>
+                        <p>Conheça nosso catálogo de itens para acessibilidade, pensado para promover inclusão, autonomia e conforto para todas as pessoas. Oferecemos uma variedade de produtos que auxiliam na mobilidade, adaptação de ambientes e facilitação do dia a dia, como rampas, barras de apoio, cadeiras adaptadas, sinalização tátil, recursos para comunicação alternativa e muito mais. Ideal para escolas, empresas, espaços públicos e residências, nosso catálogo contribui para tornar ambientes mais acessíveis, seguros e acolhedores para todos.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="utilidades" data-category="escritório">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Lixeiras e caixas organizadoras.pdf" download><img src="/img/imagens-dos-produtos/caixa-organizadora.png" alt="Lixeiras e caixas organizadoras"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Lixeiras e Caixas Organizadoras</h3>
+                        <p>Confira nosso catálogo completo de lixeiras e caixas organizadoras, com opções ideais para manter qualquer ambiente limpo e arrumado. São diversos modelos de lixeiras, desde as mais simples até as mais robustas, perfeitas para escolas, empresas, hospitais e residências. Nossas caixas organizadoras são práticas, resistentes e disponíveis em diferentes tamanhos e cores, facilitando a organização de materiais, brinquedos, documentos e muito mais. Encontre soluções funcionais e de qualidade para otimizar o espaço e garantir a ordem no seu dia a dia.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="decorativo,educativo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Material Heurístico A.pdf" download><img src="/img/imagens-dos-produtos/heuristica.jpg" alt="Materiais Heurísticos"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Material Heurístico</h3>
+                        <p>Confira nosso catálogo de materiais heurísticos! Selecionamos uma variedade de recursos que incentivam a exploração, criatividade e aprendizagem ativa das crianças. São peças soltas, blocos, formas, objetos naturais e elementos sensoriais que permitem múltiplas possibilidades de manipulação e construção, promovendo o desenvolvimento da autonomia, imaginação e raciocínio lógico. Ideal para ambientes educativos, nosso catálogo oferece materiais de qualidade para enriquecer experiências lúdicas e pedagógicas.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="escolar,decorativo,utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Móveis Escolares.pdf" download><img src="/img/imagens-dos-produtos/moveis escolares.jpg" alt="Móveis Escolares"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Móveis Escolares</h3>
+                        <p>Catálogo com móveis essenciais para compor ambientes escolares. Encontre mesas, cadeiras, estantes, armários, prateleiras e outros itens indispensáveis para salas de aula, bibliotecas, refeitórios e áreas administrativas. Nossos móveis são pensados para garantir conforto, funcionalidade e organização, contribuindo para um espaço de aprendizagem mais acolhedor, seguro e eficiente.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="escolar,infantil,utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Pedagogicos e Materiais escolares - Anil Clean.pdf" download><img src="/img/imagens-dos-produtos/pedagogicos-e-materiais-escolares.png" alt="Pedagogicos e Materiais escolares"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Materiais Escolares</h3>
+                        <p>Explore nosso catálogo de materiais escolares, repleto de itens essenciais para o dia a dia nas escolas. Aqui você encontra cadernos, lápis, canetas, borrachas, réguas, mochilas, estojos, colas, tesouras, papéis e muitos outros produtos indispensáveis para alunos e professores. Nossos materiais são de qualidade, pensados para tornar o ambiente escolar mais organizado, prático e estimulante, atendendo desde a educação infantil até o ensino médio. Garanta tudo o que sua escola precisa em um só lugar!</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="infantil">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/CATALOGO 2024 BRINQUEDOS DE MADEIRA.pdf" download><img src="/img/imagens-dos-produtos/brinquedos-de-madeira.png" alt="Brinquedos de Madeira"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Brinquedos de Madeira</h3>
+                        <p>Explore nossa linha de brinquedos de madeira, desenvolvida para proporcionar diversão, aprendizado e segurança. Oferecemos blocos de encaixe, carrinhos, trenzinhos, jogos de empilhar, quebra-cabeças, casinhas, animais articulados, instrumentos musicais e outros itens que estimulam a criatividade, coordenação motora e imaginação das crianças. Todos os brinquedos são feitos com madeira de alta qualidade, acabamento atóxico e design pensado para diferentes faixas etárias. Ideais para escolas, creches e uso doméstico, nossos brinquedos de madeira promovem o desenvolvimento infantil de forma lúdica e sustentável.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="personalizaveis,escolar,esportivo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Colete personalizado infantil.jpg" download><img src="/img/imagens-dos-produtos/Colete personalizado infantil.jpg" alt="Colete personalizado infantil"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo de Colete Personalizado Infantil</h3>
+                        <p>Conheça nossos coletes personalizados infantis, ideais para a formação de times em jogos de futebol e outras atividades esportivas. Produzidos com materiais leves, resistentes e confortáveis, os coletes garantem liberdade de movimento e ótima identificação dos times durante as partidas. Disponíveis em diversas cores e tamanhos, podem ser personalizados com nomes, números ou logotipos, tornando a experiência esportiva ainda mais divertida e organizada para as crianças. Perfeitos para escolas, clubes, projetos esportivos e recreação.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="personalizaveis,utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Ecobag Personalizada.jpg" download><img src="/img/imagens-dos-produtos/Ecobag Personalizada.jpg" alt="Ecobag Personalizada"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Ecobag Personalizada</h3>
+                        <p>Descubra nossas ecobags personalizadas, ideais para quem busca praticidade, sustentabilidade e estilo no dia a dia. Produzidas com materiais resistentes e de alta qualidade, as ecobags podem ser personalizadas com nomes, logotipos, frases ou artes exclusivas, tornando-se perfeitas para eventos, brindes corporativos, uso escolar ou cotidiano. Versáteis e reutilizáveis, ajudam a reduzir o uso de sacolas plásticas e promovem a consciência ambiental. Escolha o modelo, a cor e a personalização que mais combina com você ou sua empresa!</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="utilidades">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Programa Dignidade Intima - Escolas Estaduais - Anil Clean.jpg" download><img src="/img/imagens-dos-produtos/Programa Dignidade Intima - Escolas Estaduais - Anil Clean.jpg" alt="Programa Dignidade Intima"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Programa Dignidade Íntima</h3>
+                        <p>Oferecemos produtos e orientações voltados para o autocuidado e a higiene pessoal, especialmente desenvolvidos para o ambiente escolar. Nosso objetivo é promover a saúde, o bem-estar e a autoestima de crianças e adolescentes, fornecendo itens essenciais para a higiene íntima, além de materiais educativos que incentivam práticas saudáveis e o respeito ao próprio corpo. Com foco na prevenção, informação e acolhimento, o programa contribui para um ambiente escolar mais seguro, inclusivo e consciente sobre a importância dos cuidados pessoais no dia a dia.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="utilidades,decorativo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Cat Jardinagem A.pdf" download><img src="/img/imagens-dos-produtos/Jardinagem.jpg" alt="Jardinagem"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo para produtos de Jardinagem</h3>
+                        <p>Explore nosso catálogo de produtos para jardinagem! Aqui você encontra uma seleção completa de ferramentas, acessórios e itens essenciais para cuidar de jardins, hortas e áreas verdes. Oferecemos desde pás, enxadas, regadores e luvas até vasos, substratos, sementes e produtos para manutenção e decoração. Ideal para escolas, empresas, espaços públicos e residências, nosso catálogo foi pensado para facilitar o cultivo, promover o contato com a natureza e incentivar práticas sustentáveis. Descubra soluções práticas e de qualidade para transformar e valorizar seus ambientes ao ar livre.</p>
+                    </div>
+                </div>
+
+                <div class="product-item" data-categories="infantil,festivo">
+                    <div class="image-container">
+                        <a href="/PDF's de catálogos/Cat Dia das Crianças A.pdf" download><img src="/img/imagens-dos-produtos/Dia das crianças.jpg" alt="Dia das Crianças"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>Catálogo para dia das Crianças</h3>
+                        <p>Confira nosso catálogo especial para o Dia das Crianças! Selecionamos uma variedade de produtos lúdicos, educativos e criativos para tornar essa data ainda mais divertida e inesquecível. Aqui você encontra brinquedos, jogos, materiais para atividades, lembrancinhas e itens temáticos que estimulam a imaginação, o aprendizado e a alegria dos pequenos. Ideal para escolas, eventos e comemorações, nosso catálogo oferece opções para todas as idades, promovendo momentos de diversão, integração e celebração.</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </main>
     
     <footer id="footer"></footer>
