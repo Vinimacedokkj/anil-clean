@@ -234,10 +234,6 @@ body {
 
 /* Responsividade para About */
 @media (max-width: 1300px) {
-    .about-second-container {
-        /* border: 3px solid brown; */
-    }
-    
     .about-second-container > div {
         /* border: 2px solid blue; */
         display: flex;
