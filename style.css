@@ -115,22 +115,29 @@ body {
 
 /* ******************* MAIN - IMAGE ******************* */
 .main-img {
+    /* border: 2px solid blue; */
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-img img {
+    /* border: 3px solid salmon; */
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: 30px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
+    transition: transform 0.4s ease;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .main-img img:hover {
-    transform: scale(1.02);
+    transform: scale(1.04);
 }
 
 @media (max-width: 1000px) {
@@ -183,7 +190,8 @@ body {
     height: auto;
     margin-right: 10px;
     border-radius: 20px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    /* border: 0.3px dashed black; */
+    /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .about-first-container > div > p {
@@ -379,14 +387,6 @@ body {
 }
 
 /* ******************* PRODUTOS ******************* */
-.title-container > p {
-    color: var(--text-color);
-    font-size: var(--font-size-3);
-    font-weight: 500;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-}
-
 #topic-products {
     margin-top: 20px;
 }
@@ -571,6 +571,7 @@ body {
 
 /* ******************* PRODUCTS ******************* */
 .title-container {
+    /* border: 3px solid blue; */
     text-align: center;
     padding: 20px 0 10px 0;
     /* background-color: var(--background-color); */
@@ -581,6 +582,25 @@ body {
     color: rgb(71, 71, 71);
     font-size: var(--font-size-5);
     font-weight: 600;
+}
+
+.title-container > div {
+    width: 100%;
+    /* border: 2px solid brown; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-container p {
+    color: var(--text-color);
+    font-size: var(--font-size-3);
+    display: inline-block;
+    /* border: 3px solid blue; */
+    width: 60%;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding: 10px 20px;
 }
 
 .products-container {
