@@ -883,7 +883,8 @@ body {
     }
 
     .search-box {
-        max-width: 100%;
+        /* max-width: 100%; */
+        display: none;
     }
     
     .call-to-action {
