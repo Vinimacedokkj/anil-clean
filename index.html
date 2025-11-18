@@ -24,7 +24,7 @@
         <section class="featured-product" id="home">
             <div class="featured-container">
                 <div class="featured-content">
-                    <div class="featured-text">
+                    <div class="featured-text fade-in-up">
                         <h1 class="featured-title">Produto em Destaque</h1>
                         <h2 class="featured-product-name">Colete Infantil Personalizado</h2>
                         <p class="featured-description">Ideais para diversas atividades infantis, como jogos de futebol e passeios escolares, nossos coletes personalizados ajudam a identificar grupos de forma clara e divertida. Confeccionados com material de alta qualidade, oferecem conforto e durabilidade para o uso diário.</p>
@@ -49,22 +49,26 @@
                                 <span>Confortável para crianças</span>
                             </div>
                         </div>
-                        <button class="featured-cta" id="colete-infantil-personalizado">Solicitar Orçamento</button>
+                        <button class="featured-cta" id="colete-infantil-personalizado" aria-label="Solicitar orçamento de colete infantil personalizado">
+                            <span>Solicitar Orçamento</span>
+                        </button>
                     </div>
-                    <div class="featured-image">
-                        <img src="/img/outras/colete personalizado.jpg" alt="Crianças jogando futebol com colete personalizado">
+                    <div class="featured-image fade-in-up">
+                        <img src="/img/outras/colete personalizado.jpg" alt="Crianças jogando futebol com colete personalizado" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="call-to-action">
+        <div class="call-to-action fade-in-up">
             <div class="cta-img-container">
-                <img src="/img/outras/call to action final.jpg" alt="Qualidade e variedade">
+                <img src="/img/outras/call to action final.jpg" alt="Qualidade e variedade" loading="lazy">
             </div>
             
             <div class="cta-button-container">
-                <button class="whatsapp-req-orcamento featured-cta">Clique aqui para entrar em contato</button>
+                <button class="whatsapp-req-orcamento featured-cta" aria-label="Entrar em contato via WhatsApp">
+                    <span>Clique aqui para entrar em contato</span>
+                </button>
             </div>
         </div>
 
@@ -75,8 +79,8 @@
             </div>
 
             <div class="about-first-container">
-                <div>
-                    <img src="/img/outras/papelaria.jpg" alt="Sobre nós">
+                <div class="fade-in-up">
+                    <img src="/img/outras/papelaria.jpg" alt="Sobre nós" loading="lazy">
                     <p>
                         A Anil Clean é uma empresa especializada no <strong>fornecimento de produtos</strong> com soluções completas para <ins>escolas, empresas, instituições e residências.</ins>
                             <br><br>
@@ -93,21 +97,21 @@
 
             <div class="about-second-container">
                 <div>
-                    <div class="about-text-container">
+                    <div class="about-text-container fade-in-up">
                         <h3 class="titulo">MISSÃO</h3>
                         <p>
                             Proporcionar soluções completas em produtos de papelaria, higiene e limpeza, com foco em qualidade, inovação e atendimento diferenciado, contribuindo para o sucesso de nossos clientes e a sustentabilidade dos negócios.
                         </p>
                     </div>
 
-                    <div class="about-text-container">
+                    <div class="about-text-container fade-in-up">
                         <h3 class="titulo">VISÃO</h3>
                         <p>
                             Ser reconhecida como a principal parceira de instituições educacionais e empresariais em soluções de papelaria, higiene e limpeza, expandindo nossa atuação com inovação e excelência em serviços.
                         </p>
                     </div>
                 
-                    <div class="about-text-container">
+                    <div class="about-text-container fade-in-up">
                         <h3 class="titulo">VALORES</h3>
                         <p>
                             <li>Compromisso com a qualidade</li>
@@ -116,10 +120,6 @@
                             <li>Inovação</li>
                         </p>
                     </div>
-                </div>
-            </div>
-
-                    
                 </div>
             </div>
         </section>
@@ -576,5 +576,6 @@
     <script src="/footer/footer.js"></script>
     <script src="/carrinho/carrinho.js"></script>
     <script src="/script.js"></script>
+    <script src="/animations.js"></script>
 </body>
 </html>

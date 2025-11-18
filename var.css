@@ -1,7 +1,7 @@
 :root {
-    /* fontes */
+    /* Fontes modernas */
     --font-nav: 18px;
-    --font-family: 'Roboto', 'Inter', 'Segoe UI', Arial, sans-serif;
+    --font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-size-1: 12px;
     --font-size-2: 14px;
     --font-size-3: 16px;
@@ -9,14 +9,47 @@
     --font-size-5: 24px;
     --font-size-6: 32px;
 
-    /* colors */
-    --primary-color: #6EC1E4; /* Fundo */
-    --secondary-color: #005F87; /* Títulos */
-    --text-color: #838383; /* Texto */
-    --hover-color: #707070; /* Hover */
-
-    /* background-color */
-    --background-color: #dbdbdb;
+    /* Paleta de cores moderna e minimalista */
+    --primary-color: #6EC1E4; /* Azul claro principal */
+    --primary-dark: #4A9FC8; /* Azul escuro para hover */
+    --secondary-color: #005F87; /* Azul escuro para títulos */
+    --accent-color: #FFD700; /* Dourado para destaques */
+    --text-color: #4A5568; /* Cinza escuro para texto */
+    --text-light: #718096; /* Cinza médio */
+    --text-muted: #A0AEC0; /* Cinza claro */
+    --hover-color: #2D3748; /* Preto suave para hover */
+    
+    /* Backgrounds */
+    --background-color: #F7FAFC; /* Cinza muito claro */
+    --background-white: #FFFFFF;
+    --background-light: #EDF2F7;
+    
+    /* Sombras suaves */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
+    
+    /* Bordas */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px;
+    --border-radius-full: 9999px;
+    
+    /* Transições */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Espaçamentos */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
 }
 
 /* Responsividade das variáveis */
